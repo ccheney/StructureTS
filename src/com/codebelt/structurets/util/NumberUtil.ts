@@ -163,13 +163,13 @@ module StructureTS
             var result:string = '';
             if (decimalPlacement != 0)
             {
-                result = str.substr(-1 - decimalPlacement);
-                str = str.substr(0, str.length - 1 - decimalPlacement);
+                result = str.slice(-1 - decimalPlacement);
+                str = str.slice(0, str.length - 1 - decimalPlacement);
             }
             while (str.length > 3)
             {
-                result = thousandsSeparator + str.substr(-3) + result;
-                str = str.substr(0, str.length - 3);
+                result = thousandsSeparator + str.slice(-3) + result;
+                str = str.slice(0, str.length - 3);
             }
             if (str.length > 0)
             {
