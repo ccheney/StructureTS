@@ -76,6 +76,16 @@ module StructureTS
         public $element:JQuery = null;
 
         /**
+         * If a jQuery object was passed into the constructor this will be set as true and
+         * this class will not try add the view to the DOM because it should already exists.
+         *
+         * @property _isReference
+         * @type {boolean}
+         * @private
+         */
+        private _isReference:boolean = false;
+
+        /**
          * Holds onto the value passed into the constructor.
          *
          * @property _type
@@ -93,11 +103,16 @@ module StructureTS
          */
         private _params:any = null;
 
-        constructor(type:string = null, params:any = null)
+        constructor(type:any = null, params:any = null)
         {
             super();
 
-            if (type)
+            if (type instanceof jQuery)
+            {
+                this.$element = type;
+                this._isReference = true;
+            }
+            else if (type)
             {
                 this._type = type;
                 this._params = params;
@@ -113,15 +128,7 @@ module StructureTS
             type = this._type || type;
             params = this._params || params;
 
-            // If the raw element is not null it must of been set before this addChild was called and
-            // we should it as the element for this display object.
-            if (this.element != null)
-            {
-                this.$element = jQuery(this.element);
-                return this;
-            }
-
-            if (!this.$element)
+            if (this.$element == null)
             {
                 var html:string = TemplateFactory.createTemplate(type, params);
                 if (html)
@@ -157,7 +164,7 @@ module StructureTS
                 throw new Error('[' + this.getQualifiedClassName() + '] You cannot use the addChild method if the parent object is not added to the DOM.');
             }
 
-            if (!child.isCreated)
+            if (child.isCreated === false)
             {
                 child.createChildren();// Render the item before adding to the DOM
                 child.isCreated = true;
@@ -166,8 +173,11 @@ module StructureTS
             // Adds the cid to the DOM element so we can know what what Class object the element belongs too.
             child.$element.attr('data-cid', child.cid);
 
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
+            if (this._isReference === false)
+            {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
 
             child.layoutChildren();
 
@@ -208,11 +218,13 @@ module StructureTS
             // index passed in and place the item before that child.
             else
             {
-                if (!child.isCreated)
+                if (child.isCreated === false)
                 {
                     child.createChildren();// Render the item before adding to the DOM
                     child.isCreated = true;
                 }
+                // Adds the cid to the DOM element so we can know what what Class object the element belongs too.
+                child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
 
