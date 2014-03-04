@@ -683,10 +683,14 @@ var StructureTS;
             this._isVisible = true;
             this.element = null;
             this.$element = null;
+            this._isReference = false;
             this._type = null;
             this._params = null;
 
-            if (type) {
+            if (type instanceof jQuery) {
+                this.$element = type;
+                this._isReference = true;
+            } else if (type) {
                 this._type = type;
                 this._params = params;
             }
@@ -697,12 +701,7 @@ var StructureTS;
             type = this._type || type;
             params = this._params || params;
 
-            if (this.element != null) {
-                this.$element = jQuery(this.element);
-                return this;
-            }
-
-            if (!this.$element) {
+            if (this.$element == null) {
                 var html = StructureTS.TemplateFactory.createTemplate(type, params);
                 if (html) {
                     this.$element = jQuery(html);
@@ -723,15 +722,17 @@ var StructureTS;
                 throw new Error('[' + this.getQualifiedClassName() + '] You cannot use the addChild method if the parent object is not added to the DOM.');
             }
 
-            if (!child.isCreated) {
+            if (child.isCreated === false) {
                 child.createChildren();
                 child.isCreated = true;
             }
 
             child.$element.attr('data-cid', child.cid);
 
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
+            if (this._isReference === false) {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
 
             child.layoutChildren();
 
@@ -752,10 +753,12 @@ var StructureTS;
             if (index < 0 || index >= length) {
                 this.addChild(child);
             } else {
-                if (!child.isCreated) {
+                if (child.isCreated === false) {
                     child.createChildren();
                     child.isCreated = true;
                 }
+
+                child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
 
@@ -1266,6 +1269,7 @@ var codeBelt;
         };
 
         TodoApp.prototype.onListRecieved = function (event) {
+            var _this = this;
             var listItems = event.data;
 
             if (listItems.length > 0) {
@@ -1279,8 +1283,8 @@ var codeBelt;
                     isComplete: item.isComplete
                 });
 
-                this._incompleteItemList.addChild(view);
-            }.bind(this));
+                _this._incompleteItemList.addChild(view);
+            });
         };
         return TodoApp;
     })(Stage);

@@ -183,7 +183,7 @@ module codeBelt
                 this._incompleteItemList.removeChildren();
             }
 
-            _.each(listItems, function (item)
+            _.each(listItems, (item) =>
             {
                 var view:DOMElement = TemplateFactory.createView('#todoItemsTemplate', {
                     id: item.id,
@@ -192,7 +192,7 @@ module codeBelt
                 });
 
                 this._incompleteItemList.addChild(view);
-            }.bind(this));
+            });
         }
 
     }

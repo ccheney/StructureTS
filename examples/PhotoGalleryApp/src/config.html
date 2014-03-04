@@ -49,13 +49,13 @@
         <!-- endbuild -->
 
         <script type="text/javascript">
-            window.onload = function(event) {
+            $(function(event) {
                 // Get class from namespace.
                 var PhotoGalleryApp = codeBelt.PhotoGalleryApp;
 
                 var app = new PhotoGalleryApp();
                 app.appendTo('body');
-            }
+            });
         </script>
     </body>
 </html>

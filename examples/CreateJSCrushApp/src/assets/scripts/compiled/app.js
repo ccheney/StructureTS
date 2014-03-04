@@ -175,6 +175,12 @@ var StructureTS;
 
             throw new Error("[Util] Unable to copy obj! Its type isn't supported.");
         };
+
+        Util.toBoolean = function (strNum) {
+            strNum = (typeof strNum === 'string') ? strNum.toLowerCase() : strNum;
+
+            return (strNum == "1" || strNum == "true");
+        };
         Util.CLASS_NAME = 'Util';
 
         Util._idCounter = 0;
@@ -498,6 +504,14 @@ var StructureTS;
             return this.children[index];
         };
 
+        DisplayObjectContainer.prototype.getChildByCid = function (cid) {
+            var children = this.children.filter(function (child) {
+                return child.cid == cid;
+            });
+
+            return children[0] || null;
+        };
+
         DisplayObjectContainer.prototype.setSize = function (unscaledWidth, unscaledHeight) {
             this.unscaledWidth = unscaledWidth;
             this.unscaledHeight = unscaledHeight;
@@ -527,10 +541,6 @@ var StructureTS;
     var StringUtil = (function () {
         function StringUtil() {
         }
-        StringUtil.stringToBoolean = function (str) {
-            return (str.toLowerCase() == "true" || str.toLowerCase() == "1");
-        };
-
         StringUtil.getExtension = function (filename) {
             return filename.slice(filename.lastIndexOf(".") + 1, filename.length);
         };
@@ -626,7 +636,7 @@ var StructureTS;
             var isClassOrIdName = regex.test(templatePath);
 
             if (isClassOrIdName) {
-                var htmlString = $(templatePath).html();
+                var htmlString = jQuery(templatePath).html();
                 htmlString = StructureTS.StringUtil.removeLeadingTrailingWhitespace(htmlString);
 
                 if (TemplateFactory.templateEngine == TemplateFactory.UNDERSCORE) {
@@ -673,10 +683,14 @@ var StructureTS;
             this._isVisible = true;
             this.element = null;
             this.$element = null;
+            this._isReference = false;
             this._type = null;
             this._params = null;
 
-            if (type) {
+            if (type instanceof jQuery) {
+                this.$element = type;
+                this._isReference = true;
+            } else if (type) {
                 this._type = type;
                 this._params = params;
             }
@@ -687,15 +701,10 @@ var StructureTS;
             type = this._type || type;
             params = this._params || params;
 
-            if (this.element != null) {
-                this.$element = jQuery(this.element);
-                return this;
-            }
-
-            if (!this.$element) {
+            if (this.$element == null) {
                 var html = StructureTS.TemplateFactory.createTemplate(type, params);
                 if (html) {
-                    this.$element = $(html);
+                    this.$element = jQuery(html);
                 } else {
                     this.$element = jQuery("<" + type + "/>", params);
                 }
@@ -713,15 +722,17 @@ var StructureTS;
                 throw new Error('[' + this.getQualifiedClassName() + '] You cannot use the addChild method if the parent object is not added to the DOM.');
             }
 
-            if (!child.isCreated) {
+            if (child.isCreated === false) {
                 child.createChildren();
                 child.isCreated = true;
             }
 
             child.$element.attr('data-cid', child.cid);
 
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
+            if (this._isReference === false) {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
 
             child.layoutChildren();
 
@@ -742,9 +753,11 @@ var StructureTS;
             if (index < 0 || index >= length) {
                 this.addChild(child);
             } else {
-                if (!child.isCreated) {
+                if (child.isCreated === false) {
                     child.createChildren();
                     child.isCreated = true;
+
+                    child.$element.attr('data-cid', child.cid);
                 }
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
@@ -769,14 +782,6 @@ var StructureTS;
 
         DOMElement.prototype.getChildAt = function (index) {
             return _super.prototype.getChildAt.call(this, index);
-        };
-
-        DOMElement.prototype.getChildByCid = function (cid) {
-            var domElement = this.children.filter(function (child) {
-                return child.cid == cid;
-            });
-
-            return domElement[0] || null;
         };
 
         DOMElement.prototype.getChild = function (selector) {

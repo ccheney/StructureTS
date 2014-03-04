@@ -683,10 +683,14 @@ var StructureTS;
             this._isVisible = true;
             this.element = null;
             this.$element = null;
+            this._isReference = false;
             this._type = null;
             this._params = null;
 
-            if (type) {
+            if (type instanceof jQuery) {
+                this.$element = type;
+                this._isReference = true;
+            } else if (type) {
                 this._type = type;
                 this._params = params;
             }
@@ -697,12 +701,7 @@ var StructureTS;
             type = this._type || type;
             params = this._params || params;
 
-            if (this.element != null) {
-                this.$element = jQuery(this.element);
-                return this;
-            }
-
-            if (!this.$element) {
+            if (this.$element == null) {
                 var html = StructureTS.TemplateFactory.createTemplate(type, params);
                 if (html) {
                     this.$element = jQuery(html);
@@ -723,15 +722,17 @@ var StructureTS;
                 throw new Error('[' + this.getQualifiedClassName() + '] You cannot use the addChild method if the parent object is not added to the DOM.');
             }
 
-            if (!child.isCreated) {
+            if (child.isCreated === false) {
                 child.createChildren();
                 child.isCreated = true;
             }
 
             child.$element.attr('data-cid', child.cid);
 
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
+            if (this._isReference === false) {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
 
             child.layoutChildren();
 
@@ -752,9 +753,11 @@ var StructureTS;
             if (index < 0 || index >= length) {
                 this.addChild(child);
             } else {
-                if (!child.isCreated) {
+                if (child.isCreated === false) {
                     child.createChildren();
                     child.isCreated = true;
+
+                    child.$element.attr('data-cid', child.cid);
                 }
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
@@ -2021,14 +2024,17 @@ var StructureTS;
 
     var RouterController = (function (_super) {
         __extends(RouterController, _super);
-        function RouterController(stateManager) {
-            if (typeof stateManager === "undefined") { stateManager = false; }
+        function RouterController(useDeepLinking, allowManualDeepLinking) {
+            if (typeof useDeepLinking === "undefined") { useDeepLinking = true; }
+            if (typeof allowManualDeepLinking === "undefined") { allowManualDeepLinking = true; }
             _super.call(this);
             this.CLASS_NAME = 'RouterController';
             this._crossroads = null;
-            this._isStateManager = false;
+            this._useDeepLinking = true;
+            this._allowManualDeepLinking = true;
 
-            this._isStateManager = stateManager;
+            this._useDeepLinking = useDeepLinking;
+            this._allowManualDeepLinking = allowManualDeepLinking;
 
             this._crossroads = new Crossroads();
         }
@@ -2044,8 +2050,13 @@ var StructureTS;
 
             this._crossroads.routed.add(this.onAllRoutesHandler, this);
 
-            Hasher.initialized.add(this.parseHash.bind(this));
-            Hasher.changed.add(this.parseHash.bind(this));
+            if (this._useDeepLinking === false && this._allowManualDeepLinking === false) {
+                this.parseHash('', '');
+            } else {
+                Hasher.initialized.add(this.parseHash.bind(this));
+                Hasher.changed.add(this.parseHash.bind(this));
+            }
+
             Hasher.init();
         };
 
@@ -2061,7 +2072,7 @@ var StructureTS;
             if (typeof silently === "undefined") { silently = false; }
             hash = hash.replace('#/', '');
 
-            if (this._isStateManager === false) {
+            if (this._useDeepLinking === true) {
                 this.changeUrl(hash, silently);
             } else {
                 this.changeState(hash);

@@ -26,7 +26,7 @@
         //http://wowslider.com/slider-jquery-elegant-linear-demo.html
         <div id="gallery">
             <div class="gallery-large">
-    
+
             </div>
             <div class="gallery-thumbnails">
                 <img name="img1" src="http://bit.ly/2rz3hy" alt=""/>
@@ -49,13 +49,13 @@
         <!-- endbuild -->
 
         <script type="text/javascript">
-            window.onload = function(event) {
+            $(function(event) {
                 // Get class from namespace.
                 var PhotoGalleryApp = codeBelt.PhotoGalleryApp;
 
                 var app = new PhotoGalleryApp();
                 app.appendTo('body');
-            }
+            });
         </script>
     </body>
 </html>
