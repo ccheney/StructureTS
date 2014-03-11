@@ -1,4 +1,4 @@
-var StructureTS;
+﻿var StructureTS;
 (function (StructureTS) {
     var NumberUtil = (function () {
         function NumberUtil() {
@@ -65,12 +65,12 @@ var StructureTS;
             var str = String(Number(value).toFixed(decimalPlacement));
             var result = '';
             if (decimalPlacement != 0) {
-                result = str.substr(-1 - decimalPlacement);
-                str = str.substr(0, str.length - 1 - decimalPlacement);
+                result = str.slice(-1 - decimalPlacement);
+                str = str.slice(0, str.length - 1 - decimalPlacement);
             }
             while (str.length > 3) {
-                result = thousandsSeparator + str.substr(-3) + result;
-                str = str.substr(0, str.length - 3);
+                result = thousandsSeparator + str.slice(-3) + result;
+                str = str.slice(0, str.length - 3);
             }
             if (str.length > 0) {
                 if (currencySymbolPlacement === 0) {
@@ -93,6 +93,14 @@ var StructureTS;
     var ValidationUtil = (function () {
         function ValidationUtil() {
         }
+        ValidationUtil.isEmpty = function (text) {
+            return text.length < 1;
+        };
+
+        ValidationUtil.isMatch = function (value1, value2) {
+            return value1 === value2;
+        };
+
         ValidationUtil.isValidEmailAddress = function (email) {
             var expression = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
             return expression.test(email);
@@ -127,10 +135,6 @@ var StructureTS;
     var StringUtil = (function () {
         function StringUtil() {
         }
-        StringUtil.stringToBoolean = function (str) {
-            return (str.toLowerCase() == "true" || str.toLowerCase() == "1");
-        };
-
         StringUtil.getExtension = function (filename) {
             return filename.slice(filename.lastIndexOf(".") + 1, filename.length);
         };
@@ -146,9 +150,7 @@ var StructureTS;
         StringUtil.hyphenToPascalCase = function (str) {
             str = str.toLowerCase();
 
-            return str.replace(/(\-|^)([a-z])/gi, function (match, delimiter, hyphenated) {
-                return hyphenated.toUpperCase();
-            });
+            return null;
         };
 
         StringUtil.camelCaseToHyphen = function (str) {
@@ -215,7 +217,6 @@ var StructureTS;
             var pre;
             var sum = 0;
             var alt = true;
-            console.log("cardNumber", cardNumber);
             var i = cardNumber.length;
             while (--i > -1) {
                 if (alt) {
@@ -315,6 +316,8 @@ describe("NumberUtil", function () {
         expect(NumberUtil.formatUnit(1234567.89, 2, "*", ",", "$", 0)).toEqual('$1,234,567.89');
         expect(NumberUtil.formatUnit(1234.5676, 2, "*", ",", " $", 1)).toEqual('1,234.57 $');
         expect(NumberUtil.formatUnit(12341234.56, 2, "*", ",", " €", 1)).toEqual('12,341,234.56 €');
+        expect(NumberUtil.formatUnit(1900, 0)).toEqual('1,900');
+        expect(NumberUtil.formatUnit(-1900.24, 1)).toEqual('-1,900.2');
     });
 });
 
@@ -396,15 +399,6 @@ describe("ValidationUtil", function () {
 
 var StringUtil = StructureTS.StringUtil;
 describe("StringUtil", function () {
-    it("stringToBoolean()", function () {
-        expect(StringUtil.stringToBoolean("1")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("true")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("TRUE")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("FALSE")).toBeFalsy();
-        expect(StringUtil.stringToBoolean("false")).toBeFalsy();
-        expect(StringUtil.stringToBoolean("0")).toBeFalsy();
-    });
-
     it("getExtension()", function () {
         expect(StringUtil.getExtension("file.exe")).toEqual("exe");
         expect(StringUtil.getExtension("file.jpg.zip")).toEqual("zip");

@@ -45,6 +45,8 @@ describe("NumberUtil", function() {
         expect(NumberUtil.formatUnit(1234567.89, 2, "*", ",", "$", 0)).toEqual('$1,234,567.89');
         expect(NumberUtil.formatUnit(1234.5676, 2, "*", ",",  " $", 1)).toEqual('1,234.57 $');
         expect(NumberUtil.formatUnit(12341234.56, 2, "*", ",",  " €", 1)).toEqual('12,341,234.56 €');
+        expect(NumberUtil.formatUnit(1900, 0)).toEqual('1,900');
+        expect(NumberUtil.formatUnit(-1900.24, 1)).toEqual('-1,900.2');
     });
 });
 
@@ -126,15 +128,6 @@ describe("ValidationUtil", function() {
 
 import StringUtil = StructureTS.StringUtil;
 describe("StringUtil", function() {
-    it("stringToBoolean()", function() {
-        expect(StringUtil.stringToBoolean("1")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("true")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("TRUE")).toBeTruthy();
-        expect(StringUtil.stringToBoolean("FALSE")).toBeFalsy();
-        expect(StringUtil.stringToBoolean("false")).toBeFalsy();
-        expect(StringUtil.stringToBoolean("0")).toBeFalsy();
-    });
-
     it("getExtension()", function() {
         expect(StringUtil.getExtension("file.exe")).toEqual("exe");
         expect(StringUtil.getExtension("file.jpg.zip")).toEqual("zip");
