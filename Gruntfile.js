@@ -120,6 +120,7 @@ module.exports = function(grunt) {
                 options: {
                     target: 'es3', // Options: es3, es5
                     module: 'amd', //or commonjs
+                    comments: true,
                     declaration: true
                 }
             }
