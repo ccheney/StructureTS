@@ -81,7 +81,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "WindowEvents"
     ],
     "modules": [
-        "LiquidPlumr",
         "StructureTS",
         "controller",
         "core",
@@ -115,11 +114,6 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "YUIDoc_comment"
         },
         {
-            "displayName": "LiquidPlumr",
-            "name": "LiquidPlumr",
-            "description": "YUIDoc_comment"
-        },
-        {
             "displayName": "model",
             "name": "model",
             "description": "YUIDoc_comment"
@@ -136,7 +130,8 @@ YUI.add("yuidoc-meta", function(Y) {
         },
         {
             "displayName": "StructureTS",
-            "name": "StructureTS"
+            "name": "StructureTS",
+            "description": "YUIDoc_comment"
         },
         {
             "displayName": "util",

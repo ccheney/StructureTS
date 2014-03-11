@@ -9,7 +9,7 @@ module StructureTS
      * @class StatusVO
      * @param [data] {any} Provide a way to update the value object upon initialization.
      * @extends ValueObject
-     * @module LiquidPlumr
+     * @module StructureTS
      * @constructor
      **/
     export class StatusVO extends ValueObject

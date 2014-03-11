@@ -477,7 +477,9 @@
         },
         "src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts": {
             "name": "src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts",
-            "modules": {},
+            "modules": {
+                "StructureTS": 1
+            },
             "classes": {
                 "LanguageConfigVO": 1
             },
@@ -486,9 +488,7 @@
         },
         "src/com/codebelt/structurets/model/vo/StatusVO.ts": {
             "name": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
-            "modules": {
-                "LiquidPlumr": 1
-            },
+            "modules": {},
             "classes": {
                 "StatusVO": 1
             },
@@ -757,7 +757,6 @@
         "StructureTS": {
             "name": "StructureTS",
             "submodules": {
-                "undefined": 1,
                 "controller": 1,
                 "view": 1,
                 "nativeEvent": 1,
@@ -769,7 +768,6 @@
                 "core": 1
             },
             "classes": {
-                "Collection": 1,
                 "CarouselComponent": 1,
                 "TabComponent": 1,
                 "TransitionType": 1,
@@ -820,6 +818,8 @@
                 "ITransition": 1,
                 "IViewController": 1,
                 "LanguageConfigVO": 1,
+                "StatusVO": 1,
+                "Collection": 1,
                 "LanguageModel": 1,
                 "ValueObject": 1,
                 "NetworkMonitor": 1,
@@ -849,8 +849,10 @@
             },
             "fors": {},
             "namespaces": {},
+            "tag": "module",
             "file": "src/com/codebelt/structurets/BaseObject.ts",
-            "line": 36
+            "line": 36,
+            "description": "YUIDoc_comment"
         },
         "controller": {
             "name": "controller",
@@ -965,19 +967,6 @@
             "description": "YUIDoc_comment",
             "file": "src/com/codebelt/structurets/interface/IViewController.ts",
             "line": 29
-        },
-        "LiquidPlumr": {
-            "name": "LiquidPlumr",
-            "submodules": {},
-            "classes": {
-                "StatusVO": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
-            "line": 6,
-            "description": "YUIDoc_comment"
         },
         "model": {
             "name": "model",
@@ -2306,7 +2295,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "LiquidPlumr",
+            "module": "StructureTS",
             "namespace": "",
             "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
             "line": 6,
@@ -13299,21 +13288,21 @@
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts",
-            "line": 39,
+            "line": 40,
             "overridden": "ValueObject.CLASS_NAME",
             "class": "LanguageConfigVO",
             "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts",
-            "line": 59,
+            "line": 60,
             "overridden": "ValueObject.update",
             "class": "LanguageConfigVO",
             "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts",
-            "line": 72,
+            "line": 73,
             "overridden": "ValueObject.copy",
             "class": "LanguageConfigVO",
             "module": "StructureTS"
@@ -13323,7 +13312,7 @@
             "line": 17,
             "overridden": "ValueObject.CLASS_NAME",
             "class": "StatusVO",
-            "module": "LiquidPlumr"
+            "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
@@ -13335,7 +13324,7 @@
             "access": "public",
             "tagname": "",
             "class": "StatusVO",
-            "module": "LiquidPlumr"
+            "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
@@ -13347,21 +13336,21 @@
             "access": "public",
             "tagname": "",
             "class": "StatusVO",
-            "module": "LiquidPlumr"
+            "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
             "line": 54,
             "overridden": "ValueObject.update",
             "class": "StatusVO",
-            "module": "LiquidPlumr"
+            "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/vo/StatusVO.ts",
             "line": 64,
             "overridden": "ValueObject.copy",
             "class": "StatusVO",
-            "module": "LiquidPlumr"
+            "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/model/Collection.ts",
@@ -17054,15 +17043,15 @@
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:39"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:40"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:59"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:60"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:72"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:73"
         },
         {
             "message": "unknown tag: overridden",
@@ -19738,15 +19727,15 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:39"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:40"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:59"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:60"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:72"
+            "line": " src/com/codebelt/structurets/model/vo/LanguageConfigVO.ts:73"
         },
         {
             "message": "Missing item type",
