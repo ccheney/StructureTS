@@ -608,11 +608,11 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/com/codebelt/structurets/util/BrowserUtils.ts": {
-            "name": "src/com/codebelt/structurets/util/BrowserUtils.ts",
+        "src/com/codebelt/structurets/util/BrowserUtil.ts": {
+            "name": "src/com/codebelt/structurets/util/BrowserUtil.ts",
             "modules": {},
             "classes": {
-                "BrowserUtils": 1
+                "BrowserUtil": 1
             },
             "fors": {},
             "namespaces": {}
@@ -830,7 +830,7 @@
                 "URLRequestMethod": 1,
                 "BaseRequest": 1,
                 "AssetLoader": 1,
-                "BrowserUtils": 1,
+                "BrowserUtil": 1,
                 "DataLoader": 1,
                 "DateUtil": 1,
                 "HtmlLoader": 1,
@@ -1021,7 +1021,7 @@
             "submodules": {},
             "classes": {
                 "AssetLoader": 1,
-                "BrowserUtils": 1,
+                "BrowserUtil": 1,
                 "DataLoader": 1,
                 "DateUtil": 1,
                 "HtmlLoader": 1,
@@ -1334,7 +1334,7 @@
             "module": "StructureTS",
             "namespace": "",
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 37,
+            "line": 36,
             "description": "The RouterController...",
             "submodule": "controller",
             "is_constructor": 1,
@@ -2525,9 +2525,9 @@
             "is_constructor": 1,
             "version": "0.1.0"
         },
-        "BrowserUtils": {
-            "name": "BrowserUtils",
-            "shortname": "BrowserUtils",
+        "BrowserUtil": {
+            "name": "BrowserUtil",
+            "shortname": "BrowserUtil",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -2535,9 +2535,9 @@
             "extension_for": [],
             "module": "StructureTS",
             "namespace": "",
-            "file": "src/com/codebelt/structurets/util/BrowserUtils.ts",
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
             "line": 27,
-            "description": "The BrowserUtils...",
+            "description": "The BrowserUtil...",
             "submodule": "util",
             "is_constructor": 1,
             "version": "0.1.0"
@@ -10139,7 +10139,7 @@
             ],
             "return": {
                 "description": "",
-                "type": "String"
+                "type": "Any"
             },
             "class": "LocalStorageController",
             "module": "StructureTS",
@@ -10270,7 +10270,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 48,
+            "line": 47,
             "overridden": "BaseObject.CLASS_NAME",
             "class": "RouterController",
             "module": "StructureTS",
@@ -10278,7 +10278,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 53,
+            "line": 52,
             "description": "YUIDoc_comment",
             "itemtype": "property",
             "name": "_crossroads",
@@ -10291,10 +10291,10 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 62,
+            "line": 61,
             "description": "Keeps a reference how the Router Controller will handle routes.\nIf the value is true it will user the browsers history to dispatch events when the history state changes.\nIf the value is false it directly dispatch events when the {{#crossLink \"BaseObject/navigateTo:method\"}}{{/crossLink}} method is called.",
             "itemtype": "property",
-            "name": "_isStateManager",
+            "name": "_useDeepLinking",
             "type": "{boolean}",
             "access": "private",
             "tagname": "",
@@ -10304,7 +10304,20 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 87,
+            "line": 72,
+            "description": "If _useDeepLinking is set to false user can manual type in the hash/deep link to make the application change to\ndifferent views. If this is not wanted for security concerns you can set allowManualDeepLinking to false and users\ncannot update the app via url hash changes.",
+            "itemtype": "property",
+            "name": "_allowManualDeepLinking",
+            "type": "{boolean}",
+            "access": "private",
+            "tagname": "",
+            "class": "RouterController",
+            "module": "StructureTS",
+            "submodule": "controller"
+        },
+        {
+            "file": "src/com/codebelt/structurets/controller/RouterController.ts",
+            "line": 98,
             "itemtype": "method",
             "name": "start",
             "class": "RouterController",
@@ -10313,7 +10326,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 112,
+            "line": 130,
             "itemtype": "method",
             "name": "parseHash",
             "params": [
@@ -10334,7 +10347,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 123,
+            "line": 141,
             "itemtype": "method",
             "name": "navigateTo",
             "params": [
@@ -10357,7 +10370,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 143,
+            "line": 161,
             "itemtype": "method",
             "name": "getHash",
             "return": {
@@ -10370,7 +10383,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 153,
+            "line": 171,
             "itemtype": "method",
             "name": "getHashAsArray",
             "return": {
@@ -10383,7 +10396,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 163,
+            "line": 181,
             "itemtype": "method",
             "name": "getURL",
             "return": {
@@ -10396,7 +10409,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 173,
+            "line": 191,
             "itemtype": "method",
             "name": "getBaseURL",
             "return": {
@@ -10409,7 +10422,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 189,
+            "line": 207,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "changeUrl",
@@ -10421,7 +10434,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/controller/RouterController.ts",
-            "line": 209,
+            "line": 227,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "changeState",
@@ -10671,6 +10684,19 @@
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
             "line": 78,
+            "description": "If a jQuery object was passed into the constructor this will be set as true and\nthis class will not try add the view to the DOM because it should already exists.",
+            "itemtype": "property",
+            "name": "_isReference",
+            "type": "{boolean}",
+            "access": "private",
+            "tagname": "",
+            "class": "DOMElement",
+            "module": "StructureTS",
+            "submodule": "view"
+        },
+        {
+            "file": "src/com/codebelt/structurets/display/DOMElement.ts",
+            "line": 88,
             "description": "Holds onto the value passed into the constructor.",
             "itemtype": "property",
             "name": "_type",
@@ -10682,7 +10708,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 87,
+            "line": 97,
             "description": "Holds onto the value passed into the constructor.",
             "itemtype": "property",
             "name": "_params",
@@ -10694,7 +10720,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 107,
+            "line": 122,
             "overridden": "DisplayObjectContainer.createChildren",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10702,7 +10728,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 142,
+            "line": 149,
             "overridden": "DisplayObjectContainer.addChild",
             "example": [
                 "\n     container.addChild(domElementInstance);"
@@ -10727,7 +10753,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 177,
+            "line": 187,
             "description": "Gets called when the child object is added to the DOM.\nThe method will call {{#crossLink \"DOMElement/layoutChildren:method\"}}{{/crossLink}} and dispatch the BaseEvent.ADDED event.",
             "itemtype": "method",
             "name": "onDomAdded",
@@ -10746,7 +10772,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 193,
+            "line": 203,
             "overridden": "DisplayObjectContainer.addChildAt",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10754,7 +10780,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 229,
+            "line": 241,
             "overridden": "DisplayObjectContainer.swapChildren",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10762,7 +10788,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 243,
+            "line": 255,
             "itemtype": "method",
             "name": "getChildAt",
             "params": [
@@ -10784,7 +10810,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 255,
+            "line": 267,
             "description": "Returns a DOMElement object with the first found DOM element by the passed in selector.",
             "itemtype": "method",
             "name": "getChild",
@@ -10808,7 +10834,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 295,
+            "line": 307,
             "description": "Gets all the HTML elements children of this object.",
             "itemtype": "method",
             "name": "getChildren",
@@ -10830,7 +10856,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 333,
+            "line": 345,
             "description": "Removes the specified child object instance from the child list of the parent object instance.\nThe parent property of the removed child is set to null , and the object is garbage collected if no other references\nto the child exist. The index positions of any objects above the child in the parent object are decreased by 1.",
             "itemtype": "method",
             "name": "removeChild",
@@ -10855,7 +10881,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 355,
+            "line": 367,
             "description": "Removes all child object instances from the child list of the parent object instance.\nThe parent property of the removed children is set to null , and the objects are garbage collected if no other\nreferences to the children exist.",
             "itemtype": "method",
             "name": "removeChildren",
@@ -10873,7 +10899,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 375,
+            "line": 387,
             "description": "Indicates the alpha transparency value of the object specified. Valid values are 0 (fully transparent)\nto 1 (fully opaque). The default value is 1. Display objects with alpha set to 0 are active, even though\nthey are invisible.",
             "itemtype": "method",
             "name": "alpha",
@@ -10894,7 +10920,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 391,
+            "line": 403,
             "itemtype": "method",
             "name": "visible",
             "params": [
@@ -10913,7 +10939,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 416,
+            "line": 428,
             "overridden": "DisplayObjectContainer.destroy",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -14491,16 +14517,74 @@
             "submodule": "util"
         },
         {
-            "file": "src/com/codebelt/structurets/util/BrowserUtils.ts",
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
             "line": 38,
             "overridden": "BaseObject.CLASS_NAME",
-            "class": "BrowserUtils",
+            "class": "BrowserUtil",
             "module": "StructureTS",
             "submodule": "util"
         },
         {
-            "file": "src/com/codebelt/structurets/util/BrowserUtils.ts",
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
             "line": 47,
+            "description": "YUIDoc_comment",
+            "itemtype": "method",
+            "name": "browserName",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "BrowserUtil",
+            "module": "StructureTS",
+            "submodule": "util"
+        },
+        {
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
+            "line": 60,
+            "description": "YUIDoc_comment",
+            "itemtype": "method",
+            "name": "browserVersion",
+            "params": [
+                {
+                    "name": "[majorVersion=true0",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number|string"
+            },
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "BrowserUtil",
+            "module": "StructureTS",
+            "submodule": "util"
+        },
+        {
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
+            "line": 83,
+            "description": "YUIDoc_comment",
+            "itemtype": "method",
+            "name": "getBrowser",
+            "access": "private",
+            "tagname": "",
+            "return": {
+                "description": "",
+                "type": "Array.<string>"
+            },
+            "static": 1,
+            "class": "BrowserUtil",
+            "module": "StructureTS",
+            "submodule": "util"
+        },
+        {
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
+            "line": 101,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "hasBrowserHistory",
@@ -14511,13 +14595,13 @@
             "access": "public",
             "tagname": "",
             "static": 1,
-            "class": "BrowserUtils",
+            "class": "BrowserUtil",
             "module": "StructureTS",
             "submodule": "util"
         },
         {
-            "file": "src/com/codebelt/structurets/util/BrowserUtils.ts",
-            "line": 60,
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
+            "line": 114,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "hasLocalStorage",
@@ -14528,13 +14612,13 @@
             "access": "public",
             "tagname": "",
             "static": 1,
-            "class": "BrowserUtils",
+            "class": "BrowserUtil",
             "module": "StructureTS",
             "submodule": "util"
         },
         {
-            "file": "src/com/codebelt/structurets/util/BrowserUtils.ts",
-            "line": 80,
+            "file": "src/com/codebelt/structurets/util/BrowserUtil.ts",
+            "line": 134,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "hasSessionStorage",
@@ -14545,7 +14629,7 @@
             "access": "public",
             "tagname": "",
             "static": 1,
-            "class": "BrowserUtils",
+            "class": "BrowserUtil",
             "module": "StructureTS",
             "submodule": "util"
         },
@@ -15905,14 +15989,20 @@
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
             "line": 38,
-            "overridden": "BaseObject.CLASS_NAME",
+            "description": "The fully qualified class name of the object.",
+            "itemtype": "property",
+            "name": "CLASS_NAME",
+            "type": "{string}",
+            "final": 1,
+            "access": "protected",
+            "tagname": "",
             "class": "Util",
             "module": "StructureTS",
             "submodule": "util"
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 43,
+            "line": 48,
             "description": "Keeps track of the count for the uniqueId method.",
             "itemtype": "property",
             "name": "_idCounter",
@@ -15926,7 +16016,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 57,
+            "line": 62,
             "description": "Generates a unique ID. If a prefix is passed in, the value will be appended to it.",
             "example": [
                 "\n     var property:number = Util.uniqueId();\n     // 1\n\n     var property:string = Util.uniqueId('yomama_');\n     // yomama_1"
@@ -15954,7 +16044,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 85,
+            "line": 90,
             "itemtype": "method",
             "name": "deletePropertyFromObject",
             "params": [
@@ -15982,7 +16072,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 133,
+            "line": 138,
             "itemtype": "method",
             "name": "renamePropertyOnObject",
             "params": [
@@ -16015,7 +16105,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 154,
+            "line": 159,
             "itemtype": "method",
             "name": "clone",
             "params": [
@@ -16038,7 +16128,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Util.ts",
-            "line": 211,
+            "line": 216,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "toBoolean",
@@ -16540,27 +16630,27 @@
         },
         {
             "message": "unknown tag: version",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:37"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:36"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:48"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:47"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:143"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:161"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:153"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:171"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:163"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:181"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:173"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:191"
         },
         {
             "message": "unknown tag: version",
@@ -16616,67 +16706,67 @@
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:107"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:122"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:142"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:149"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:142"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:149"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:193"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:203"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:229"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:243"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:241"
         },
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " src/com/codebelt/structurets/display/DOMElement.ts:255"
         },
         {
-            "message": "unknown tag: override",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:255"
-        },
-        {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:295"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:333"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:267"
         },
         {
             "message": "unknown tag: override",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:333"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:267"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:355"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:307"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:345"
         },
         {
             "message": "unknown tag: override",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:355"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:345"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:375"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:367"
+        },
+        {
+            "message": "unknown tag: override",
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:367"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:391"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:387"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:403"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:416"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:428"
         },
         {
             "message": "unknown tag: version",
@@ -17120,23 +17210,23 @@
         },
         {
             "message": "unknown tag: version",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:27"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:27"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:38"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:38"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:47"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:101"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:60"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:114"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:80"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:134"
         },
         {
             "message": "unknown tag: version",
@@ -17343,28 +17433,24 @@
             "line": " src/com/codebelt/structurets/util/Util.ts:27"
         },
         {
-            "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/util/Util.ts:38"
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/com/codebelt/structurets/util/Util.ts:62"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/Util.ts:57"
+            "line": " src/com/codebelt/structurets/util/Util.ts:90"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/Util.ts:85"
+            "line": " src/com/codebelt/structurets/util/Util.ts:138"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/Util.ts:133"
+            "line": " src/com/codebelt/structurets/util/Util.ts:159"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/Util.ts:154"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/util/Util.ts:211"
+            "line": " src/com/codebelt/structurets/util/Util.ts:216"
         },
         {
             "message": "unknown tag: version",
@@ -19520,7 +19606,7 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/controller/RouterController.ts:48"
+            "line": " src/com/codebelt/structurets/controller/RouterController.ts:47"
         },
         {
             "message": "Missing item type",
@@ -19552,19 +19638,19 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:107"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:122"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:193"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:203"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:229"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:241"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:416"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:428"
         },
         {
             "message": "Missing item type",
@@ -19752,7 +19838,7 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/util/BrowserUtils.ts:38"
+            "line": " src/com/codebelt/structurets/util/BrowserUtil.ts:38"
         },
         {
             "message": "Missing item type",
@@ -19813,10 +19899,6 @@
         {
             "message": "Missing item type",
             "line": " src/com/codebelt/structurets/util/TransitionFactory.ts:128"
-        },
-        {
-            "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/util/Util.ts:38"
         },
         {
             "message": "Missing item type",

@@ -11,7 +11,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "BaseTransition",
         "BaseViewController",
         "Bitmap",
-        "BrowserUtils",
+        "BrowserUtil",
         "Canvas",
         "CanvasElement",
         "CarouselComponent",
