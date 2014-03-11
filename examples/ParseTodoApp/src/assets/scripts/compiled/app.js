@@ -1044,11 +1044,21 @@ var codeBelt;
 
     var ListItemVO = (function (_super) {
         __extends(ListItemVO, _super);
-        function ListItemVO() {
+        function ListItemVO(data) {
+            if (typeof data === "undefined") { data = null; }
             _super.call(this);
             this.CLASS_NAME = 'ListItemVO';
             this.isComplete = false;
+
+            if (data) {
+                this.update(data);
+            }
         }
+        ListItemVO.prototype.update = function (data) {
+            this.id = data.id;
+            this.content = data.content;
+            this.isComplete = data.isComplete;
+        };
         return ListItemVO;
     })(ValueObject);
     codeBelt.ListItemVO = ListItemVO;
@@ -1135,14 +1145,17 @@ var codeBelt;
             var listItem;
             var list = [];
 
-            _.each(results, function (item) {
+            var length = results.length;
+            for (var i = 0; i < length; i++) {
+                var item = results[i];
+
                 listItem = new codeBelt.ListItemVO();
                 listItem.id = item.id;
                 listItem.content = item.get('content');
                 listItem.isComplete = item.get('isComplete');
 
                 list.push(listItem);
-            });
+            }
 
             this.dispatchEvent(new codeBelt.ListItemEvent(codeBelt.ListItemEvent.LIST_SUCCESS, false, false, list));
             this._query = null;
@@ -1181,7 +1194,7 @@ var codeBelt;
 
             this._input = this.getChild('#js-todo-input');
             this._submitBtn = this.getChild('#js-submit-button');
-            this._noTasksMessage = TemplateFactory.createView('#noTodoItemsTemplate');
+            this._noTasksMessage = new DOMElement('#noTodoItemsTemplate');
 
             this._incompleteItemList = this.getChild('#js-incomplete-items');
             this._incompleteItemList.addChild(this._noTasksMessage);
@@ -1269,22 +1282,23 @@ var codeBelt;
         };
 
         TodoApp.prototype.onListRecieved = function (event) {
-            var _this = this;
             var listItems = event.data;
+            var length = listItems.length;
 
-            if (listItems.length > 0) {
+            if (length > 0) {
                 this._incompleteItemList.removeChildren();
             }
 
-            _.each(listItems, function (item) {
-                var view = TemplateFactory.createView('#todoItemsTemplate', {
+            for (var i = 0; i < length; i++) {
+                var item = listItems[i];
+                var view = new DOMElement('#todoItemsTemplate', {
                     id: item.id,
                     content: item.content,
                     isComplete: item.isComplete
                 });
 
-                _this._incompleteItemList.addChild(view);
-            });
+                this._incompleteItemList.addChild(view);
+            }
         };
         return TodoApp;
     })(Stage);

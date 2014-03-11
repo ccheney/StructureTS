@@ -54,7 +54,7 @@ module codeBelt
 
             this._input = this.getChild('#js-todo-input');
             this._submitBtn = this.getChild('#js-submit-button');
-            this._noTasksMessage = TemplateFactory.createView('#noTodoItemsTemplate');
+            this._noTasksMessage = new DOMElement('#noTodoItemsTemplate');
 
             this._incompleteItemList = this.getChild('#js-incomplete-items');
             this._incompleteItemList.addChild(this._noTasksMessage);
@@ -177,22 +177,24 @@ module codeBelt
         private onListRecieved(event:ListItemEvent):void
         {
             var listItems:ListItemVO[] = event.data;
+            var length:number = listItems.length;
 
-            if (listItems.length > 0)
+            if (length > 0)
             {
                 this._incompleteItemList.removeChildren();
             }
 
-            _.each(listItems, (item) =>
+            for (var i = 0; i < length; i++)
             {
-                var view:DOMElement = TemplateFactory.createView('#todoItemsTemplate', {
+                var item:ListItemVO = listItems[i];
+                var view:DOMElement = new DOMElement('#todoItemsTemplate', {
                     id: item.id,
                     content: item.content,
                     isComplete: item.isComplete
                 });
 
                 this._incompleteItemList.addChild(view);
-            });
+            }
         }
 
     }

@@ -756,9 +756,9 @@ var StructureTS;
                 if (child.isCreated === false) {
                     child.createChildren();
                     child.isCreated = true;
-
-                    child.$element.attr('data-cid', child.cid);
                 }
+
+                child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
 

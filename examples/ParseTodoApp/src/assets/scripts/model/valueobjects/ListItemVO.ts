@@ -19,12 +19,12 @@ module codeBelt
         /**
          * @type {string}
          */
-        public content:string;
+        public id:string;
 
         /**
          * @type {string}
          */
-        public id:string;
+        public content:string;
 
         /**
          * @type {boolean}
@@ -32,9 +32,24 @@ module codeBelt
          */
         public isComplete:boolean = false;
 
-        constructor()
+        constructor(data:any = null)
         {
             super();
+
+            if (data)
+            {
+                this.update(data);
+            }
+        }
+
+        /**
+         * @overridden ValueObject.update
+         */
+        public update(data:any):void
+        {
+            this.id = data.id;
+            this.content = data.content;
+            this.isComplete = data.isComplete;
         }
 
     }

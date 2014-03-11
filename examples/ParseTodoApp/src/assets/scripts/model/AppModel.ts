@@ -150,15 +150,18 @@ module codeBelt
             var listItem:ListItemVO;
             var list:ListItemVO[] = [];
 
-            _.each(results, function (item)
+            var length:number = results.length;
+            for (var i = 0; i < length; i++)
             {
+                var item:any = results[i];
+
                 listItem = new ListItemVO();
                 listItem.id = item.id;
                 listItem.content = item.get('content');
                 listItem.isComplete = item.get('isComplete');
 
                 list.push(listItem);
-            });
+            }
 
             this.dispatchEvent(new ListItemEvent(ListItemEvent.LIST_SUCCESS, false, false, list));
             this._query = null;
