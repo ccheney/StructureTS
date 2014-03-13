@@ -153,6 +153,8 @@
             <div class="pad blue js-blue" ></div>
             <div class="display js-display" id="display"></div>
         </div>
+        <button id="js-enableButton" class="enable">Enable</button>
+        <button id="js-disableButton" class="disable">Disable</button>
     </div>
 
     <!-- build:js assets/scripts/app.min.js -->
@@ -161,14 +163,22 @@
     <!-- endbuild -->
 
     <script>
-        window.onload = function (event)
-        {
+        $(function (event) {
             // Get class from namespace.
             var SimonApp = codeBelt.SimonApp;
 
             var app = new SimonApp();
             app.appendTo('.container');
-        }
+
+            $('#js-enableButton').on('click', function(event) {
+                event.preventDefault();
+                app.enable();
+            });
+            $('#js-disableButton').on('click', function(event) {
+                event.preventDefault();
+                app.disable();
+            });
+        })
     </script>
 </body>
 </html>
