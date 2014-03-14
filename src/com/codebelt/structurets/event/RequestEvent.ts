@@ -45,7 +45,7 @@ module StructureTS
     export class RequestEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
+         * @overridden RequestEvent.CLASS_NAME
          */
         public CLASS_NAME:string = 'RequestEvent';
 
@@ -70,6 +70,14 @@ module StructureTS
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
             super(type, bubbles, cancelable, data);
+        }
+
+        /**
+         * @overridden RequestEvent.clone
+         */
+        public clone():RequestEvent
+        {
+            return new RequestEvent(this.type, this.bubble, this.cancelable, this.data);
         }
 
     }

@@ -382,14 +382,37 @@ module StructureTS
         }
 
         /**
+         * Duplicates an instance of an BaseEvent subclass.
+         *
+         * Returns a new BaseEvent object that is a copy of the original instance of the BaseEvent object.
+         * You do not normally call clone(); the EventDispatcher class calls it automatically when you redispatch
+         * an event—that is, when you call dispatchEvent(event) from a handler that is handling event.
+         *
+         * The new Event object includes all the properties of the original.
+         *
+         * When creating your own custom Event class, you must override the inherited Event.clone() method in order for it
+         * to duplicate the properties of your custom class. If you do not set all the properties that you add in your event
+         * subclass, those properties will not have the correct values when listeners handle the redispatched event.
+         *
+         * @method clone
+         * @returns {BaseEvent}
+         * @public
+         */
+        public clone():BaseEvent
+        {
+            return new BaseEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
+        /**
          * Prevents processing of any event listeners in nodes subsequent to the current node in the event flow.
          * This method does not affect any event listeners in the current node (currentTarget). In contrast, the stopImmediatePropagation()
          * method prevents processing of event listeners in both the current node and subsequent nodes. Additional calls to this method have no effect.
          * This method can be called in any phase of
          *
          * @method stopPropagation
+         * @public
          */
-            stopPropagation():void
+        public stopPropagation():void
         {
             this.isPropagationStopped = true;
         }
@@ -400,8 +423,9 @@ module StructureTS
          * method doesn't take effect until all the event listeners in the current node finish processing.
          *
          * @method stopImmediatePropagation
+         * @public
          */
-            stopImmediatePropagation():void
+        public stopImmediatePropagation():void
         {
             this.stopPropagation();
             this.isImmediatePropagationStopped = true;
