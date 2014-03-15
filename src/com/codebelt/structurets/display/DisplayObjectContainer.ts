@@ -26,16 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The {{#crossLink "DisplayObjectContainer"}}{{/crossLink}} class is the base class for all objects that can be placed on the display list.
-     *
-     * @class DisplayObjectContainer
-     * @extends EventDispatcher
-     * @module StructureTS
-     * @submodule view
-     * @constructor
-     * @version 0.1.1
-     **/
     export class DisplayObjectContainer extends EventDispatcher
     {
         /**
@@ -114,6 +104,16 @@ module StructureTS
          */
         public unscaledHeight:number = 100;
 
+        /**
+         * The {{#crossLink "DisplayObjectContainer"}}{{/crossLink}} class is the base class for all objects that can be placed on the display list.
+         *
+         * @class DisplayObjectContainer
+         * @extends EventDispatcher
+         * @module StructureTS
+         * @submodule view
+         * @constructor
+         * @version 0.1.1
+         **/
         constructor()
         {
             super();
@@ -124,11 +124,7 @@ module StructureTS
          * of children to the view. It will automatically be called the first time that the view is added
          * to another DisplayObjectContainer. It is critical that all subclasses call the super for this function in
          * their overridden methods.
-         * @example
-         public createChildren():void {
-            this._childInstance = new DisplayObjectContainer();
-            this.addChild(this._childInstance);
-        }
+         *
          * @method createChildren
          * @returns {DisplayObjectContainer} Returns an instance of itself.
          * @public
@@ -136,6 +132,7 @@ module StructureTS
          */
         public createChildren():any
         {
+            // Meant to be overridden because the extended class should call the createChildren method.
             return this;
         }
 
@@ -213,7 +210,14 @@ module StructureTS
         }
 
         /**
-         * @overridden DisplayObjectContainer.swapChildrenAt
+         * Swaps child objects at the two specified index positions in the child list. All other child objects in the display object container remain in the same index positions.
+         *
+         * @method swapChildren
+         * @param index1 {int} The index position of the first child object.
+         * @param index2 {int} The index position of the second child object.
+         * @returns {DisplayObjectContainer} Returns an instance of itself.
+         * @public
+         * @chainable
          */
         public swapChildrenAt(index1:number, index2:number):any
         {
@@ -231,10 +235,11 @@ module StructureTS
         }
 
         /**
+         * Returns the index position of a child DisplayObjectContainer instance.
          *
          * @method getChildIndex
-         * @param child {DisplayObjectContainer}
-         * @returns {number}
+         * @param child {DisplayObjectContainer} The DisplayObjectContainer instance to identify.
+         * @returns {int} The index position of the child display object to identify.
          * @public
          */
         public getChildIndex(child:DisplayObjectContainer):number
@@ -243,10 +248,11 @@ module StructureTS
         }
 
         /**
+         * Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself. The search includes the entire display list including this DisplayObjectContainer instance.
          *
          * @method contains
-         * @param child {DisplayObjectContainer}
-         * @returns {number}
+         * @param child {DisplayObjectContainer} The child object to test.
+         * @returns {boolean}  true if the child object is a child of the DisplayObjectContainer or the container itself; otherwise false.
          * @public
          */
         public contains(child:DisplayObjectContainer):boolean
@@ -341,7 +347,7 @@ module StructureTS
          * @param unscaledWidth {number} The width within which the component should lay itself out.
          * @param unscaledHeight {number} The height within which the component should lay itself out.
          * @returns {DisplayObjectContainer} Returns an instance of itself.
-         * @@public
+         * @public
          * @chainable
          */
         public setSize(unscaledWidth:number, unscaledHeight:number):any

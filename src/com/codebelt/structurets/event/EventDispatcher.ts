@@ -27,17 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * The EventDispatcher class is the base class for all classes that dispatch events and is the base class for the {{#crossLink "DisplayObjectContainer"}}{{/crossLink}} class.
-     * The EventDispatcher provides methods for managing prioritized queues of event listeners and dispatching events.
-     *
-     * @class EventDispatcher
-     * @extends BaseObject
-     * @module StructureTS
-     * @submodule event
-     * @constructor
-     * @version 0.1.0
-     **/
     export class EventDispatcher extends BaseObject
     {
         /**
@@ -75,6 +64,17 @@ module StructureTS
          */
         public isEnabled:boolean = false;
 
+        /**
+         * The EventDispatcher class is the base class for all classes that dispatch events and is the base class for the {{#crossLink "DisplayObjectContainer"}}{{/crossLink}} class.
+         * The EventDispatcher provides methods for managing prioritized queues of event listeners and dispatching events.
+         *
+         * @class EventDispatcher
+         * @extends BaseObject
+         * @module StructureTS
+         * @submodule event
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

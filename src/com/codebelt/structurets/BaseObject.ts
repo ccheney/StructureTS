@@ -33,15 +33,6 @@
 
 module StructureTS
 {
-    /**
-     * The {{#crossLink "BaseObject"}}{{/crossLink}} class is an abstract class that provides common properties and functionality for all StructureTS classes.
-     *
-     * @class BaseObject
-     * @module StructureTS
-     * @submodule core
-     * @constructor
-     * @version 0.1.0
-     **/
     export class BaseObject
     {
         /**
@@ -65,6 +56,15 @@ module StructureTS
          */
         public cid:number = null;
 
+        /**
+         * The {{#crossLink "BaseObject"}}{{/crossLink}} class is an abstract class that provides common properties and functionality for all StructureTS classes.
+         *
+         * @class BaseObject
+         * @module StructureTS
+         * @submodule core
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             this.cid = Util.uniqueId();
@@ -72,8 +72,9 @@ module StructureTS
 
         /**
          * Returns the fully qualified class name of an object.
+         *
          * @example
-         *      instance.getQualifiedClassName();
+        instance.getQualifiedClassName();
          * @method getQualifiedClassName
          * @returns {string} Returns the class name.
          * @public
@@ -96,13 +97,14 @@ module StructureTS
          * {{#crossLink "EventDispatcher/disable:method"}}{{/crossLink}} method on all classes that extend
          * {{#crossLink "EventDispatcher"}}{{/crossLink}}.
          * @example
-         *      public destroy():void {
-     *          super.destroy();
-     *
-     *          this._childInstance.destroy();
-     *          this._childInstance = null;
-     *      }
+        public destroy():void {
+            super.destroy();
+
+            this._childInstance.destroy();
+            this._childInstance = null;
+        }
          * @method destroy
+         * @return {void}
          * @public
          */
         public destroy():void
