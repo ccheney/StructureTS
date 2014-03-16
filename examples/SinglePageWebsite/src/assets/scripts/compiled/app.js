@@ -227,6 +227,10 @@ var StructureTS;
             this.cancelable = cancelable;
             this.data = data;
         }
+        BaseEvent.prototype.clone = function () {
+            return new BaseEvent(this.type, this.bubble, this.cancelable, this.data);
+        };
+
         BaseEvent.prototype.stopPropagation = function () {
             this.isPropagationStopped = true;
         };
@@ -291,7 +295,10 @@ var StructureTS;
     StructureTS.BaseEvent = BaseEvent;
 })(StructureTS || (StructureTS = {}));
 var __extends = this.__extends || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+        console.log("p", p);
+    }
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
@@ -756,9 +763,9 @@ var StructureTS;
                 if (child.isCreated === false) {
                     child.createChildren();
                     child.isCreated = true;
-
-                    child.$element.attr('data-cid', child.cid);
                 }
+
+                child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 child.layoutChildren();
 
@@ -2252,6 +2259,7 @@ var codeBelt;
         ContentView.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
         };
+        ContentView.LOSER = "lose";
         return ContentView;
     })(DOMElement);
     codeBelt.ContentView = ContentView;

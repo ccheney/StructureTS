@@ -24,16 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The StringUtil...
-     *
-     * @class StringUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @static
-     * @version 0.1.0
-     **/
     export class StringUtil
     {
         /**
@@ -41,6 +31,16 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'StringUtil';
 
+        /**
+         * The StringUtil...
+         *
+         * @class StringUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @static
+         * @version 0.1.0
+         **/
         constructor()
         {
         }
@@ -168,10 +168,9 @@ module StructureTS
         /**
          * Remove all whitespace from the string passed in.
          * @example
-         *      var str = "   a b    c d e f g ";
-         *      StringUtil.removeAllWhitespace(str);
-         *      // "abcdefg"
-         *
+               var str = "   a b    c d e f g ";
+               StringUtil.removeAllWhitespace(str);
+               // "abcdefg"
          * @method removeAllWhitespace
          * @param str {string}
          * @returns {string}

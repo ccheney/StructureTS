@@ -29,16 +29,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionFadeOutAndIn
-     * @extends BaseTransition
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionFadeOutAndIn extends BaseTransition
     {
         /**
@@ -46,6 +36,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'TransitionFadeOutAndIn';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionFadeOutAndIn
+         * @extends BaseTransition
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

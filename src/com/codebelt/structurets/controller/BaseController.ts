@@ -26,16 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The BaseController...
-     *
-     * @class BaseController
-     * @extends EventDispatcher
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class BaseController extends EventDispatcher
     {
         /**
@@ -43,6 +33,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'BaseController';
 
+        /**
+         * The BaseController...
+         *
+         * @class BaseController
+         * @extends EventDispatcher
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

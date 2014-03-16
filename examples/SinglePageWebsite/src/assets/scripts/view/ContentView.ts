@@ -18,6 +18,8 @@ module codeBelt
          */
         public CLASS_NAME:string = 'ContentView';
 
+        static LOSER:string = "lose";
+
         constructor()
         {
             super();

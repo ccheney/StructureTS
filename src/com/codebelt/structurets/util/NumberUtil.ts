@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The NumberUtil...
-     *
-     * @class NumberUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class NumberUtil
     {
         /**
@@ -40,6 +31,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'NumberUtil';
 
+        /**
+         * The NumberUtil...
+         *
+         * @class NumberUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The URLContentType...
-     *
-     * @class URLContentType
-     * @module StructureTS
-     * @submodule net
-     * @constructor
-     * @version 0.1.0
-     **/
     export class URLContentType
     {
 //http://www.freeformatter.com/mime-types-list.html
@@ -42,6 +33,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'URLContentType';
 
+        /**
+         * The URLContentType...
+         *
+         * @class URLContentType
+         * @module StructureTS
+         * @submodule net
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

@@ -30,14 +30,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TabComponent
-     * @extends EventDispatcher
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TabComponent extends EventDispatcher
     {
 
@@ -97,6 +89,14 @@ module StructureTS
          */
         public activeClassName:string = 'active';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TabComponent
+         * @extends EventDispatcher
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor($container:JQuery, tabName:string = 'tabbutton', tabContent:string = 'tabcontent')
         {
             super();

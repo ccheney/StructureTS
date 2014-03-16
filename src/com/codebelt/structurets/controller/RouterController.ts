@@ -33,15 +33,6 @@ module StructureTS
     import Hasher = MillerMedeiros.Hasher;
     import Crossroads = MillerMedeiros.Crossroads;
 
-    /**
-     * The RouterController...
-     *
-     * @class RouterController
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.2.0
-     **/
     export class RouterController extends BaseController
     {
         /**
@@ -80,6 +71,15 @@ module StructureTS
          */
         private _allowManualDeepLinking:boolean = true;
 
+        /**
+         * The RouterController...
+         *
+         * @class RouterController
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.2.0
+         **/
         constructor(useDeepLinking:boolean = true, allowManualDeepLinking:boolean = true)
         {
             super();

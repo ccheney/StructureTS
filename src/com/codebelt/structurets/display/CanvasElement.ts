@@ -27,16 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * The CanvasElement...
-     *
-     * @class CanvasElement
-     * @extends DisplayObjectContainer
-     * @module StructureTS
-     * @submodule view
-     * @constructor
-     * @version 0.1.0
-     **/
     export class CanvasElement extends DisplayObjectContainer
     {
         /**
@@ -54,6 +44,16 @@ module StructureTS
         public alpha:number = 1;
         public visible:boolean = true;
 
+        /**
+         * The CanvasElement...
+         *
+         * @class CanvasElement
+         * @extends DisplayObjectContainer
+         * @module StructureTS
+         * @submodule view
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

@@ -289,15 +289,6 @@
 
 module StructureTS
 {
-    /**
-     * The ApplicationCacheController...
-     *
-     * @class ApplicationCacheController
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class ApplicationCacheController
     {
         /**
@@ -334,6 +325,15 @@ module StructureTS
          */
         public static isEnabled:boolean = false;
 
+        /**
+         * The ApplicationCacheController...
+         *
+         * @class ApplicationCacheController
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }
@@ -533,10 +533,10 @@ module StructureTS
         /**
          * Registers an event listener object with an ApplicationCacheController object so that the listener receives notification of an event.
          * @example
-         *      ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);
-         *      private handlerMethod(event:BaseEvent):void {
-     *          console.log(event.target + &quot; sent the event.&quot;);
-     *      }
+               ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);
+               private handlerMethod(event:BaseEvent):void {
+               console.log(event.target + &quot; sent the event.&quot;);
+           }
          * @method addEventListener
          * @param type {String} The type of event.
          * @param callback {Function} The listener function that processes the event. This function must accept an Event object as its only parameter and must return nothing, as this example shows. @example function(event:Event):void
@@ -552,10 +552,10 @@ module StructureTS
         /**
          * Removes a specified listener from the ApplicationCacheController object.
          * @example
-         *      ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);
-         *      private handlerMethod(event:BaseEvent):void {
-     *          console.log(event.target + &quot; sent the event.&quot;);
-     *      }
+               ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);
+               private handlerMethod(event:BaseEvent):void {
+               console.log(event.target + &quot; sent the event.&quot;);
+           }
          * @method removeEventListener
          * @param type {String} The type of event.
          * @param callback {Function} The listener object to remove.
@@ -571,11 +571,11 @@ module StructureTS
         /**
          * &lt;p&gt;Dispatches an event within the ApplicationCacheController object.&lt;/p&gt;
          * @example
-         *      var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
-         *      ApplicationCacheController.dispatchEvent(event);
-         *
-         *      // Here is a common inline event being dispatched
-         *      ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
+               var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+               ApplicationCacheController.dispatchEvent(event);
+
+               // Here is a common inline event being dispatched
+               ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
          * @method dispatchEvent
          * @param event {BaseEvent} The Event object that is dispatched into the event flow. You can create custom events, the only requirement is all events must
          * extend the {{#crossLink &quot;BaseEvent&quot;}}{{/crossLink}}.

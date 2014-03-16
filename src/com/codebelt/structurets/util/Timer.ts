@@ -27,16 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * Constructs a new Timer object with the specified delay and repeatCount states.
-     *
-     * @class Timer
-     * @extends EventDispatcher
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class Timer extends EventDispatcher
     {
 
@@ -91,7 +81,16 @@ module StructureTS
          */
         public running:boolean = false;
 
-
+        /**
+         * Constructs a new Timer object with the specified delay and repeatCount states.
+         *
+         * @class Timer
+         * @extends EventDispatcher
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(delay:number, repeatCount:number = 0)
         {
             super();

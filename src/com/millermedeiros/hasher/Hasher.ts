@@ -105,10 +105,10 @@ module MillerMedeiros
          * Regular Expression that selects everything including pound (#) symbol to the end of the url.
          *
          * @example
-         *      // Example:
-         *      http://example.org/#/page1?title=products
-         *      // Would select:
-         *      #/page1?title=products
+               // Example:
+               http://example.org/#/page1?title=products
+               // Would select:
+               #/page1?title=products
          * @property _hashValRegexp
          * @type {RegExp}
          * @readOnly

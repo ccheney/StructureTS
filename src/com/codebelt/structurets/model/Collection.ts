@@ -29,16 +29,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class Collection
-     * @extends EventDispatcher
-     * @module StructureTS
-     * @submodule model
-     * @constructor
-     * @version 0.2.1
-     **/
     export class Collection extends EventDispatcher implements ICollection
     {
         /**
@@ -66,6 +56,16 @@ module StructureTS
          */
         public length:number = 0;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class Collection
+         * @extends EventDispatcher
+         * @module StructureTS
+         * @submodule model
+         * @constructor
+         * @version 0.2.1
+         **/
         constructor()
         {
             super();
@@ -229,15 +229,14 @@ module StructureTS
          * Examines each element in a collection, returning an array of all elements that have the given properties.
          * When checking properties, this method performs a deep comparison between values to determine if they are equivalent to each other.
          * @example
-         *      // Finds all value object that has 'Robert' in it.
-         *      this._collection.find("Robert");
-         *      // Finds any value object that has 'Robert' or 'Heater' or 23 in it.
-         *      this._collection.find(["Robert", "Heather", 32]);
-         *
-         *      // Finds all value objects that same key and value you are searching for.
-         *      this._collection.find({ name: 'apple', organic: false, type: 'fruit' });
-         *      this._collection.find([{ type: 'vegetable' }, { name: 'apple', 'organic: false, type': 'fruit' }]);
-         *
+               // Finds all value object that has 'Robert' in it.
+               this._collection.find("Robert");
+               // Finds any value object that has 'Robert' or 'Heater' or 23 in it.
+               this._collection.find(["Robert", "Heather", 32]);
+
+               // Finds all value objects that same key and value you are searching for.
+               this._collection.find({ name: 'apple', organic: false, type: 'fruit' });
+               this._collection.find([{ type: 'vegetable' }, { name: 'apple', 'organic: false, type': 'fruit' }]);
          * @method find
          * @param arg {Object|Array}
          * @return {array} Returns a list of found IValueObject's.

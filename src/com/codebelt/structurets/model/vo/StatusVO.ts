@@ -3,15 +3,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class StatusVO
-     * @param [data] {any} Provide a way to update the value object upon initialization.
-     * @extends ValueObject
-     * @module StructureTS
-     * @constructor
-     **/
     export class StatusVO extends ValueObject
     {
         /**
@@ -41,6 +32,15 @@ module StructureTS
         public message:string = null;
         public code:number = null;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class StatusVO
+         * @param [data] {any} Provide a way to update the value object upon initialization.
+         * @extends ValueObject
+         * @module StructureTS
+         * @constructor
+         **/
         constructor(data:any = null)
         {
             super();

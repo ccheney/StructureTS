@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * A Utility class that has several static methods to assist in development.
-     *
-     * @class Util
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.2.0
-     **/
     export class Util
     {
         /**
@@ -55,6 +46,15 @@ module StructureTS
          */
         private static _idCounter:number = 0;
 
+        /**
+         * A Utility class that has several static methods to assist in development.
+         *
+         * @class Util
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.2.0
+         **/
         constructor()
         {
         }
@@ -62,11 +62,11 @@ module StructureTS
         /**
          * Generates a unique ID. If a prefix is passed in, the value will be appended to it.
          * @example
-         *      var property:number = Util.uniqueId();
-         *      // 1
-         *
-         *      var property:string = Util.uniqueId('yomama_');
-         *      // yomama_1
+               var property:number = Util.uniqueId();
+               // 1
+
+               var property:string = Util.uniqueId('yomama_');
+               // yomama_1
          * @method uniqueId
          * @param [prefix] {string} The string value used for the prefix.
          * @returns {init|string} Returns the unique identifier.

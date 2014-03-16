@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:30</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l84"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:84</code></a>
         </div>
     
 
@@ -324,7 +324,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:30</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l84"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:84</code></a>
         
         </p>
 
@@ -736,10 +736,10 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -781,7 +781,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l217"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:217</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l216"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:216</code></a>
         
         </p>
 
@@ -811,6 +811,10 @@
     
 
     
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
+    
 
     
 
@@ -834,7 +838,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l86"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:86</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:87</code></a>
         
         </p>
 
@@ -861,18 +865,30 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Void</span>:
+                    
+                
+            </div>
+        </div>
+    
 
     
         <div class="example">
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public destroy():void {
-     super.destroy();
+                <pre class="code prettyprint"><code>   public destroy():void {
+       super.destroy();
 
-     this._childInstance.destroy();
-     this._childInstance = null;
- }</code></pre>
+       this._childInstance.destroy();
+       this._childInstance = null;
+   }</code></pre>
 
             </div>
         </div>
@@ -937,14 +953,14 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public disable():void {
-     if (this.isEnabled === false) return;
+                <pre class="code prettyprint"><code>    public disable():void {
+          if (this.isEnabled === false) return;
 
-     this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.disable();
+          this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.disable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1043,11 +1059,11 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
- instance.dispatchEvent(event);
+                <pre class="code prettyprint"><code>          var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+          instance.dispatchEvent(event);
 
- // Here is a common inline event being dispatched
- instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
+          // Here is a common inline event being dispatched
+          instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
 
             </div>
         </div>
@@ -1112,14 +1128,14 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public enable():void {
-     if (this.isEnabled === true) return;
+                <pre class="code prettyprint"><code>          public enable():void {
+          if (this.isEnabled === true) return;
 
-     this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.enable();
+          this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.enable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1163,7 +1179,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l104"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:104</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l103"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:103</code></a>
         
         </p>
 
@@ -1236,7 +1252,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l115"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:115</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l114"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:114</code></a>
         
         </p>
 
@@ -1346,7 +1362,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.getQualifiedClassName();</code></pre>
+                <pre class="code prettyprint"><code>   instance.getQualifiedClassName();</code></pre>
 
             </div>
         </div>
@@ -1390,7 +1406,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l141"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:141</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l140"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:140</code></a>
         
         </p>
 
@@ -1562,10 +1578,10 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -1605,7 +1621,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l168"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:168</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l167"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:167</code></a>
         
         </p>
 
@@ -1670,7 +1686,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l126"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:126</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l125"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:125</code></a>
         
         </p>
 
@@ -1758,7 +1774,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l152"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:152</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l151"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:151</code></a>
         
         </p>
 
@@ -1836,7 +1852,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l182"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:182</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l181"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:181</code></a>
         
         </p>
 
@@ -1891,7 +1907,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l204"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:204</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l203"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:203</code></a>
         
         </p>
 
@@ -1944,7 +1960,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:48</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:37</code></a>
         
         </p>
 
@@ -1984,6 +2000,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -1991,7 +2009,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:48</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:38</code></a>
         
         </p>
 
@@ -2035,7 +2053,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:48</code></a>
         
         </p>
 
@@ -2083,7 +2101,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:47</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:38</code></a>
         
         </p>
 
@@ -2123,6 +2141,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -2130,7 +2150,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:47</code></a>
         
         </p>
 
@@ -2170,6 +2190,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -2177,7 +2199,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l66"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:66</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l56"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:56</code></a>
         
         </p>
 
@@ -2222,7 +2244,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:68</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
         
         </p>
 
@@ -2268,7 +2290,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:46</code></a>
         
         </p>
 
@@ -2310,6 +2332,8 @@ list hierarchy.</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -2317,7 +2341,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l76"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:76</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l66"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:66</code></a>
         
         </p>
 
@@ -2355,6 +2379,8 @@ list hierarchy.</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -2362,7 +2388,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l85"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:85</code></a>
+        <a href="../files/src_com_codebelt_structurets_util_Timer.ts.html#l75"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;util&#x2F;Timer.ts:75</code></a>
         
         </p>
 

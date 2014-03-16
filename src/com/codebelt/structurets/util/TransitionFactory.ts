@@ -37,16 +37,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionFactory
-     * @extends BaseObject
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionFactory extends BaseObject
     {
         /**
@@ -63,6 +53,16 @@ module StructureTS
          */
         private _transitions:Object = {};
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionFactory
+         * @extends BaseObject
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

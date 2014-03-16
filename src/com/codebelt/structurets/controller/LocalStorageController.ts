@@ -28,15 +28,6 @@
 
 module StructureTS
 {
-    /**
-     * The LocalStorageController...
-     *
-     * @class LocalStorageController
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.1
-     **/
     export class LocalStorageController extends BaseController
     {
         /**
@@ -64,6 +55,15 @@ module StructureTS
          */
         private _localStorage:Storage = null;
 
+        /**
+         * The LocalStorageController...
+         *
+         * @class LocalStorageController
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.1
+         **/
         constructor()
         {
             super();

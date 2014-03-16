@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * A MerchantUtility class that has several static methods to assist in development.
-     *
-     * @class MerchantUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class MerchantUtil
     {
         /**
@@ -40,6 +31,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'MerchantUtil';
 
+        /**
+         * A MerchantUtility class that has several static methods to assist in development.
+         *
+         * @class MerchantUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }
@@ -48,8 +48,7 @@ module StructureTS
         /**
          * Determines if credit card is valid using the Luhn formula.
          * @example
-         * MerchantUtil.isCreditCard("4556106734384949");
-         *
+          MerchantUtil.isCreditCard("4556106734384949");
          * @method isCreditCard
          * @param cardNumber {string} The credit card number.
          * @returns {boolean} <code>true</code> if String is a valid credit card number; otherwise <code>false</code>.

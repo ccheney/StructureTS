@@ -29,15 +29,6 @@
 
 module StructureTS
 {
-    /**
-     * The URLLoader...
-     *
-     * @class URLLoader
-     * @module StructureTS
-     * @submodule net
-     * @constructor
-     * @version 0.1.0
-     **/
     export class URLLoader extends EventDispatcher
     {
         /**
@@ -78,6 +69,15 @@ module StructureTS
          */
         private _defer:Object = null;
 
+        /**
+         * The URLLoader...
+         *
+         * @class URLLoader
+         * @module StructureTS
+         * @submodule net
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(request:URLRequest = null)
         {
             super();

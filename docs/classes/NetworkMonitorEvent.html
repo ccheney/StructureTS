@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l29"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:29</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l81"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:81</code></a>
         </div>
     
 
@@ -352,7 +352,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l29"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:29</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l81"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:81</code></a>
         
         </p>
 
@@ -479,14 +479,21 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
 
                     <ul class="index-list methods extends">
                         
-                            <li class="index-item method inherited">
+                            <li class="index-item method public inherited">
+                                <a href="#method_clone">clone</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public inherited">
                                 <a href="#method_stopImmediatePropagation">stopImmediatePropagation</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
+                            <li class="index-item method public inherited">
                                 <a href="#method_stopPropagation">stopPropagation</a>
 
                                 
@@ -622,7 +629,84 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_stopImmediatePropagation" class="method item inherited">
+                    <div id="method_clone" class="method item public inherited">
+    <h3 class="name"><code>clone</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseEvent.html#method_clone">BaseEvent</a>:
+            
+        
+        
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l384"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:384</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Duplicates an instance of an BaseEvent subclass.</p>
+<p>Returns a new BaseEvent object that is a copy of the original instance of the BaseEvent object.
+You do not normally call clone(); the EventDispatcher class calls it automatically when you redispatch
+an event—that is, when you call dispatchEvent(event) from a handler that is handling event.</p>
+<p>The new Event object includes all the properties of the original.</p>
+<p>When creating your own custom Event class, you must override the inherited Event.clone() method in order for it
+to duplicate the properties of your custom class. If you do not set all the properties that you add in your event
+subclass, those properties will not have the correct values when listeners handle the redispatched event.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_stopImmediatePropagation" class="method item public inherited">
     <h3 class="name"><code>stopImmediatePropagation</code></h3>
 
     
@@ -633,6 +717,8 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
 
     
 
+    
+        <span class="flag public">public</span>
     
 
     
@@ -651,7 +737,7 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l397"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:397</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l420"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:420</code></a>
         
         </p>
 
@@ -676,7 +762,7 @@ method doesn&#39;t take effect until all the event listeners in the current node
 </div>
 
                 
-                    <div id="method_stopPropagation" class="method item inherited">
+                    <div id="method_stopPropagation" class="method item public inherited">
     <h3 class="name"><code>stopPropagation</code></h3>
 
     
@@ -687,6 +773,8 @@ method doesn&#39;t take effect until all the event listeners in the current node
 
     
 
+    
+        <span class="flag public">public</span>
     
 
     
@@ -705,7 +793,7 @@ method doesn&#39;t take effect until all the event listeners in the current node
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l384"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:384</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l406"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:406</code></a>
         
         </p>
 
@@ -759,7 +847,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l340"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:340</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l307"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:307</code></a>
         
         </p>
 
@@ -803,7 +891,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l349"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:349</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l316"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:316</code></a>
         
         </p>
 
@@ -845,6 +933,8 @@ This method can be called in any phase of</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -852,7 +942,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l88"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:88</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l72"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:72</code></a>
         
         </p>
 
@@ -894,7 +984,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l321"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:321</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l288"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:288</code></a>
         
         </p>
 
@@ -938,7 +1028,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l331"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:331</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l298"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:298</code></a>
         
         </p>
 
@@ -982,7 +1072,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l367"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:367</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l334"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:334</code></a>
         
         </p>
 
@@ -1025,7 +1115,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l358"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:358</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l325"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:325</code></a>
         
         </p>
 
@@ -1066,6 +1156,8 @@ This method can be called in any phase of</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -1073,7 +1165,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l79"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:79</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l63"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:63</code></a>
         
         </p>
 
@@ -1115,7 +1207,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l311"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:311</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l278"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:278</code></a>
         
         </p>
 
@@ -1159,7 +1251,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l301"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:301</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l268"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:268</code></a>
         
         </p>
 
@@ -1211,6 +1303,8 @@ This method can be called in any phase of</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -1218,7 +1312,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l70"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:70</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l54"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:54</code></a>
         
         </p>
 
@@ -1257,6 +1351,8 @@ This method can be called in any phase of</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -1264,7 +1360,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l61"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:61</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l45"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:45</code></a>
         
         </p>
 
@@ -1303,6 +1399,8 @@ This method can be called in any phase of</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -1310,7 +1408,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l52"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:52</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_NetworkMonitorEvent.ts.html#l36"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;NetworkMonitorEvent.ts:36</code></a>
         
         </p>
 

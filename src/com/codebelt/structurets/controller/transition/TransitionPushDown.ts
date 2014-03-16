@@ -29,16 +29,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionPushDown
-     * @extends BaseTransition
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionPushDown extends BaseTransition
     {
         /**
@@ -46,6 +36,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'TransitionPushDown';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionPushDown
+         * @extends BaseTransition
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

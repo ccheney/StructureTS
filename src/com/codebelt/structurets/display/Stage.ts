@@ -26,54 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The {{#crossLink "Stage"}}{{/crossLink}} class should be extended by your main or root class.
-     * @example
-     * This example illustrates how to setup your main or root class when extending the {{#crossLink "Stage"}}{{/crossLink}} class.
-     *
-     *      class MainClass extends Stage {
- *
- *          constructor() {
- *              super();
- *          }
- *
- *          public createChildren():void {
- *              super.createChildren();
- *              // Add children classes.
- *          }
- *
- *           public enable():void {
- *              if (this.isEnabled === true) return;
- *              // Add listeners and/or enable children.
- *              super.enable();
- *           }
- *
- *           public disable():void {
- *              if (this.isEnabled === false) return;
- *              // Remove listeners and/or disable children.
- *              super.disable();
- *           }
- *
- *           public destroy():void {
- *              super.destroy();
- *              // Add items to clean up.
- *           }
- *
- *      }
-     *
-     * <b>Instantiation Example</b><br>
-     * This example illustrates how to instantiation your main or root class.
-     *
-     *      var app = new MainClass();
-     *      app.appendTo('body');
-     *
-     * @class Stage
-     * @extends DOMElement
-     * @module StructureTS
-     * @submodule view
-     * @constructor
-     * @version 0.1.0
-     **/
     export class Stage extends DOMElement
     {
         /**
@@ -81,6 +33,54 @@ module StructureTS
          */
         public CLASS_NAME:string = 'Stage';
 
+        /**
+         * The {{#crossLink "Stage"}}{{/crossLink}} class should be extended by your main or root class.
+         * @example
+         This example illustrates how to setup your main or root class when extending the {{#crossLink "Stage"}}{{/crossLink}} class.
+
+         class MainClass extends Stage {
+
+           constructor() {
+               super();
+           }
+
+           public createChildren():void {
+               super.createChildren();
+               // Add children classes.
+           }
+
+            public enable():void {
+               if (this.isEnabled === true) return;
+               // Add listeners and/or enable children.
+               super.enable();
+            }
+
+            public disable():void {
+               if (this.isEnabled === false) return;
+               // Remove listeners and/or disable children.
+               super.disable();
+            }
+
+            public destroy():void {
+               super.destroy();
+               // Add items to clean up.
+            }
+
+       }
+         *
+         * <b>Instantiation Example</b><br>
+         * This example illustrates how to instantiation your main or root class.
+         *
+         *      var app = new MainClass();
+         *      app.appendTo('body');
+         *
+         * @class Stage
+         * @extends DOMElement
+         * @module StructureTS
+         * @submodule view
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

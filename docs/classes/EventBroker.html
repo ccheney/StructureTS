@@ -264,7 +264,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_event_EventBroker.ts.html#l29"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventBroker.ts:29</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_event_EventBroker.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventBroker.ts:46</code></a>
         </div>
     
 
@@ -533,10 +533,10 @@ Loosely coupled event handling, the subscriber does not have to know the publish
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+          console.log(event.target + &quot; sent the event.&quot;);
+      }</code></pre>
 
             </div>
         </div>
@@ -638,11 +638,11 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
- EventBroker.dispatchEvent(event);
+                <pre class="code prettyprint"><code>          var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+          EventBroker.dispatchEvent(event);
 
- // Here is a common inline event being dispatched
- EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
+          // Here is a common inline event being dispatched
+          EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
 
             </div>
         </div>
@@ -789,10 +789,10 @@ To keep things consistent this parameter is required.</p>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+          console.log(event.target + &quot; sent the event.&quot;);
+      }</code></pre>
 
             </div>
         </div>
@@ -828,6 +828,8 @@ To keep things consistent this parameter is required.</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -835,7 +837,7 @@ To keep things consistent this parameter is required.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventBroker.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventBroker.ts:46</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventBroker.ts.html#l36"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventBroker.ts:36</code></a>
         
         </p>
 

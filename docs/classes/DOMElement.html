@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l32"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:32</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l96"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:96</code></a>
         </div>
     
 
@@ -285,7 +285,7 @@
 
 
 <div class="box intro">
-    <p>The <a href="../classes/DOMElement.html" class="crosslink">DOMElement</a> class is the base class for all objects that can be placed into the HTML DOM.</p>
+    <p>The <a href="../classes/DOMElement.html" class="crosslink">DOMElement</a> class is the base view class for all objects that can be placed into the HTML DOM.</p>
 
 </div>
 
@@ -296,7 +296,23 @@
     <h3 class="name"><code>DOMElement</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>params</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
@@ -324,7 +340,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l32"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:32</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l96"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:96</code></a>
         
         </p>
 
@@ -339,9 +355,136 @@
     </div>
 
     
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[any=null] Either a jQuery object or template you want to use the as the view. Check out the examples below.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">params</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[any=null] Any data you would like to pass into the jQuery element or template that is being created.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>    // Example of using DOMElement with out extending it.
+    var aLink:DOMElement = new DOMElement(&#39;a&#39;, {text: &#39;Google&#39;, href: &#39;http://www.google.com&#39;, &#39;class&#39;: &#39;externalLink&#39;});
+    this.addChild(aLink);</code></pre>
+<pre class="code prettyprint"><code>    // Example of a view passing jQuery object.
+    var view:CustomView = new CustomView($(&#39;.selector&#39;);
+    this.addChild(view);
+
+    // Example of a view extending DOMElement when passing in a jQuery object.
+    export class CustomView extends DOMElement {
+       public CLASS_NAME:string = &#39;CustomView&#39;;
+
+       constructor($element) {
+           super($element);
+       }
+
+       public createChildren():void {
+           super.createChildren();
+           // Create and add your child objects to this parent class.
+       }
+
+       public layoutChildren():void {
+           // Layout or update the child objects in this parent class.
+       }
+
+       public enable():void {
+           if (this.isEnabled === true) return;
+           // Enable the child objects and add any event listeners.
+           super.enable();
+       }
+
+       public disable():void {
+           if (this.isEnabled === false) return;
+           // Disable the child objects and remove any event listeners.
+           super.disable();
+       }
+
+       public destroy():void {
+           super.destroy();
+           // Destroy the child objects and references in this parent class to prevent memory leaks.
+       }
+   }</code></pre>
+<pre class="code prettyprint"><code>    // Example of a view extending DOMElement with pre-compiled template passed into createChildren.
+    var view:CustomView = new CustomView();
+    this.addChild(view);
+
+    // Example of a view extending DOMElement when passing in a jQuery object.
+    export class CustomView extends DOMElement {
+       public CLASS_NAME:string = &#39;CustomView&#39;;
+
+       constructor() {
+           super();
+       }
+
+       public createChildren():void {
+           super.createChildren(&#39;templates/home/homeTemplate.hbs&#39;);
+           // Create and add your child objects to this parent class.
+       }
+
+       public layoutChildren():void {
+           // Layout or update the child objects in this parent class.
+       }
+
+       public enable():void {
+           if (this.isEnabled === true) return;
+           // Enable the child objects and add any event listeners.
+           super.enable();
+       }
+
+       public disable():void {
+           if (this.isEnabled === false) return;
+           // Disable the child objects and remove any event listeners.
+           super.disable();
+       }
+
+       public destroy():void {
+           super.destroy();
+           // Destroy the child objects and references in this parent class to prevent memory leaks.
+       }
+   }</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -449,7 +592,7 @@
                                 
                             </li>
                         
-                            <li class="index-item method public inherited">
+                            <li class="index-item method inherited">
                                 <a href="#method_getChildAt">getChildAt</a>
 
                                 
@@ -470,7 +613,7 @@
                                 
                             </li>
                         
-                            <li class="index-item method">
+                            <li class="index-item method public">
                                 <a href="#method_getChildren">getChildren</a>
 
                                 
@@ -519,7 +662,7 @@
                                 
                             </li>
                         
-                            <li class="index-item method public inherited">
+                            <li class="index-item method public inherited inherited">
                                 <a href="#method_swapChildren">swapChildren</a>
 
                                 
@@ -731,7 +874,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l149"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:149</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l288"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:288</code></a>
         
         </p>
 
@@ -792,7 +935,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> container.addChild(domElementInstance);</code></pre>
+                <pre class="code prettyprint"><code>   container.addChild(domElementInstance);</code></pre>
 
             </div>
         </div>
@@ -853,7 +996,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l171"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:171</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l168"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:168</code></a>
         
         </p>
 
@@ -1090,10 +1233,10 @@ The child is added at the index position specified. An index of 0 represents the
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -1149,7 +1292,7 @@ The child is added at the index position specified. An index of 0 represents the
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l387"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:387</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l522"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:522</code></a>
         
         </p>
 
@@ -1230,7 +1373,7 @@ they are invisible.</p>
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type">Boolean</span>
         </span>
     
 
@@ -1256,7 +1399,7 @@ they are invisible.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l245"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:245</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l250"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:250</code></a>
         
         </p>
 
@@ -1267,7 +1410,8 @@ they are invisible.</p>
     </div>
 
     <div class="description">
-        
+        <p>Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself. The search includes the entire display list including this DisplayObjectContainer instance.</p>
+
     </div>
 
     
@@ -1285,7 +1429,8 @@ they are invisible.</p>
                     
 
                     <div class="param-description">
-                        
+                        <p>The child object to test.</p>
+
                     </div>
 
                     
@@ -1302,8 +1447,10 @@ they are invisible.</p>
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type">Boolean</span>:
                     
+                    <p>true if the child object is a child of the DisplayObjectContainer or the container itself; otherwise false.</p>
+
                 
             </div>
         </div>
@@ -1313,16 +1460,32 @@ they are invisible.</p>
 </div>
 
                 
-                    <div id="method_createChildren" class="method item public inherited">
+                    <div id="method_createChildren" class="method item public">
     <h3 class="name"><code>createChildren</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>params</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
         <span class="returns-inline">
-            <span class="type"><a href="../classes/DisplayObjectContainer.html" class="crosslink">DisplayObjectContainer</a></span>
+            <span class="type"><a href="../classes/DOMElement.html" class="crosslink">DOMElement</a></span>
         </span>
     
 
@@ -1344,13 +1507,16 @@ they are invisible.</p>
 
     <div class="meta">
         
+            <p>Inherited from
+            <a href="../classes/DisplayObjectContainer.html#method_createChildren">
+                DisplayObjectContainer
+            </a>
             
-                <p>Inherited from
-                <a href="../classes/DisplayObjectContainer.html#method_createChildren">DisplayObjectContainer</a>:
+            but overwritten in
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l122"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:122</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l207"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:207</code></a>
         
         </p>
 
@@ -1365,9 +1531,50 @@ they are invisible.</p>
 of children to the view. It will automatically be called the first time that the view is added
 to another DisplayObjectContainer. It is critical that all subclasses call the super for this function in
 their overridden methods.</p>
+<p>This method gets called only once when the child view is added to another view. If the child view is removed and added to another view the createChildren method will not be called again.</p>
 
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[string=div] The HTML tag you want to create or the id/class selector of the template or the pre-compiled path to a template.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">params</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[any=null] Any data you would like to pass into the jQuery element or template that is being created.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -1377,7 +1584,7 @@ their overridden methods.</p>
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="../classes/DisplayObjectContainer.html" class="crosslink">DisplayObjectContainer</a></span>:
+                        <span class="type"><a href="../classes/DOMElement.html" class="crosslink">DOMElement</a></span>:
                     
                     <p>Returns an instance of itself.</p>
 
@@ -1391,9 +1598,47 @@ their overridden methods.</p>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>    public createChildren():void {
-       this._childInstance = new DisplayObjectContainer();
+                <pre class="code prettyprint"><code>   // By default your view class will be a div element:
+   public createChildren():void {
+       super.createChildren();
+
+       this._childInstance = new DOMElement();
        this.addChild(this._childInstance);
+   }
+
+   // But lets say you wanted the view to be a ul element your would do:
+   public createChildren():void {
+       super.createChildren(&#39;ul&#39;);
+   }
+
+   // Then you could nest other elements inside this base view/element.
+   public createChildren():void {
+       super.createChildren(&#39;ul&#39;, {id: &#39;myId&#39;, &#39;class&#39;: &#39;myClass anotherClass&#39;});
+
+       var li:DOMElement = new DOMElement(&#39;li&#39;, {text: &#39;Robert is cool&#39;});
+       this.addChild(li);
+   }
+
+   // So that&#39;s cool but what if you wanted a block of html to be your view. Let&#39;s say you had the below inline Handlebar template in your html file.
+   &lt;script id=&quot;todoTemplate&quot; type=&quot;text/template&quot;&gt;
+       &lt;div id=&quot;htmlTemplatel&quot; class=&quot;js-todo&quot;&gt;
+           &lt;div id=&quot;input-wrapper&quot;&gt;
+               &lt;input type=&quot;text&quot; class=&quot;list-input&quot; placeholder=&quot;{{ data.text }}&quot;&gt;
+               &lt;input type=&quot;button&quot; class=&quot;list-item-submit&quot; value=&quot;Add&quot;&gt;
+           &lt;/div&gt;
+       &lt;/div&gt;
+   &lt;/script&gt;
+
+   // You would just pass in the id of the template which in this case is &quot;#todoTemplate&quot;. There is a second optional argument where you can pass data for the Handlebar template to use.
+   public createChildren():void {
+       super.createChildren(&#39;#todoTemplate&#39;, { data: this.viewData });
+
+   }
+
+   // One more. Let&#39;s say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.
+   public createChildren():void {
+       super.createChildren(&#39;templates/home/HtmlTemplate.hbs&#39;);
+
    }</code></pre>
 
             </div>
@@ -1409,6 +1654,10 @@ their overridden methods.</p>
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
     
 
     
@@ -1433,7 +1682,7 @@ their overridden methods.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l86"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:86</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:87</code></a>
         
         </p>
 
@@ -1460,18 +1709,30 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Void</span>:
+                    
+                
+            </div>
+        </div>
+    
 
     
         <div class="example">
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public destroy():void {
-     super.destroy();
+                <pre class="code prettyprint"><code>   public destroy():void {
+       super.destroy();
 
-     this._childInstance.destroy();
-     this._childInstance = null;
- }</code></pre>
+       this._childInstance.destroy();
+       this._childInstance = null;
+   }</code></pre>
 
             </div>
         </div>
@@ -1536,14 +1797,14 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public disable():void {
-     if (this.isEnabled === false) return;
+                <pre class="code prettyprint"><code>    public disable():void {
+          if (this.isEnabled === false) return;
 
-     this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.disable();
+          this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.disable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1642,11 +1903,11 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
- instance.dispatchEvent(event);
+                <pre class="code prettyprint"><code>          var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+          instance.dispatchEvent(event);
 
- // Here is a common inline event being dispatched
- instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
+          // Here is a common inline event being dispatched
+          instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
 
             </div>
         </div>
@@ -1711,14 +1972,14 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public enable():void {
-     if (this.isEnabled === true) return;
+                <pre class="code prettyprint"><code>          public enable():void {
+          if (this.isEnabled === true) return;
 
-     this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.enable();
+          this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.enable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1774,7 +2035,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l267"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:267</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l402"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:402</code></a>
         
         </p>
 
@@ -1833,7 +2094,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 </div>
 
                 
-                    <div id="method_getChildAt" class="method item public">
+                    <div id="method_getChildAt" class="method item inherited">
     <h3 class="name"><code>getChildAt</code></h3>
 
     
@@ -1852,14 +2113,12 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 
     
         <span class="returns-inline">
-            <span class="type"><a href="../classes/DOMElement.html" class="crosslink">DOMElement</a></span>
+            <span class="type"><a href="../classes/DisplayObjectContainer.html" class="crosslink">DisplayObjectContainer</a></span>
         </span>
     
 
     
 
-    
-        <span class="flag public">public</span>
     
 
     
@@ -1872,16 +2131,13 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/DisplayObjectContainer.html#method_getChildAt">
-                DisplayObjectContainer
-            </a>
             
-            but overwritten in
+                <p>Inherited from
+                <a href="../classes/DisplayObjectContainer.html#method_getChildAt">DisplayObjectContainer</a>:
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l255"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:255</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l311"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:311</code></a>
         
         </p>
 
@@ -1892,7 +2148,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
     </div>
 
     <div class="description">
-        
+        <p>Returns the child display object instance that exists at the specified index.</p>
+
     </div>
 
     
@@ -1904,13 +2161,14 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
                 <li class="param">
                     
                         <code class="param-name">index</code>
-                        <span class="type">Number</span>
+                        <span class="type">Int</span>
                     
 
                     
 
                     <div class="param-description">
-                         
+                        <p>The index position of the child object.</p>
+
                     </div>
 
                     
@@ -1927,8 +2185,10 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="../classes/DOMElement.html" class="crosslink">DOMElement</a></span>:
+                        <span class="type"><a href="../classes/DisplayObjectContainer.html" class="crosslink">DisplayObjectContainer</a></span>:
                     
+                    <p>The child display object at the specified index position.</p>
+
                 
             </div>
         </div>
@@ -1983,7 +2243,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l317"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:317</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l323"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:323</code></a>
         
         </p>
 
@@ -2060,7 +2320,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type">Int</span>
         </span>
     
 
@@ -2086,7 +2346,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l233"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:233</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l237"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:237</code></a>
         
         </p>
 
@@ -2097,7 +2357,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
     </div>
 
     <div class="description">
-        
+        <p>Returns the index position of a child DisplayObjectContainer instance.</p>
+
     </div>
 
     
@@ -2115,7 +2376,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
                     
 
                     <div class="param-description">
-                        
+                        <p>The DisplayObjectContainer instance to identify.</p>
+
                     </div>
 
                     
@@ -2132,8 +2394,10 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type">Int</span>:
                     
+                    <p>The index position of the child display object to identify.</p>
+
                 
             </div>
         </div>
@@ -2143,7 +2407,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 </div>
 
                 
-                    <div id="method_getChildren" class="method item">
+                    <div id="method_getChildren" class="method item public">
     <h3 class="name"><code>getChildren</code></h3>
 
     
@@ -2169,6 +2433,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
     
 
     
+        <span class="flag public">public</span>
+    
 
     
 
@@ -2189,7 +2455,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l307"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:307</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l441"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:441</code></a>
         
         </p>
 
@@ -2325,7 +2591,7 @@ If the &#39;data-cid&#39; property exists is on an HTML element a DOMElement wil
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.getQualifiedClassName();</code></pre>
+                <pre class="code prettyprint"><code>   instance.getQualifiedClassName();</code></pre>
 
             </div>
         </div>
@@ -2370,7 +2636,7 @@ If the &#39;data-cid&#39; property exists is on an HTML element a DOMElement wil
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l359"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:359</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l365"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:365</code></a>
         
         </p>
 
@@ -2451,7 +2717,7 @@ If the &#39;data-cid&#39; property exists is on an HTML element a DOMElement wil
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l187"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:187</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l326"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:326</code></a>
         
         </p>
 
@@ -2548,7 +2814,7 @@ The method will call DOMElement/layoutChildren:method and dispatch the BaseEvent
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l345"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:345</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l480"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:480</code></a>
         
         </p>
 
@@ -2651,7 +2917,7 @@ to the child exist. The index positions of any objects above the child in the pa
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l367"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:367</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l502"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:502</code></a>
         
         </p>
 
@@ -2825,10 +3091,10 @@ references to the children exist.</p>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -2883,13 +3149,16 @@ references to the children exist.</p>
 
     <div class="meta">
         
+            <p>Inherited from
+            <a href="../classes/DisplayObjectContainer.html#method_swapChildren">
+                DisplayObjectContainer
+            </a>
             
-                <p>Inherited from
-                <a href="../classes/DisplayObjectContainer.html#method_swapChildren">DisplayObjectContainer</a>:
+            but overwritten in
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l199"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:199</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l196"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:196</code></a>
         
         </p>
 
@@ -3012,7 +3281,7 @@ references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l403"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:403</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l538"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:538</code></a>
         
         </p>
 
@@ -3093,6 +3362,8 @@ references to the children exist.</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3100,7 +3371,7 @@ references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l69"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:69</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l59"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:59</code></a>
         
         </p>
 
@@ -3142,6 +3413,8 @@ references to the children exist.</p>
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3149,7 +3422,7 @@ references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l78"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:78</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:68</code></a>
         
         </p>
 
@@ -3190,6 +3463,8 @@ this class will not try add the view to the DOM because it should already exists
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3197,7 +3472,7 @@ this class will not try add the view to the DOM because it should already exists
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l49"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:49</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l39"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:39</code></a>
         
         </p>
 
@@ -3244,7 +3519,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:48</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:37</code></a>
         
         </p>
 
@@ -3282,6 +3557,8 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3289,7 +3566,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l97"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:97</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:87</code></a>
         
         </p>
 
@@ -3329,6 +3606,8 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3336,7 +3615,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l88"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:88</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l78"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:78</code></a>
         
         </p>
 
@@ -3382,7 +3661,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l67"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:67</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:57</code></a>
         
         </p>
 
@@ -3426,7 +3705,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:48</code></a>
         
         </p>
 
@@ -3474,7 +3753,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:47</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:38</code></a>
         
         </p>
 
@@ -3512,6 +3791,8 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
         
             
                 
+                    <p>Provided by the <a href="../modules/StructureTS.html">StructureTS</a> module.</p>
+                
                 <p>
                 
                 Defined in
@@ -3519,7 +3800,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l60"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:60</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l50"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:50</code></a>
         
         </p>
 
@@ -3565,7 +3846,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:87</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:77</code></a>
         
         </p>
 
@@ -3611,7 +3892,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:46</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l36"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:36</code></a>
         
         </p>
 
@@ -3657,7 +3938,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:68</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
         
         </p>
 
@@ -3703,7 +3984,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l56"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:56</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:46</code></a>
         
         </p>
 
@@ -3749,7 +4030,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:46</code></a>
         
         </p>
 
@@ -3795,7 +4076,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l107"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:107</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l97"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:97</code></a>
         
         </p>
 
@@ -3841,7 +4122,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l97"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:97</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:87</code></a>
         
         </p>
 
@@ -3887,7 +4168,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:77</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l67"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:67</code></a>
         
         </p>
 

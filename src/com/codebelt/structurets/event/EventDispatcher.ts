@@ -85,10 +85,10 @@ module StructureTS
         /**
          * Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.
          * @example
-         *      instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-         *      private handlerMethod(event:BaseEvent):void {
-         *          console.log(event.target + " sent the event.");
-         *      }
+               instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+               private handlerMethod(event:BaseEvent):void {
+                   console.log(event.target + " sent the event.");
+               }
          * @method addEventListener
          * @param type {String} The type of event.
          * @param callback {Function} The listener function that processes the event. This function must accept an Event object as its only parameter and must return nothing, as this example shows. @example function(event:Event):void
@@ -131,10 +131,10 @@ module StructureTS
         /**
          * Removes a specified listener from the EventDispatcher object.
          * @example
-         *      instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-         *      private handlerMethod(event:BaseEvent):void {
-         *          console.log(event.target + " sent the event.");
-         *      }
+               instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+               private handlerMethod(event:BaseEvent):void {
+                   console.log(event.target + " sent the event.");
+               }
          * @method removeEventListener
          * @param type {String} The type of event.
          * @param callback {Function} The listener object to remove.
@@ -167,11 +167,11 @@ module StructureTS
         /**
          * <p>Dispatches an event into the event flow. The event target is the EventDispatcher object upon which the dispatchEvent() method is called.</p>
          * @example
-         *      var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
-         *      instance.dispatchEvent(event);
-         *
-         *      // Here is a common inline event being dispatched
-         *      instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
+               var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+               instance.dispatchEvent(event);
+
+               // Here is a common inline event being dispatched
+               instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
          * @method dispatchEvent
          * @param event {BaseEvent} The Event object that is dispatched into the event flow. You can create custom events, the only requirement is all events must
          * extend the {{#crossLink "BaseEvent"}}{{/crossLink}}.
@@ -240,14 +240,14 @@ module StructureTS
         /**
          * The enable method is responsible for enabling event listeners and/or children of the containing objects.
          * @example
-         *      public enable():void {
-     *          if (this.isEnabled === true) return;
-     *
-     *          this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     *          this._childInstance.enable();
-     *
-     *          super.enable();
-     *      }
+               public enable():void {
+               if (this.isEnabled === true) return;
+
+               this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+               this._childInstance.enable();
+
+               super.enable();
+           }
          * @method enable
          * @public
          * @chainable
@@ -263,14 +263,14 @@ module StructureTS
         /**
          * The disable method is responsible for disabling event listeners and/or children of the containing objects.
          * @example
-         *      public disable():void {
-     *          if (this.isEnabled === false) return;
-     *
-     *          this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     *          this._childInstance.disable();
-     *
-     *          super.enable();
-     *      }
+         public disable():void {
+               if (this.isEnabled === false) return;
+     
+               this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+               this._childInstance.disable();
+     
+               super.enable();
+           }
          * @method disable
          * @public
          * @chainable

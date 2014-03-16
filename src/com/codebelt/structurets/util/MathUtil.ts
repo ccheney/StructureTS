@@ -24,16 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The MathUtil...
-     *
-     * @class MathUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @static
-     * @version 0.1.0
-     **/
     export class MathUtil
     {
         /**
@@ -41,6 +31,16 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'MathUtil';
 
+        /**
+         * The MathUtil...
+         *
+         * @class MathUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @static
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

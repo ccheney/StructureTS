@@ -286,15 +286,6 @@
 
 module StructureTS
 {
-    /**
-     * The DateUtil...
-     *
-     * @class DateUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class DateUtil
     {
         /**
@@ -346,6 +337,16 @@ module StructureTS
          */
         public static SHORT_MONTH_LABELS:any[] = [&#x27;Jan&#x27;, &#x27;Feb&#x27;, &#x27;Mar&#x27;, &#x27;Apr&#x27;, &#x27;May&#x27;, &#x27;Jun&#x27;, &#x27;Jul&#x27;, &#x27;Aug&#x27;, &#x27;Sep&#x27;, &#x27;Oct&#x27;, &#x27;Nov&#x27;, &#x27;Dec&#x27;];
 
+
+        /**
+         * The DateUtil...
+         *
+         * @class DateUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }
@@ -356,6 +357,8 @@ module StructureTS
          * @method getDaySuffix
          * @param today {number}
          * @returns {string}
+         * @public
+         * @static
          */
         public static getDaySuffix(today:number):string
         {

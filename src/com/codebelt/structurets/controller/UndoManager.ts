@@ -26,15 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The UndoManager...
-     *
-     * @class UndoManager
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class UndoManager extends BaseController
     {
         /**
@@ -42,6 +33,15 @@ module StructureTS
          */
         public CLASS_NAME:string = 'UndoManager';
 
+        /**
+         * The UndoManager...
+         *
+         * @class UndoManager
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

@@ -26,15 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class LanguageConfigVO
-     * @param [data] {any} Provide a way to update the value object upon initialization.
-     * @constructor
-     * @module StructureTS
-     * @version 0.1.0
-     **/
     export class LanguageConfigVO extends ValueObject
     {
         /**
@@ -47,6 +38,15 @@ module StructureTS
         public text:string;
         public path:string;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class LanguageConfigVO
+         * @param [data] {any} Provide a way to update the value object upon initialization.
+         * @constructor
+         * @module StructureTS
+         * @version 0.1.0
+         **/
         constructor(data:any = null)
         {
             super();

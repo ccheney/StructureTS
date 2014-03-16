@@ -32,14 +32,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionManager
-     * @extends BaseController
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionManager extends BaseController
     {
         public CLASS_NAME:string = 'TransitionManager';
@@ -55,6 +47,14 @@ module StructureTS
         private _transitionFactory:TransitionFactory = new TransitionFactory();
         private _runningTransition:ITransition = null;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionManager
+         * @extends BaseController
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(displayContainer:DOMElement)
         {
             super();

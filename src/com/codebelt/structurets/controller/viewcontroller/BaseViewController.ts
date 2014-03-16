@@ -27,16 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * The BaseViewController...
-     *
-     * @class BaseViewController
-     * @extends BaseController
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.2.0
-     **/
     export class BaseViewController extends DOMElement implements IViewController
     {
         /**
@@ -44,6 +34,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'BaseViewController';
 
+        /**
+         * The BaseViewController...
+         *
+         * @class BaseViewController
+         * @extends BaseController
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.2.0
+         **/
         constructor()
         {
             super();

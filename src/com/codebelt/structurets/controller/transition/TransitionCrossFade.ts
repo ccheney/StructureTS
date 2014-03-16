@@ -29,16 +29,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionCrossFade
-     * @extends BaseTransition
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionCrossFade extends BaseTransition
     {
         /**
@@ -46,6 +36,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'TransitionCrossFade';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionCrossFade
+         * @extends BaseTransition
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

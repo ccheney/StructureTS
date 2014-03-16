@@ -31,16 +31,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class BaseTransition
-     * @extends EventDispatcher
-     * @module StructureTS
-     * @submodule controller
-     * @constructor
-     * @version 0.1.0
-     **/
     export class BaseTransition extends EventDispatcher implements ITransition
     {
         /**
@@ -57,6 +47,16 @@ module StructureTS
          */
         public transition:TimelineMax = null;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class BaseTransition
+         * @extends EventDispatcher
+         * @module StructureTS
+         * @submodule controller
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

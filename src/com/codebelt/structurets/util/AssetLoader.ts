@@ -28,15 +28,6 @@
 
 module StructureTS
 {
-    /**
-     * The AssetLoader...
-     *
-     * @class AssetLoader
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class AssetLoader extends EventDispatcher
     {
         /**
@@ -47,6 +38,15 @@ module StructureTS
         private static _instance:AssetLoader;
         public _dataStores:IDataStore[] = [];
 
+        /**
+         * The AssetLoader...
+         *
+         * @class AssetLoader
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

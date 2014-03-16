@@ -28,15 +28,6 @@
 
 module StructureTS
 {
-    /**
-     * The ImageLoader...
-     *
-     * @class ImageLoader
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class ImageLoader extends EventDispatcher implements IDataStore
     {
         /**
@@ -50,6 +41,15 @@ module StructureTS
         public src:string;
         public complete:boolean = false;
 
+        /**
+         * The ImageLoader...
+         *
+         * @class ImageLoader
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(path:string)
         {
             super();

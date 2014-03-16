@@ -294,15 +294,6 @@
 
 module StructureTS
 {
-    /**
-     * The LanguageModel...
-     *
-     * @class LanguageModel
-     * @module StructureTS
-     * @submodule model
-     * @constructor
-     * @version 0.1.0
-     **/
     export class LanguageModel extends EventDispatcher
     {
         /**
@@ -317,6 +308,15 @@ module StructureTS
         public currentLanguage:string = null;
         public data:any = null;
 
+        /**
+         * The LanguageModel...
+         *
+         * @class LanguageModel
+         * @module StructureTS
+         * @submodule model
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();
@@ -332,22 +332,22 @@ module StructureTS
          * @method loadConfig
          * @param path {string} The path to the main language config json file.
          * @example
-         *       {
-     *           &quot;data&quot;: [
-     *               {
-     *                   &quot;id&quot;: &quot;en-US&quot;,
-     *                   &quot;lang&quot;: &quot;English&quot;,
-     *                   &quot;text&quot;: &quot;English&quot;,
-     *                   &quot;path&quot;: &quot;data/languages/main.en.json&quot;
-     *               },
-     *               {
-     *                   &quot;id&quot;: &quot;es-ES&quot;,
-     *                   &quot;lang&quot;: &quot;Spanish&quot;,
-     *                   &quot;text&quot;: &quot;Español&quot;,
-     *                   &quot;path&quot;: &quot;data/languages/main.sp.json&quot;
-     *               }
-     *           ]
-     *       }
+                {
+                &quot;data&quot;: [
+                    {
+                        &quot;id&quot;: &quot;en-US&quot;,
+                        &quot;lang&quot;: &quot;English&quot;,
+                        &quot;text&quot;: &quot;English&quot;,
+                        &quot;path&quot;: &quot;data/languages/main.en.json&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;es-ES&quot;,
+                        &quot;lang&quot;: &quot;Spanish&quot;,
+                        &quot;text&quot;: &quot;Español&quot;,
+                        &quot;path&quot;: &quot;data/languages/main.sp.json&quot;
+                    }
+                ]
+            }
          */
         public loadConfig(path:string):void
         {

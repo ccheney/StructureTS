@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The BrowserUtil...
-     *
-     * @class BrowserUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class BrowserUtil
     {
         /**
@@ -40,6 +31,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'BrowserUtil';
 
+        /**
+         * The BrowserUtil...
+         *
+         * @class BrowserUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

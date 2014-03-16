@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_controller_viewcontroller_BaseViewController.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;controller&#x2F;viewcontroller&#x2F;BaseViewController.ts:30</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_controller_viewcontroller_BaseViewController.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;controller&#x2F;viewcontroller&#x2F;BaseViewController.ts:37</code></a>
         </div>
     
 
@@ -324,7 +324,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_controller_viewcontroller_BaseViewController.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;controller&#x2F;viewcontroller&#x2F;BaseViewController.ts:30</code></a>
+        <a href="../files/src_com_codebelt_structurets_controller_viewcontroller_BaseViewController.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;controller&#x2F;viewcontroller&#x2F;BaseViewController.ts:37</code></a>
         
         </p>
 
@@ -652,10 +652,10 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -670,6 +670,10 @@
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
     
 
     
@@ -694,7 +698,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l86"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:86</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:87</code></a>
         
         </p>
 
@@ -721,18 +725,30 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Void</span>:
+                    
+                
+            </div>
+        </div>
+    
 
     
         <div class="example">
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public destroy():void {
-     super.destroy();
+                <pre class="code prettyprint"><code>   public destroy():void {
+       super.destroy();
 
-     this._childInstance.destroy();
-     this._childInstance = null;
- }</code></pre>
+       this._childInstance.destroy();
+       this._childInstance = null;
+   }</code></pre>
 
             </div>
         </div>
@@ -797,14 +813,14 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public disable():void {
-     if (this.isEnabled === false) return;
+                <pre class="code prettyprint"><code>    public disable():void {
+          if (this.isEnabled === false) return;
 
-     this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.disable();
+          this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.disable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -903,11 +919,11 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
- instance.dispatchEvent(event);
+                <pre class="code prettyprint"><code>          var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+          instance.dispatchEvent(event);
 
- // Here is a common inline event being dispatched
- instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
+          // Here is a common inline event being dispatched
+          instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
 
             </div>
         </div>
@@ -972,14 +988,14 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public enable():void {
-     if (this.isEnabled === true) return;
+                <pre class="code prettyprint"><code>          public enable():void {
+          if (this.isEnabled === true) return;
 
-     this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.enable();
+          this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.enable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1060,7 +1076,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.getQualifiedClassName();</code></pre>
+                <pre class="code prettyprint"><code>   instance.getQualifiedClassName();</code></pre>
 
             </div>
         </div>
@@ -1203,10 +1219,10 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -1464,7 +1480,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:48</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:37</code></a>
         
         </p>
 
@@ -1508,7 +1524,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:48</code></a>
         
         </p>
 
@@ -1556,7 +1572,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:47</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:38</code></a>
         
         </p>
 
@@ -1600,7 +1616,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:68</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
         
         </p>
 
@@ -1646,7 +1662,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:46</code></a>
         
         </p>
 

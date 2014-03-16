@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * The MobileUtil...
-     *
-     * @class MobileUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class MobileUtil
     {
         /**
@@ -40,6 +31,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'MobileUtil';
 
+        /**
+         * The MobileUtil...
+         *
+         * @class MobileUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

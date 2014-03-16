@@ -24,13 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TransitionType
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TransitionType
     {
         public static CLASS_NAME:string = 'TransitionType';
@@ -43,6 +36,13 @@ module StructureTS
         public static CROSSFADE:string = 'crossFade';
         public static FADE_OUT_AND_IN:string = 'fadeOutAndIn';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TransitionType
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             throw new Error('[TransitionType] Do instantiation the TransitionType class because it is a static class.');

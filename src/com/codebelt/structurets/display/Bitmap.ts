@@ -27,16 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * The Bitmap...
-     *
-     * @class Bitmap
-     * @extends CanvasElement
-     * @module StructureTS
-     * @submodule view
-     * @constructor
-     * @version 0.1.0
-     **/
     export class Bitmap extends CanvasElement
     {
         /**
@@ -48,6 +38,16 @@ module StructureTS
 
         public ready:boolean = false;
 
+        /**
+         * The Bitmap...
+         *
+         * @class Bitmap
+         * @extends CanvasElement
+         * @module StructureTS
+         * @submodule view
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(image:HTMLImageElement)
         {
             super();

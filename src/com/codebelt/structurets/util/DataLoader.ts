@@ -26,15 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The DataLoader...
-     *
-     * @class DataLoader
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class DataLoader
     {
         /**
@@ -42,6 +33,15 @@ module StructureTS
          */
         public CLASS_NAME:string = 'DataLoader';
 
+        /**
+         * The DataLoader...
+         *
+         * @class DataLoader
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
 

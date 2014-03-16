@@ -94,7 +94,7 @@ module StructureTS
         private _params:any = null;
 
         /**
-         * The {{#crossLink "DOMElement"}}{{/crossLink}} class is the base class for all objects that can be placed into the HTML DOM.
+         * The {{#crossLink "DOMElement"}}{{/crossLink}} class is the base view class for all objects that can be placed into the HTML DOM.
          *
          * @class DOMElement
          * @param type [any=null] Either a jQuery object or template you want to use the as the view. Check out the examples below.

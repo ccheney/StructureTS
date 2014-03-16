@@ -28,16 +28,6 @@
 
 module StructureTS
 {
-    /**
-     * Value Object (VO) is a design pattern used to transfer data between software application subsystems.
-     *
-     * @class ValueObject
-     * @param [data] {any} Provide a way to update the value object upon initialization.
-     * @module StructureTS
-     * @submodule model
-     * @constructor
-     * @version 0.1.0
-     **/
     export class ValueObject extends BaseObject implements IValueObject
     {
         /**
@@ -45,6 +35,16 @@ module StructureTS
          */
         public CLASS_NAME:string = 'ValueObject';
 
+        /**
+         * Value Object (VO) is a design pattern used to transfer data between software application subsystems.
+         *
+         * @class ValueObject
+         * @param [data] {any} Provide a way to update the value object upon initialization.
+         * @module StructureTS
+         * @submodule model
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

@@ -24,15 +24,6 @@
 
 module StructureTS
 {
-    /**
-     * A ValidationUtility class that has several static methods to assist in development.
-     *
-     * @class ValidationUtil
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class ValidationUtil
     {
         /**
@@ -40,6 +31,15 @@ module StructureTS
          */
         public static CLASS_NAME:string = 'ValidationUtil';
 
+        /**
+         * A ValidationUtility class that has several static methods to assist in development.
+         *
+         * @class ValidationUtil
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             //http://msdn.microsoft.com/en-us/library/ff650303.aspx

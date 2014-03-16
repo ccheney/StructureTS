@@ -28,18 +28,6 @@
 
 module StructureTS
 {
-    /**
-     * The URLRequest class captures all of the information in a single HTTP request.
-     * URLRequest objects are passed to the load() methods of the {{#crossLink "URLLoader"}}{{/crossLink}} classes.
-     *
-     * @class URLRequest
-     * @extends BaseObject
-     * @param url [string=null] The URL to be requested. You can set the URL later by using the url property.
-     * @module StructureTS
-     * @submodule net
-     * @constructor
-     * @version 0.1.0
-     **/
     export class URLRequest extends BaseObject
     {
         /**
@@ -85,6 +73,18 @@ module StructureTS
          */
         public data:any = null;
 
+        /**
+         * The URLRequest class captures all of the information in a single HTTP request.
+         * URLRequest objects are passed to the load() methods of the {{#crossLink "URLLoader"}}{{/crossLink}} classes.
+         *
+         * @class URLRequest
+         * @extends BaseObject
+         * @param url [string=null] The URL to be requested. You can set the URL later by using the url property.
+         * @module StructureTS
+         * @submodule net
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(url:string = null)
         {
             super();

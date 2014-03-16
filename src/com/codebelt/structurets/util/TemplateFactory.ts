@@ -27,15 +27,6 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class TemplateFactory
-     * @module StructureTS
-     * @submodule util
-     * @constructor
-     * @version 0.1.0
-     **/
     export class TemplateFactory
     {
         /**
@@ -49,6 +40,15 @@ module StructureTS
         public static templateEngine:string = TemplateFactory.HANDLEBARS;
         public static templateNamespace:string = 'JST';
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class TemplateFactory
+         * @module StructureTS
+         * @submodule util
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
         }

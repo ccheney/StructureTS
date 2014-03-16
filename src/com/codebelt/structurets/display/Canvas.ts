@@ -26,16 +26,6 @@
 
 module StructureTS
 {
-    /**
-     * The Canvas...
-     *
-     * @class Canvas
-     * @extends CanvasElement
-     * @module StructureTS
-     * @submodule view
-     * @constructor
-     * @version 0.1.0
-     **/
     export class Canvas extends CanvasElement
     {
         /**
@@ -45,6 +35,16 @@ module StructureTS
 
         public element:any = null;
 
+        /**
+         * The Canvas...
+         *
+         * @class Canvas
+         * @extends CanvasElement
+         * @module StructureTS
+         * @submodule view
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();

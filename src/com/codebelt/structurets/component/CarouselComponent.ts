@@ -29,14 +29,7 @@
 
 module StructureTS
 {
-    /**
-     * YUIDoc_comment
-     *
-     * @class CarouselComponent
-     * @extends EventDispatcher
-     * @constructor
-     * @version 0.1.0
-     **/
+
     export class CarouselComponent extends EventDispatcher
     {
         /**
@@ -66,6 +59,14 @@ module StructureTS
         public loop:boolean = false;
         public crazy:boolean = false;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @class CarouselComponent
+         * @extends EventDispatcher
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(itemWidth, itemHeight, totalItemsVisible, container)
         {
             super();

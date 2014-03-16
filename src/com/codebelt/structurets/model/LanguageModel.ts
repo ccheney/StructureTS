@@ -32,15 +32,6 @@
 
 module StructureTS
 {
-    /**
-     * The LanguageModel...
-     *
-     * @class LanguageModel
-     * @module StructureTS
-     * @submodule model
-     * @constructor
-     * @version 0.1.0
-     **/
     export class LanguageModel extends EventDispatcher
     {
         /**
@@ -55,6 +46,15 @@ module StructureTS
         public currentLanguage:string = null;
         public data:any = null;
 
+        /**
+         * The LanguageModel...
+         *
+         * @class LanguageModel
+         * @module StructureTS
+         * @submodule model
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor()
         {
             super();
@@ -70,22 +70,22 @@ module StructureTS
          * @method loadConfig
          * @param path {string} The path to the main language config json file.
          * @example
-         *       {
-     *           "data": [
-     *               {
-     *                   "id": "en-US",
-     *                   "lang": "English",
-     *                   "text": "English",
-     *                   "path": "data/languages/main.en.json"
-     *               },
-     *               {
-     *                   "id": "es-ES",
-     *                   "lang": "Spanish",
-     *                   "text": "Español",
-     *                   "path": "data/languages/main.sp.json"
-     *               }
-     *           ]
-     *       }
+                {
+                "data": [
+                    {
+                        "id": "en-US",
+                        "lang": "English",
+                        "text": "English",
+                        "path": "data/languages/main.en.json"
+                    },
+                    {
+                        "id": "es-ES",
+                        "lang": "Spanish",
+                        "text": "Español",
+                        "path": "data/languages/main.sp.json"
+                    }
+                ]
+            }
          */
         public loadConfig(path:string):void
         {

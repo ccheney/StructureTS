@@ -31,15 +31,6 @@
 
 module StructureTS
 {
-    /**
-     * The BaseRequest...
-     *
-     * @class BaseRequest
-     * @module StructureTS
-     * @submodule net
-     * @constructor
-     * @version 0.1.0
-     **/
     export class BaseRequest extends EventDispatcher implements IDataStore
     {
         /**
@@ -112,7 +103,15 @@ module StructureTS
          */
         public src:string = null;
 
-
+        /**
+         * The BaseRequest...
+         *
+         * @class BaseRequest
+         * @module StructureTS
+         * @submodule net
+         * @constructor
+         * @version 0.1.0
+         **/
         constructor(baseUrl:string, endpoint:string = '')
         {
             super();

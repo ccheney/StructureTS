@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_display_CanvasElement.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;CanvasElement.ts:30</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_display_CanvasElement.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;CanvasElement.ts:47</code></a>
         </div>
     
 
@@ -324,7 +324,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_CanvasElement.ts.html#l30"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;CanvasElement.ts:30</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_CanvasElement.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;CanvasElement.ts:47</code></a>
         
         </p>
 
@@ -491,7 +491,7 @@
                                 
                             </li>
                         
-                            <li class="index-item method public inherited">
+                            <li class="index-item method public inherited inherited">
                                 <a href="#method_swapChildren">swapChildren</a>
 
                                 
@@ -653,7 +653,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l142"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:142</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l139"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:139</code></a>
         
         </p>
 
@@ -770,7 +770,7 @@ list of the other parent object.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l171"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:171</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l168"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:168</code></a>
         
         </p>
 
@@ -1007,10 +1007,10 @@ The child is added at the index position specified. An index of 0 represents the
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -1037,7 +1037,7 @@ The child is added at the index position specified. An index of 0 represents the
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type">Boolean</span>
         </span>
     
 
@@ -1063,7 +1063,7 @@ The child is added at the index position specified. An index of 0 represents the
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l245"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:245</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l250"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:250</code></a>
         
         </p>
 
@@ -1074,7 +1074,8 @@ The child is added at the index position specified. An index of 0 represents the
     </div>
 
     <div class="description">
-        
+        <p>Determines whether the specified display object is a child of the DisplayObjectContainer instance or the instance itself. The search includes the entire display list including this DisplayObjectContainer instance.</p>
+
     </div>
 
     
@@ -1092,7 +1093,8 @@ The child is added at the index position specified. An index of 0 represents the
                     
 
                     <div class="param-description">
-                         
+                        <p>The child object to test.</p>
+
                     </div>
 
                     
@@ -1109,8 +1111,10 @@ The child is added at the index position specified. An index of 0 represents the
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type">Boolean</span>:
                     
+                    <p>true if the child object is a child of the DisplayObjectContainer or the container itself; otherwise false.</p>
+
                 
             </div>
         </div>
@@ -1194,18 +1198,6 @@ their overridden methods.</p>
     
 
     
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>    public createChildren():void {
-       this._childInstance = new DisplayObjectContainer();
-       this.addChild(this._childInstance);
-   }</code></pre>
-
-            </div>
-        </div>
-    
 </div>
 
                 
@@ -1216,6 +1208,10 @@ their overridden methods.</p>
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
     
 
     
@@ -1240,7 +1236,7 @@ their overridden methods.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l86"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:86</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:87</code></a>
         
         </p>
 
@@ -1267,18 +1263,30 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Void</span>:
+                    
+                
+            </div>
+        </div>
+    
 
     
         <div class="example">
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public destroy():void {
-     super.destroy();
+                <pre class="code prettyprint"><code>   public destroy():void {
+       super.destroy();
 
-     this._childInstance.destroy();
-     this._childInstance = null;
- }</code></pre>
+       this._childInstance.destroy();
+       this._childInstance = null;
+   }</code></pre>
 
             </div>
         </div>
@@ -1343,14 +1351,14 @@ The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destro
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public disable():void {
-     if (this.isEnabled === false) return;
+                <pre class="code prettyprint"><code>    public disable():void {
+          if (this.isEnabled === false) return;
 
-     this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.disable();
+          this._childInstance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.disable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1449,11 +1457,11 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
- instance.dispatchEvent(event);
+                <pre class="code prettyprint"><code>          var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+          instance.dispatchEvent(event);
 
- // Here is a common inline event being dispatched
- instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
+          // Here is a common inline event being dispatched
+          instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));</code></pre>
 
             </div>
         </div>
@@ -1518,14 +1526,14 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> public enable():void {
-     if (this.isEnabled === true) return;
+                <pre class="code prettyprint"><code>          public enable():void {
+          if (this.isEnabled === true) return;
 
-     this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-     this._childInstance.enable();
+          this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          this._childInstance.enable();
 
-     super.enable();
- }</code></pre>
+          super.enable();
+      }</code></pre>
 
             </div>
         </div>
@@ -1576,7 +1584,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l305"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:305</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l311"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:311</code></a>
         
         </p>
 
@@ -1682,7 +1690,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l317"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:317</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l323"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:323</code></a>
         
         </p>
 
@@ -1759,7 +1767,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type">Int</span>
         </span>
     
 
@@ -1785,7 +1793,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l233"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:233</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l237"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:237</code></a>
         
         </p>
 
@@ -1796,7 +1804,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
     </div>
 
     <div class="description">
-        
+        <p>Returns the index position of a child DisplayObjectContainer instance.</p>
+
     </div>
 
     
@@ -1814,7 +1823,8 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
                     
 
                     <div class="param-description">
-                         
+                        <p>The DisplayObjectContainer instance to identify.</p>
+
                     </div>
 
                     
@@ -1831,8 +1841,10 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type">Int</span>:
                     
+                    <p>The index position of the child display object to identify.</p>
+
                 
             </div>
         </div>
@@ -1915,7 +1927,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.getQualifiedClassName();</code></pre>
+                <pre class="code prettyprint"><code>   instance.getQualifiedClassName();</code></pre>
 
             </div>
         </div>
@@ -1960,7 +1972,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l359"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:359</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l365"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:365</code></a>
         
         </p>
 
@@ -2044,7 +2056,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l257"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:257</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l263"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:263</code></a>
         
         </p>
 
@@ -2144,7 +2156,7 @@ to the child exist. The index positions of any objects above the child in the pa
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l283"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:283</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l289"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:289</code></a>
         
         </p>
 
@@ -2318,10 +2330,10 @@ no other references to the children exist.</p>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code> instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
- private handlerMethod(event:BaseEvent):void {
-     console.log(event.target + &quot; sent the event.&quot;);
- }</code></pre>
+                <pre class="code prettyprint"><code>          instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+          private handlerMethod(event:BaseEvent):void {
+              console.log(event.target + &quot; sent the event.&quot;);
+          }</code></pre>
 
             </div>
         </div>
@@ -2376,13 +2388,16 @@ no other references to the children exist.</p>
 
     <div class="meta">
         
+            <p>Inherited from
+            <a href="../classes/DisplayObjectContainer.html#method_swapChildren">
+                DisplayObjectContainer
+            </a>
             
-                <p>Inherited from
-                <a href="../classes/DisplayObjectContainer.html#method_swapChildren">DisplayObjectContainer</a>:
+            but overwritten in
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l199"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:199</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l196"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:196</code></a>
         
         </p>
 
@@ -2489,7 +2504,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:48</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l37"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:37</code></a>
         
         </p>
 
@@ -2533,7 +2548,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l67"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:67</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:57</code></a>
         
         </p>
 
@@ -2577,7 +2592,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l48"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:48</code></a>
         
         </p>
 
@@ -2625,7 +2640,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:47</code></a>
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:38</code></a>
         
         </p>
 
@@ -2669,7 +2684,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:87</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:77</code></a>
         
         </p>
 
@@ -2715,7 +2730,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:46</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l36"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:36</code></a>
         
         </p>
 
@@ -2761,7 +2776,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:68</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
         
         </p>
 
@@ -2807,7 +2822,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l56"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:56</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:46</code></a>
         
         </p>
 
@@ -2853,7 +2868,7 @@ no other references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l57"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:57</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l46"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:46</code></a>
         
         </p>
 
@@ -2899,7 +2914,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l107"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:107</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l97"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:97</code></a>
         
         </p>
 
@@ -2945,7 +2960,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l97"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:97</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:87</code></a>
         
         </p>
 
@@ -2991,7 +3006,7 @@ list hierarchy.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:77</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DisplayObjectContainer.ts.html#l67"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DisplayObjectContainer.ts:67</code></a>
         
         </p>
 
