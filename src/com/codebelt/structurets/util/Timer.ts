@@ -232,6 +232,7 @@ module StructureTS
             else
             {
                 this.stop();
+                this.dispatchEvent(new TimerEvent(TimerEvent.TIMER));
                 this.dispatchEvent(new TimerEvent(TimerEvent.TIMER_COMPLETE));
             }
         }
