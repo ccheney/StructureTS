@@ -324,14 +324,14 @@ var StructureTS;
             var i = list.length;
             while (--i > -1) {
                 listener = list[i];
-                if (listener.c === callback && listener.s === scope) {
+                if (listener.callback === callback && listener.scope === scope) {
                     list.splice(i, 1);
-                } else if (index === 0 && listener.pr < priority) {
+                } else if (index === 0 && listener.priority < priority) {
                     index = i + 1;
                 }
             }
 
-            list.splice(index, 0, { c: callback, s: scope, pr: priority });
+            list.splice(index, 0, { callback: callback, scope: scope, priority: priority });
 
             return this;
         };
@@ -341,7 +341,7 @@ var StructureTS;
             if (list) {
                 var i = list.length;
                 while (--i > -1) {
-                    if (list[i].c === callback && list[i].s === scope) {
+                    if (list[i].callback === callback && list[i].scope === scope) {
                         list.splice(i, 1);
                         break;
                     }
@@ -368,7 +368,7 @@ var StructureTS;
                     }
 
                     listener = list[i];
-                    listener.c.call(listener.s, event);
+                    listener.callback.call(listener.scope, event);
                 }
             }
 
@@ -406,6 +406,10 @@ var StructureTS;
 
             this.isEnabled = false;
             return this;
+        };
+
+        EventDispatcher.prototype.getEventListeners = function () {
+            return this._listeners;
         };
         return EventDispatcher;
     })(StructureTS.BaseObject);
@@ -1048,6 +1052,7 @@ var codeBelt;
                 return;
 
             this.$element.addEventListener('click', this.onClick, this);
+            this.$element.css('cursor', 'pointer');
 
             _super.prototype.enable.call(this);
         };
@@ -1057,6 +1062,7 @@ var codeBelt;
                 return;
 
             this.$element.removeEventListener('click', this.onClick, this);
+            this.$element.css('cursor', 'none');
 
             _super.prototype.disable.call(this);
         };
@@ -1074,6 +1080,7 @@ var codeBelt;
         };
 
         DeviceButton.prototype.onClick = function (event) {
+            this.animate();
             this.dispatchEvent(new BaseEvent(BaseEvent.CHANGE, true, true, this.indexId));
         };
         return DeviceButton;
@@ -1094,7 +1101,6 @@ var codeBelt;
             this._greenButton = null;
             this._yellowButton = null;
             this._blueButton = null;
-            this._centerDisplay = null;
             this._buttonList = null;
         }
         DeviceView.prototype.createChildren = function () {
@@ -1120,9 +1126,6 @@ var codeBelt;
             this._buttonList.push(this._greenButton);
             this._buttonList.push(this._blueButton);
             this._buttonList.push(this._yellowButton);
-
-            this._centerDisplay = new DOMElement('div', { 'class': 'display' });
-            this.addChild(this._centerDisplay);
         };
 
         DeviceView.prototype.layoutChildren = function () {
@@ -1137,8 +1140,6 @@ var codeBelt;
             this._blueButton.enable();
             this._yellowButton.enable();
 
-            this._centerDisplay.$element.addEventListener('click', this.onClick, this);
-
             _super.prototype.enable.call(this);
         };
 
@@ -1151,22 +1152,28 @@ var codeBelt;
             this._blueButton.disable();
             this._yellowButton.disable();
 
-            this._centerDisplay.$element.removeEventListener('click', this.onClick, this);
-
             _super.prototype.disable.call(this);
         };
 
         DeviceView.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
+
+            this._redButton.destroy();
+            this._redButton = null;
+
+            this._greenButton.destroy();
+            this._greenButton = null;
+
+            this._blueButton.destroy();
+            this._blueButton = null;
+
+            this._yellowButton.destroy();
+            this._yellowButton = null;
         };
 
-        DeviceView.prototype.animateButton = function (buttonIdex) {
-            var deviceButton = this._buttonList[buttonIdex];
+        DeviceView.prototype.animateButton = function (buttonIndex) {
+            var deviceButton = this._buttonList[buttonIndex];
             deviceButton.animate();
-        };
-
-        DeviceView.prototype.onClick = function (event) {
-            console.log("event", event);
         };
         return DeviceView;
     })(DOMElement);
@@ -1189,6 +1196,7 @@ var codeBelt;
             this._timer = null;
             this._memoryOrder = null;
             this._userSequence = null;
+            this._centerDisplay = null;
         }
         SimonApp.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
@@ -1198,24 +1206,25 @@ var codeBelt;
             this._deviceView = new codeBelt.DeviceView($device);
             this.addChild(this._deviceView);
 
-            this._memoryOrder = [0, 2, 3, 1, 2, 2];
-            this._userSequence = [];
-
-            this._timer = new Timer(1500, this._memoryOrder.length);
-            this._timer.addEventListener(TimerEvent.TIMER, this.onTimer, this);
-            this._timer.addEventListener(TimerEvent.TIMER_COMPLETE, this.onTimerComplete, this);
-            this._timer.start();
+            this._centerDisplay = new DOMElement('div', { 'class': 'display' });
+            this._deviceView.addChild(this._centerDisplay);
         };
 
         SimonApp.prototype.layoutChildren = function () {
+            if (this._deviceView.isEnabled === true) {
+                this._centerDisplay.$element.text('Go!');
+            } else {
+                this._centerDisplay.$element.text('Start!');
+            }
         };
 
         SimonApp.prototype.enable = function () {
             if (this.isEnabled === true)
                 return;
 
-            this._deviceView.enable();
             this._deviceView.addEventListener(BaseEvent.CHANGE, this.onColorButtonClick, this);
+
+            this._centerDisplay.$element.addEventListener('click', this.onClick, this);
 
             _super.prototype.enable.call(this);
         };
@@ -1224,7 +1233,9 @@ var codeBelt;
             if (this.isEnabled === false)
                 return;
 
-            this._deviceView.disable();
+            this._deviceView.removeEventListener(BaseEvent.CHANGE, this.onColorButtonClick, this);
+
+            this._centerDisplay.$element.removeEventListener('click', this.onClick, this);
 
             _super.prototype.disable.call(this);
         };
@@ -1234,15 +1245,18 @@ var codeBelt;
         };
 
         SimonApp.prototype.onTimer = function (event) {
-            console.log("event", event);
+            var timer = event.target;
 
-            var currentIndex = (this._memoryOrder.length - 1) - event.target.getCurrentCount();
+            var currentIndex = (this._memoryOrder.length - 1) - timer.getCurrentCount();
             var showItem = this._memoryOrder[currentIndex];
-            console.log("this._memoryOrder", this._memoryOrder.toString(), currentIndex);
             this._deviceView.animateButton(showItem);
         };
 
         SimonApp.prototype.onTimerComplete = function (event) {
+            this._timer.destroy();
+
+            this._deviceView.enable();
+            this.layoutChildren();
         };
 
         SimonApp.prototype.onColorButtonClick = function (event) {
@@ -1257,7 +1271,22 @@ var codeBelt;
                 } else {
                     alert('Nope, you did not get it.');
                 }
+                this._userSequence = [];
+                this._deviceView.disable();
+                this.layoutChildren();
             }
+        };
+
+        SimonApp.prototype.onClick = function (event) {
+            this._centerDisplay.$element.text('');
+
+            this._memoryOrder = [0, 2, 3, 1, 2, 2];
+            this._userSequence = [];
+
+            this._timer = new Timer(1500, this._memoryOrder.length);
+            this._timer.addEventListener(TimerEvent.TIMER, this.onTimer, this);
+            this._timer.addEventListener(TimerEvent.TIMER_COMPLETE, this.onTimerComplete, this);
+            this._timer.start();
         };
         return SimonApp;
     })(Stage);

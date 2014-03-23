@@ -5,7 +5,6 @@
 
 module codeBelt
 {
-
     import DOMElement = StructureTS.DOMElement;
     import BaseEvent = StructureTS.BaseEvent;
 
@@ -63,15 +62,6 @@ module codeBelt
         /**
          * YUIDoc_comment
          *
-         * @property _centerDisplay
-         * @type {DOMElement}
-         * @private
-         */
-        private _centerDisplay:DOMElement = null;
-
-        /**
-         * YUIDoc_comment
-         *
          * @property _buttonList
          * @type {DeviceButton[]}
          * @private
@@ -110,9 +100,6 @@ module codeBelt
             this._buttonList.push(this._greenButton)
             this._buttonList.push(this._blueButton);
             this._buttonList.push(this._yellowButton);
-
-            this._centerDisplay = new DOMElement('div', {'class': 'display'});
-            this.addChild(this._centerDisplay);
         }
 
         /**
@@ -135,7 +122,6 @@ module codeBelt
             this._blueButton.enable();
             this._yellowButton.enable();
 
-            this._centerDisplay.$element.addEventListener('click', this.onClick, this);
 
             super.enable();
         }
@@ -152,8 +138,6 @@ module codeBelt
             this._blueButton.disable();
             this._yellowButton.disable();
 
-            this._centerDisplay.$element.removeEventListener('click', this.onClick, this);
-
             super.disable();
         }
 
@@ -164,6 +148,17 @@ module codeBelt
         {
             super.destroy();
 
+            this._redButton.destroy();
+            this._redButton = null;
+
+            this._greenButton.destroy();
+            this._greenButton = null;
+
+            this._blueButton.destroy();
+            this._blueButton = null;
+
+            this._yellowButton.destroy();
+            this._yellowButton = null;
         }
 
         /**
@@ -172,19 +167,9 @@ module codeBelt
          * @method animateButton
          * @public
          */
-        public animateButton(buttonIdex:number):void {
-            var deviceButton:DeviceButton = this._buttonList[buttonIdex];
+        public animateButton(buttonIndex:number):void {
+            var deviceButton:DeviceButton = this._buttonList[buttonIndex];
             deviceButton.animate();
-        }
-
-        /**
-         * YUIDoc_comment
-         *
-         * @method onClick
-         * @private
-         */
-        private onClick(event:JQueryEventObject):void {
-            console.log("event", event);
         }
 
     }

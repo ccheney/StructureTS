@@ -64,6 +64,7 @@ module codeBelt
             if (this.isEnabled === true) return;
 
             this.$element.addEventListener('click', this.onClick, this);
+            this.$element.css('cursor','pointer');
 
             super.enable();
         }
@@ -76,6 +77,7 @@ module codeBelt
             if (this.isEnabled === false) return;
 
             this.$element.removeEventListener('click', this.onClick, this);
+            this.$element.css('cursor','none');
 
             super.disable();
         }
@@ -110,6 +112,7 @@ module codeBelt
          * @private
          */
         private onClick(event:JQueryEventObject):void {
+            this.animate();
             this.dispatchEvent(new BaseEvent(BaseEvent.CHANGE, true, true, this.indexId));
         }
 

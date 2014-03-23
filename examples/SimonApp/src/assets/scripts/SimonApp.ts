@@ -63,6 +63,15 @@ module codeBelt
          */
         private _userSequence:number[] = null;
 
+        /**
+         * YUIDoc_comment
+         *
+         * @property _centerDisplay
+         * @type {DOMElement}
+         * @private
+         */
+        private _centerDisplay:DOMElement = null;
+
         constructor()
         {
             super();
@@ -80,13 +89,8 @@ module codeBelt
             this._deviceView = new DeviceView($device);
             this.addChild(this._deviceView);
 
-            this._memoryOrder = [0,2,3,1,2,2];
-            this._userSequence = [];
-
-            this._timer =  new Timer(1500, this._memoryOrder.length);
-            this._timer.addEventListener(TimerEvent.TIMER, this.onTimer, this);
-            this._timer.addEventListener(TimerEvent.TIMER_COMPLETE, this.onTimerComplete, this);
-            this._timer.start();
+            this._centerDisplay = new DOMElement('div', {'class': 'display'});
+            this._deviceView.addChild(this._centerDisplay);
         }
 
         /**
@@ -94,7 +98,11 @@ module codeBelt
          */
         public layoutChildren():void
         {
-
+            if (this._deviceView.isEnabled === true) {
+                this._centerDisplay.$element.text('Go!');
+            } else {
+                this._centerDisplay.$element.text('Start!');
+            }
         }
 
         /**
@@ -104,8 +112,9 @@ module codeBelt
         {
             if (this.isEnabled === true) return;
 
-            this._deviceView.enable();
             this._deviceView.addEventListener(BaseEvent.CHANGE, this.onColorButtonClick, this);
+
+            this._centerDisplay.$element.addEventListener('click', this.onClick, this);
 
             super.enable();
         }
@@ -117,7 +126,9 @@ module codeBelt
         {
             if (this.isEnabled === false) return;
 
-            this._deviceView.disable();
+            this._deviceView.removeEventListener(BaseEvent.CHANGE, this.onColorButtonClick, this);
+
+            this._centerDisplay.$element.removeEventListener('click', this.onClick, this);
 
             super.disable();
         }
@@ -128,8 +139,6 @@ module codeBelt
         public destroy():void
         {
             super.destroy();
-
-
         }
 
         /**
@@ -139,11 +148,10 @@ module codeBelt
          * @private
          */
         private onTimer(event:TimerEvent):void {
-            console.log("event", event);
+            var timer:Timer = event.target;
 
-            var currentIndex:number = (this._memoryOrder.length - 1) - event.target.getCurrentCount();
+            var currentIndex:number = (this._memoryOrder.length - 1) - timer.getCurrentCount();
             var showItem:number = this._memoryOrder[currentIndex];
-            console.log("this._memoryOrder", this._memoryOrder.toString(), currentIndex);
             this._deviceView.animateButton(showItem);
         }
 
@@ -154,7 +162,10 @@ module codeBelt
          * @private
          */
         private onTimerComplete(event:TimerEvent):void {
+            this._timer.destroy();
 
+            this._deviceView.enable();
+            this.layoutChildren();
         }
 
         /**
@@ -175,8 +186,30 @@ module codeBelt
                 } else {
                     alert('Nope, you did not get it.');
                 }
+                this._userSequence = [];
+                this._deviceView.disable();
+                this.layoutChildren();
             }
         }
+
+        /**
+         * YUIDoc_comment
+         *
+         * @method onClick
+         * @private
+         */
+        private onClick(event:JQueryEventObject):void {
+            this._centerDisplay.$element.text('');
+
+            this._memoryOrder = [0,2,3,1,2,2];
+            this._userSequence = [];
+
+            this._timer =  new Timer(1500, this._memoryOrder.length);
+            this._timer.addEventListener(TimerEvent.TIMER, this.onTimer, this);
+            this._timer.addEventListener(TimerEvent.TIMER_COMPLETE, this.onTimerComplete, this);
+            this._timer.start();
+        }
+
 
     }
 }
