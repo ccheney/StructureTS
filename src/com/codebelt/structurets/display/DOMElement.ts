@@ -66,16 +66,6 @@ module StructureTS
         public $element:JQuery = null;
 
         /**
-         * If a jQuery object was passed into the constructor this will be set as true and
-         * this class will not try add the view to the DOM because it should already exists.
-         *
-         * @property _isReference
-         * @type {boolean}
-         * @private
-         */
-        private _isReference:boolean = false;
-
-        /**
          * Holds onto the value passed into the constructor.
          *
          * @property _type
@@ -195,7 +185,6 @@ module StructureTS
             if (type instanceof jQuery)
             {
                 this.$element = type;
-                this._isReference = true;
             }
             else if (type)
             {
@@ -311,12 +300,8 @@ module StructureTS
 
             // Adds the cid to the DOM element so we can know what what Class object the element belongs too.
             child.$element.attr('data-cid', child.cid);
-
-            if (this._isReference === false)
-            {
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-                this.$element.append(child.$element);
-            }
+            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+            this.$element.append(child.$element);
 
             child.layoutChildren();
 
