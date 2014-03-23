@@ -1428,7 +1428,7 @@
             "module": "StructureTS",
             "namespace": "",
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 96,
+            "line": 86,
             "description": "The {{#crossLink \"DOMElement\"}}{{/crossLink}} class is the base view class for all objects that can be placed into the HTML DOM.",
             "submodule": "view",
             "params": [
@@ -10656,18 +10656,6 @@
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
             "line": 68,
-            "description": "If a jQuery object was passed into the constructor this will be set as true and\nthis class will not try add the view to the DOM because it should already exists.",
-            "itemtype": "property",
-            "name": "_isReference",
-            "type": "{boolean}",
-            "access": "private",
-            "tagname": "",
-            "class": "DOMElement",
-            "module": "StructureTS"
-        },
-        {
-            "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 78,
             "description": "Holds onto the value passed into the constructor.",
             "itemtype": "property",
             "name": "_type",
@@ -10678,7 +10666,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 87,
+            "line": 77,
             "description": "Holds onto the value passed into the constructor.",
             "itemtype": "property",
             "name": "_params",
@@ -10689,7 +10677,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 207,
+            "line": 196,
             "description": "The createChildren function is intended to provide a consistent place for the creation and adding\nof children to the view. It will automatically be called the first time that the view is added\nto another DisplayObjectContainer. It is critical that all subclasses call the super for this function in\ntheir overridden methods.\n\nThis method gets called only once when the child view is added to another view. If the child view is removed and added to another view the createChildren method will not be called again.",
             "example": [
                 "\n       // By default your view class will be a div element:\n       public createChildren():void {\n           super.createChildren();\n\n           this._childInstance = new DOMElement();\n           this.addChild(this._childInstance);\n       }\n\n       // But lets say you wanted the view to be a ul element your would do:\n       public createChildren():void {\n           super.createChildren('ul');\n       }\n\n       // Then you could nest other elements inside this base view/element.\n       public createChildren():void {\n           super.createChildren('ul', {id: 'myId', 'class': 'myClass anotherClass'});\n\n           var li:DOMElement = new DOMElement('li', {text: 'Robert is cool'});\n           this.addChild(li);\n       }\n\n       // So that's cool but what if you wanted a block of html to be your view. Let's say you had the below inline Handlebar template in your html file.\n       <script id=\"todoTemplate\" type=\"text/template\">\n           <div id=\"htmlTemplatel\" class=\"js-todo\">\n               <div id=\"input-wrapper\">\n                   <input type=\"text\" class=\"list-input\" placeholder=\"{{ data.text }}\">\n                   <input type=\"button\" class=\"list-item-submit\" value=\"Add\">\n               </div>\n           </div>\n       </script>\n\n       // You would just pass in the id of the template which in this case is \"#todoTemplate\". There is a second optional argument where you can pass data for the Handlebar template to use.\n       public createChildren():void {\n           super.createChildren('#todoTemplate', { data: this.viewData });\n\n       }\n\n       // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.\n       public createChildren():void {\n           super.createChildren('templates/home/HtmlTemplate.hbs');\n\n       }"
@@ -10719,7 +10707,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 288,
+            "line": 277,
             "overridden": "DisplayObjectContainer.addChild",
             "example": [
                 "\n       container.addChild(domElementInstance);"
@@ -10744,7 +10732,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 326,
+            "line": 311,
             "description": "Gets called when the child object is added to the DOM.\nThe method will call {{#crossLink \"DOMElement/layoutChildren:method\"}}{{/crossLink}} and dispatch the BaseEvent.ADDED event.",
             "itemtype": "method",
             "name": "onDomAdded",
@@ -10763,7 +10751,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 342,
+            "line": 327,
             "overridden": "DisplayObjectContainer.addChildAt",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10771,7 +10759,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 380,
+            "line": 365,
             "overridden": "DisplayObjectContainer.swapChildren",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10779,7 +10767,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 394,
+            "line": 379,
             "overridden": "DisplayObjectContainer.getChildAt",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -10787,7 +10775,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 402,
+            "line": 387,
             "description": "Returns a DOMElement object with the first found DOM element by the passed in selector.",
             "itemtype": "method",
             "name": "getChild",
@@ -10810,7 +10798,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 441,
+            "line": 426,
             "description": "Gets all the HTML elements children of this object.",
             "itemtype": "method",
             "name": "getChildren",
@@ -10834,7 +10822,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 480,
+            "line": 465,
             "description": "Removes the specified child object instance from the child list of the parent object instance.\nThe parent property of the removed child is set to null , and the object is garbage collected if no other references\nto the child exist. The index positions of any objects above the child in the parent object are decreased by 1.",
             "itemtype": "method",
             "name": "removeChild",
@@ -10859,7 +10847,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 502,
+            "line": 487,
             "description": "Removes all child object instances from the child list of the parent object instance.\nThe parent property of the removed children is set to null , and the objects are garbage collected if no other\nreferences to the children exist.",
             "itemtype": "method",
             "name": "removeChildren",
@@ -10877,7 +10865,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 522,
+            "line": 507,
             "description": "Indicates the alpha transparency value of the object specified. Valid values are 0 (fully transparent)\nto 1 (fully opaque). The default value is 1. Display objects with alpha set to 0 are active, even though\nthey are invisible.",
             "itemtype": "method",
             "name": "alpha",
@@ -10898,7 +10886,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 538,
+            "line": 523,
             "itemtype": "method",
             "name": "visible",
             "params": [
@@ -10917,7 +10905,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/display/DOMElement.ts",
-            "line": 563,
+            "line": 548,
             "overridden": "DisplayObjectContainer.destroy",
             "class": "DOMElement",
             "module": "StructureTS",
@@ -12411,6 +12399,22 @@
             "access": "public",
             "tagname": "",
             "chainable": 1,
+            "class": "EventDispatcher",
+            "module": "StructureTS",
+            "submodule": "event"
+        },
+        {
+            "file": "src/com/codebelt/structurets/event/EventDispatcher.ts",
+            "line": 286,
+            "description": "Meant for debugging purposes; returns an array dictionary of the different event listener(s) on the object.",
+            "itemtype": "method",
+            "name": "getEventListeners",
+            "return": {
+                "description": "Returns an array dictionary of the different event listener(s) on the object.",
+                "type": "Array"
+            },
+            "access": "public",
+            "tagname": "",
             "class": "EventDispatcher",
             "module": "StructureTS",
             "submodule": "event"
@@ -15766,7 +15770,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/util/Timer.ts",
-            "line": 239,
+            "line": 240,
             "overridden": "EventDispatcher.destroy",
             "class": "Timer",
             "module": "StructureTS",
@@ -16578,67 +16582,67 @@
         },
         {
             "message": "unknown tag: version",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:96"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:86"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:207"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:196"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:288"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:277"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:288"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:277"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:342"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:327"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:380"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:365"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:394"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:379"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:402"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:387"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:441"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:426"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:480"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:465"
         },
         {
             "message": "unknown tag: override",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:480"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:465"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:502"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:487"
         },
         {
             "message": "unknown tag: override",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:502"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:487"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:522"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:507"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:538"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:523"
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:563"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:548"
         },
         {
             "message": "unknown tag: overridden",
@@ -17290,7 +17294,7 @@
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/util/Timer.ts:239"
+            "line": " src/com/codebelt/structurets/util/Timer.ts:240"
         },
         {
             "message": "unknown tag: overridden",
@@ -19518,19 +19522,19 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:342"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:327"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:380"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:365"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:394"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:379"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/display/DOMElement.ts:563"
+            "line": " src/com/codebelt/structurets/display/DOMElement.ts:548"
         },
         {
             "message": "Missing item type",
@@ -19766,7 +19770,7 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/util/Timer.ts:239"
+            "line": " src/com/codebelt/structurets/util/Timer.ts:240"
         },
         {
             "message": "Missing item type",

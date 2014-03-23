@@ -528,6 +528,13 @@ This example illustrates how to instantiation your main or root class.</p>
                             </li>
                         
                             <li class="index-item method public inherited">
+                                <a href="#method_getEventListeners">getEventListeners</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public inherited">
                                 <a href="#method_getQualifiedClassName">getQualifiedClassName</a>
 
                                 
@@ -595,13 +602,6 @@ This example illustrates how to instantiation your main or root class.</p>
                         
                             <li class="index-item property inherited">
                                 <a href="#property_$element">$element</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private inherited">
-                                <a href="#property__isReference">_isReference</a>
 
                                 
                                 
@@ -781,7 +781,7 @@ This example illustrates how to instantiation your main or root class.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l288"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:288</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l277"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:277</code></a>
         
         </p>
 
@@ -1196,7 +1196,7 @@ The child is added at the index position specified. An index of 0 represents the
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l522"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:522</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l507"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:507</code></a>
         
         </p>
 
@@ -1534,7 +1534,7 @@ they are invisible.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l207"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:207</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l196"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:196</code></a>
         
         </p>
 
@@ -2050,7 +2050,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l402"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:402</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l387"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:387</code></a>
         
         </p>
 
@@ -2467,7 +2467,7 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l441"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:441</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l426"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:426</code></a>
         
         </p>
 
@@ -2520,6 +2520,78 @@ extend the <a href="../classes/BaseEvent.html" class="crosslink">BaseEvent</a>.<
                     
                     <p>Returns a list of DOMElement&#39;s. It will grab all children HTML DOM elements of this object and will create a DOMElement for each DOM child.
 If the &#39;data-cid&#39; property exists is on an HTML element a DOMElement will not be create for that element because it will be assumed it already exists as a DOMElement.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getEventListeners" class="method item public inherited">
+    <h3 class="name"><code>getEventListeners</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_getEventListeners">EventDispatcher</a>:
+            
+        
+        
+        <a href="../files/src_com_codebelt_structurets_event_EventDispatcher.ts.html#l286"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;EventDispatcher.ts:286</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Meant for debugging purposes; returns an array dictionary of the different event listener(s) on the object.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Array</span>:
+                    
+                    <p>Returns an array dictionary of the different event listener(s) on the object.</p>
 
                 
             </div>
@@ -2726,7 +2798,7 @@ If the &#39;data-cid&#39; property exists is on an HTML element a DOMElement wil
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l326"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:326</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l311"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:311</code></a>
         
         </p>
 
@@ -2823,7 +2895,7 @@ The method will call DOMElement/layoutChildren:method and dispatch the BaseEvent
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l480"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:480</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l465"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:465</code></a>
         
         </p>
 
@@ -2926,7 +2998,7 @@ to the child exist. The index positions of any objects above the child in the pa
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l502"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:502</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l487"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:487</code></a>
         
         </p>
 
@@ -3287,7 +3359,7 @@ references to the children exist.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l538"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:538</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l523"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:523</code></a>
         
         </p>
 
@@ -3388,51 +3460,6 @@ references to the children exist.</p>
 
     
         <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property__isReference" class="property item private inherited">
-    <h3 class="name"><code>_isReference</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/DOMElement.html#property__isReference">DOMElement</a>:
-            
-        
-        
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:68</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>If a jQuery object was passed into the constructor this will be set as true and
-this class will not try add the view to the DOM because it should already exists.</p>
-
-    </div>
-
     
 
     
@@ -3552,7 +3579,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l87"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:87</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:77</code></a>
         
         </p>
 
@@ -3596,7 +3623,7 @@ For example, if visible=false for an InteractiveObject instance, it cannot be cl
             
         
         
-        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l78"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:78</code></a>
+        <a href="../files/src_com_codebelt_structurets_display_DOMElement.ts.html#l68"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;display&#x2F;DOMElement.ts:68</code></a>
         
         </p>
 
