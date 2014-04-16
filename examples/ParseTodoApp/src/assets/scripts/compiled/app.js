@@ -227,6 +227,10 @@ var StructureTS;
             this.cancelable = cancelable;
             this.data = data;
         }
+        BaseEvent.prototype.clone = function () {
+            return new BaseEvent(this.type, this.bubble, this.cancelable, this.data);
+        };
+
         BaseEvent.prototype.stopPropagation = function () {
             this.isPropagationStopped = true;
         };
@@ -320,14 +324,14 @@ var StructureTS;
             var i = list.length;
             while (--i > -1) {
                 listener = list[i];
-                if (listener.c === callback && listener.s === scope) {
+                if (listener.callback === callback && listener.scope === scope) {
                     list.splice(i, 1);
-                } else if (index === 0 && listener.pr < priority) {
+                } else if (index === 0 && listener.priority < priority) {
                     index = i + 1;
                 }
             }
 
-            list.splice(index, 0, { c: callback, s: scope, pr: priority });
+            list.splice(index, 0, { callback: callback, scope: scope, priority: priority });
 
             return this;
         };
@@ -337,7 +341,7 @@ var StructureTS;
             if (list) {
                 var i = list.length;
                 while (--i > -1) {
-                    if (list[i].c === callback && list[i].s === scope) {
+                    if (list[i].callback === callback && list[i].scope === scope) {
                         list.splice(i, 1);
                         break;
                     }
@@ -364,7 +368,7 @@ var StructureTS;
                     }
 
                     listener = list[i];
-                    listener.c.call(listener.s, event);
+                    listener.callback.call(listener.scope, event);
                 }
             }
 
@@ -402,6 +406,10 @@ var StructureTS;
 
             this.isEnabled = false;
             return this;
+        };
+
+        EventDispatcher.prototype.getEventListeners = function () {
+            return this._listeners;
         };
         return EventDispatcher;
     })(StructureTS.BaseObject);
@@ -686,7 +694,7 @@ var StructureTS;
             this._isReference = false;
             this._type = null;
             this._params = null;
-
+            console.log("type", type instanceof jQuery, this.getQualifiedClassName());
             if (type instanceof jQuery) {
                 this.$element = type;
                 this._isReference = true;
@@ -694,6 +702,7 @@ var StructureTS;
                 this._type = type;
                 this._params = params;
             }
+            console.log("type", type instanceof jQuery, this.getQualifiedClassName(), this._isReference);
         }
         DOMElement.prototype.createChildren = function (type, params) {
             if (typeof type === "undefined") { type = 'div'; }
@@ -722,17 +731,17 @@ var StructureTS;
                 throw new Error('[' + this.getQualifiedClassName() + '] You cannot use the addChild method if the parent object is not added to the DOM.');
             }
 
+            console.log("child.isCreated", child.isCreated, child.isCreated === false);
             if (child.isCreated === false) {
                 child.createChildren();
                 child.isCreated = true;
             }
 
             child.$element.attr('data-cid', child.cid);
+            console.log("this._isReference", this._isReference, child.getQualifiedClassName());
 
-            if (this._isReference === false) {
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-                this.$element.append(child.$element);
-            }
+            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+            this.$element.append(child.$element);
 
             child.layoutChildren();
 
@@ -984,6 +993,9 @@ var StructureTS;
             _super.call(this, type, bubbles, cancelable, data);
             this.CLASS_NAME = 'RequestEvent';
         }
+        RequestEvent.prototype.clone = function () {
+            return new RequestEvent(this.type, this.bubble, this.cancelable, this.data);
+        };
         RequestEvent.SUCCESS = "RequestEvent.success";
 
         RequestEvent.ERROR = "RequestEvent.error";
@@ -1066,7 +1078,6 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var EventDispatcher = StructureTS.EventDispatcher;
-    var RequestEvent = StructureTS.RequestEvent;
 
     var AppModel = (function (_super) {
         __extends(AppModel, _super);
@@ -1173,8 +1184,6 @@ var codeBelt;
     var DOMElement = StructureTS.DOMElement;
     var Stage = StructureTS.Stage;
     var MouseEvents = StructureTS.MouseEvents;
-    var EventBroker = StructureTS.EventBroker;
-    var TemplateFactory = StructureTS.TemplateFactory;
 
     var TodoApp = (function (_super) {
         __extends(TodoApp, _super);

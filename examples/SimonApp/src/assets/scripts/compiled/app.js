@@ -691,11 +691,13 @@ var StructureTS;
             this._isVisible = true;
             this.element = null;
             this.$element = null;
+            this._isReference = false;
             this._type = null;
             this._params = null;
 
             if (type instanceof jQuery) {
                 this.$element = type;
+                this._isReference = true;
             } else if (type) {
                 this._type = type;
                 this._params = params;
@@ -734,8 +736,11 @@ var StructureTS;
             }
 
             child.$element.attr('data-cid', child.cid);
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
+
+            if (child._isReference === false) {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
 
             child.layoutChildren();
 
@@ -1090,7 +1095,6 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
-    var BaseEvent = StructureTS.BaseEvent;
 
     var DeviceView = (function (_super) {
         __extends(DeviceView, _super);

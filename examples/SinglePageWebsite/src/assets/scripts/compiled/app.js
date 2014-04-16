@@ -295,10 +295,7 @@ var StructureTS;
     StructureTS.BaseEvent = BaseEvent;
 })(StructureTS || (StructureTS = {}));
 var __extends = this.__extends || function (d, b) {
-    for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-        console.log("p", p);
-    }
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
@@ -327,14 +324,14 @@ var StructureTS;
             var i = list.length;
             while (--i > -1) {
                 listener = list[i];
-                if (listener.c === callback && listener.s === scope) {
+                if (listener.callback === callback && listener.scope === scope) {
                     list.splice(i, 1);
-                } else if (index === 0 && listener.pr < priority) {
+                } else if (index === 0 && listener.priority < priority) {
                     index = i + 1;
                 }
             }
 
-            list.splice(index, 0, { c: callback, s: scope, pr: priority });
+            list.splice(index, 0, { callback: callback, scope: scope, priority: priority });
 
             return this;
         };
@@ -344,7 +341,7 @@ var StructureTS;
             if (list) {
                 var i = list.length;
                 while (--i > -1) {
-                    if (list[i].c === callback && list[i].s === scope) {
+                    if (list[i].callback === callback && list[i].scope === scope) {
                         list.splice(i, 1);
                         break;
                     }
@@ -371,7 +368,7 @@ var StructureTS;
                     }
 
                     listener = list[i];
-                    listener.c.call(listener.s, event);
+                    listener.callback.call(listener.scope, event);
                 }
             }
 
@@ -409,6 +406,10 @@ var StructureTS;
 
             this.isEnabled = false;
             return this;
+        };
+
+        EventDispatcher.prototype.getEventListeners = function () {
+            return this._listeners;
         };
         return EventDispatcher;
     })(StructureTS.BaseObject);
@@ -736,7 +737,7 @@ var StructureTS;
 
             child.$element.attr('data-cid', child.cid);
 
-            if (this._isReference === false) {
+            if (child._isReference === false) {
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 this.$element.append(child.$element);
             }
@@ -2165,7 +2166,7 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
-    var RouterController = StructureTS.RouterController;
+
     var RouterEvent = StructureTS.RouterEvent;
 
     var HeaderView = (function (_super) {
