@@ -742,6 +742,7 @@ var StructureTS;
                 this.$element.append(child.$element);
             }
 
+            child.enable();
             child.layoutChildren();
 
             return this;
@@ -768,9 +769,11 @@ var StructureTS;
 
                 child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-                child.layoutChildren();
 
                 _super.prototype.addChildAt.call(this, child, index);
+
+                child.enable();
+                child.layoutChildren();
 
                 jQuery(children.get(index)).before(child.$element);
             }
@@ -1067,7 +1070,7 @@ var codeBelt;
                 return;
 
             this.$element.removeEventListener('click', this.onClick, this);
-            this.$element.css('cursor', 'none');
+            this.$element.css('cursor', 'default');
 
             _super.prototype.disable.call(this);
         };
@@ -1095,6 +1098,7 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
+    var BaseEvent = StructureTS.BaseEvent;
 
     var DeviceView = (function (_super) {
         __extends(DeviceView, _super);
@@ -1112,24 +1116,25 @@ var codeBelt;
 
             this._buttonList = [];
 
-            this._blueButton = new codeBelt.DeviceButton('blue', 2);
+            this._blueButton = new codeBelt.DeviceButton('blue', 0);
             this.addChild(this._blueButton);
+            this._buttonList.push(this._blueButton);
 
-            this._redButton = new codeBelt.DeviceButton('red', 0);
+            this._redButton = new codeBelt.DeviceButton('red', 1);
             this.addChildAt(this._redButton, 0);
+            this._buttonList.push(this._redButton);
 
-            this._greenButton = new codeBelt.DeviceButton('green', 1);
+            this._greenButton = new codeBelt.DeviceButton('green', 2);
             this.addChild(this._greenButton);
+            this._buttonList.push(this._greenButton);
 
             this._yellowButton = new codeBelt.DeviceButton('yellow', 3);
             this.addChild(this._yellowButton);
+            this._buttonList.push(this._yellowButton);
 
             this.swapChildren(this._blueButton, this._greenButton);
 
-            this._buttonList.push(this._redButton);
-            this._buttonList.push(this._greenButton);
-            this._buttonList.push(this._blueButton);
-            this._buttonList.push(this._yellowButton);
+            console.log("le", this.numChildren);
         };
 
         DeviceView.prototype.layoutChildren = function () {
@@ -1209,6 +1214,7 @@ var codeBelt;
 
             this._deviceView = new codeBelt.DeviceView($device);
             this.addChild(this._deviceView);
+            this._deviceView.disable();
 
             this._centerDisplay = new DOMElement('div', { 'class': 'display' });
             this._deviceView.addChild(this._centerDisplay);
@@ -1296,4 +1302,3 @@ var codeBelt;
     })(Stage);
     codeBelt.SimonApp = SimonApp;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map
