@@ -372,11 +372,11 @@ module StructureTS
                 // Adds the child at a specific index but also will remove the child from another parent object if one exists.
                 super.addChildAt(child, index);
 
-                child.enable();
-                child.layoutChildren();
-
                 // Adds the child before the a child already in the DOM.
                 jQuery(children.get(index)).before(child.$element);
+
+                child.enable();
+                child.layoutChildren();
             }
 
             return this;
