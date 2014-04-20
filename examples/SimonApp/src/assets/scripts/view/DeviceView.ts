@@ -98,10 +98,7 @@ module codeBelt
             this.addChild(this._yellowButton);
             this._buttonList.push(this._yellowButton);
 
-
             this.swapChildren(this._blueButton, this._greenButton);
-
-            console.log("le", this.numChildren);
         }
 
         /**

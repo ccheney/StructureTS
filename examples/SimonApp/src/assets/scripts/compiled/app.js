@@ -772,10 +772,10 @@ var StructureTS;
 
                 _super.prototype.addChildAt.call(this, child, index);
 
+                jQuery(children.get(index)).before(child.$element);
+
                 child.enable();
                 child.layoutChildren();
-
-                jQuery(children.get(index)).before(child.$element);
             }
 
             return this;
@@ -1133,8 +1133,6 @@ var codeBelt;
             this._buttonList.push(this._yellowButton);
 
             this.swapChildren(this._blueButton, this._greenButton);
-
-            console.log("le", this.numChildren);
         };
 
         DeviceView.prototype.layoutChildren = function () {
