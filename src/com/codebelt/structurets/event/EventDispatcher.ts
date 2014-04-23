@@ -184,10 +184,8 @@ module StructureTS
             if (event.target == null)
             {
                 event.target = this;
+                event.currentTarget = this;
             }
-
-            // Assign the current object that is currently processing the event (i.e. bubbling at) in the display list hierarchy.
-            event.currentTarget = this;
 
             // Get the list of event listener(s) by the associated type value.
             var list = this._listeners[event.type];
@@ -216,6 +214,9 @@ module StructureTS
                 {
                     return this;
                 }
+
+                // Assign the current object that is currently processing the event (i.e. bubbling at) in the display list hierarchy.
+                event.currentTarget = this;
 
                 // Pass the event to the parent (event bubbling).
                 this.parent.dispatchEvent(event);
