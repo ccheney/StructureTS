@@ -81,5 +81,13 @@ module StructureTS
             super(type, bubbles, cancelable, data);
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():TransitionManagerEvent
+        {
+            return new TransitionManagerEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
     }
 }

@@ -102,5 +102,13 @@ module StructureTS
             super(type, bubbles, cancelable, data);
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():CarouselEvent
+        {
+            return new CarouselEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
     }
 }

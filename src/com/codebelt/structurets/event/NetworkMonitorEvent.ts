@@ -102,5 +102,13 @@ module StructureTS
             this.connected = connected;
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():NetworkMonitorEvent
+        {
+            return new NetworkMonitorEvent(this.type, this.bubble, this.cancelable, this.status, this.connected, this.data);
+        }
+
     }
 }

@@ -73,7 +73,7 @@ module StructureTS
         }
 
         /**
-         * @overridden RequestEvent.clone
+         * @overridden BaseEvent.clone
          */
         public clone():RequestEvent
         {

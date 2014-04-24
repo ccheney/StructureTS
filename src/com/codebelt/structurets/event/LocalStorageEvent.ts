@@ -34,6 +34,15 @@ module StructureTS
         public CLASS_NAME:string = 'LocalStorageEvent';
 
         /**
+         * YUIDoc_comment
+         *
+         * @property _nativeEvent
+         * @type {any}
+         * @private
+         */
+        private _nativeEvent:any = null;
+
+        /**
          * The storage event is fired on a Document's Window object when a storage area changes.
          *
          * @event STORAGE
@@ -102,6 +111,16 @@ module StructureTS
                 this.newValue = nativeEvent.newValue;
                 this.url = nativeEvent.url;
             }
+
+            this._nativeEvent = nativeEvent;
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():LocalStorageEvent
+        {
+            return new LocalStorageEvent(this.type, this.bubble, this.cancelable, this._nativeEvent);
         }
 
     }
