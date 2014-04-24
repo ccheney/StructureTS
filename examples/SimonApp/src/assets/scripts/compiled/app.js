@@ -206,13 +206,21 @@ var StructureTS;
     })();
     StructureTS.BaseObject = BaseObject;
 })(StructureTS || (StructureTS = {}));
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 var StructureTS;
 (function (StructureTS) {
-    var BaseEvent = (function () {
+    var BaseEvent = (function (_super) {
+        __extends(BaseEvent, _super);
         function BaseEvent(type, bubbles, cancelable, data) {
             if (typeof bubbles === "undefined") { bubbles = false; }
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
+            _super.call(this);
             this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
@@ -222,6 +230,7 @@ var StructureTS;
             this.cancelable = false;
             this.isPropagationStopped = false;
             this.isImmediatePropagationStopped = false;
+
             this.type = type;
             this.bubble = bubbles;
             this.cancelable = cancelable;
@@ -291,15 +300,9 @@ var StructureTS;
 
         BaseEvent.RESIZE = 'BaseEvent.resize';
         return BaseEvent;
-    })();
+    })(StructureTS.BaseObject);
     StructureTS.BaseEvent = BaseEvent;
 })(StructureTS || (StructureTS = {}));
-var __extends = this.__extends || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
-};
 var StructureTS;
 (function (StructureTS) {
     var EventDispatcher = (function (_super) {
@@ -354,9 +357,8 @@ var StructureTS;
         EventDispatcher.prototype.dispatchEvent = function (event) {
             if (event.target == null) {
                 event.target = this;
+                event.currentTarget = this;
             }
-
-            event.currentTarget = this;
 
             var list = this._listeners[event.type];
             if (list) {
@@ -376,6 +378,12 @@ var StructureTS;
                 if (event.cancelable && event.isPropagationStopped) {
                     return this;
                 }
+
+                var previousTarget = event.target;
+                event = event.clone();
+                event.target = previousTarget;
+
+                event.currentTarget = this;
 
                 this.parent.dispatchEvent(event);
             }
