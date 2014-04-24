@@ -85,5 +85,13 @@ module StructureTS
             this.silent = silent;
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():RouterEvent
+        {
+            return new RouterEvent(this.type, this.bubble, this.cancelable, this.url, this.silent, this.data);
+        }
+
     }
 }

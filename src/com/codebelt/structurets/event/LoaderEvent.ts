@@ -81,5 +81,13 @@ module StructureTS
             super(type, bubbles, cancelable, data);
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():LoaderEvent
+        {
+            return new LoaderEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
     }
 }

@@ -72,5 +72,13 @@ module StructureTS
             super(type, bubbles, cancelable, data);
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():TimerEvent
+        {
+            return new TimerEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
     }
 }

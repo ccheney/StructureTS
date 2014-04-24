@@ -57,5 +57,13 @@ module StructureTS
             super(type, bubbles, cancelable, tweenObject);
         }
 
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():TweenEvent
+        {
+            return new TweenEvent(this.type, this.bubble, this.cancelable, this.data);
+        }
+
     }
 }

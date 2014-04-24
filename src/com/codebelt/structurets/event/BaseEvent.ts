@@ -349,6 +349,7 @@ module StructureTS
          * For many events, such as the events represented by the Event class constants, this basic information is sufficient. Other events, however, may require more
          * detailed information.</p>
          * @class BaseEvent
+         * @extends BaseObject
          * @example
          // Example: how to create a custom event by extending BaseEvent.
          class CountryEvent extends BaseEvent {
