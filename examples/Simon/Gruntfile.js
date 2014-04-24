@@ -169,8 +169,8 @@ module.exports = function(grunt) {
                 dest: '<%= DEVELOPMENT_PATH %>' + 'assets/scripts/compiled/app.js',
                 options: {
                     target: 'es3', //or es5
-                    base_path: '',
-                    sourcemap: true,
+                    basePath: '',
+                    sourceMap: true,
                     declaration: false,
                     nolib: false,
                     comments: false

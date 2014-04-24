@@ -247,7 +247,7 @@ module StructureTS
             // If properties is not an array then make it an array object.
             arg = (arg instanceof Array) ? arg : [arg];
 
-            var foundItems:IValueObject[] = [];
+            var foundItems:any[] = [];
             var len = arg.length;
             var prop:any;
             for (var i:number = 0; i < len; i++)

@@ -39,8 +39,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>SinglePageWebsite/dev/scripts/_compiled/app.js',
                 options: {
                     target: 'es3', //or es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>ParseTodoApp/prod/scripts/todoApp.js',
                 options: {
                     target: 'es3', //or es3
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -59,8 +59,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>WindowFilm/prod/scripts/typescript.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -69,8 +69,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>PhotoGalleryApp/prod/scripts/photoGalleryApp.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -79,8 +79,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>CanvasBannerAd/assets/scripts/deploy/bannerAd.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -89,8 +89,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>EventBubbling/scripts/eventBubblingApp.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -99,8 +99,8 @@ module.exports = function(grunt) {
                 dest: '<%= EXAMPLE_PATH %>EventListener/scripts/eventListenerApp.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },
@@ -109,8 +109,8 @@ module.exports = function(grunt) {
                 dest: '<%= TEST_PATH %>spec/Test.spec.js',
                 options: {
                     target: 'es3', // Options: es3, es5
-                    base_path: '',
-                    sourcemap: false,
+                    basePath: '',
+                    sourceMap: false,
                     declaration: false
                 }
             },

@@ -82,24 +82,23 @@ module codeBelt
 
             this._buttonList = [];
 
-            this._blueButton = new DeviceButton('blue', 2);
+            this._blueButton = new DeviceButton('blue', 0);
             this.addChild(this._blueButton);
+            this._buttonList.push(this._blueButton);
 
-            this._redButton = new DeviceButton('red', 0);
+            this._redButton = new DeviceButton('red', 1);
             this.addChildAt(this._redButton, 0);
+            this._buttonList.push(this._redButton);
 
-            this._greenButton = new DeviceButton('green', 1);
+            this._greenButton = new DeviceButton('green', 2);
             this.addChild(this._greenButton);
+            this._buttonList.push(this._greenButton);
 
             this._yellowButton = new DeviceButton('yellow', 3);
             this.addChild(this._yellowButton);
+            this._buttonList.push(this._yellowButton);
 
             this.swapChildren(this._blueButton, this._greenButton);
-
-            this._buttonList.push(this._redButton);
-            this._buttonList.push(this._greenButton)
-            this._buttonList.push(this._blueButton);
-            this._buttonList.push(this._yellowButton);
         }
 
         /**
@@ -121,7 +120,6 @@ module codeBelt
             this._greenButton.enable();
             this._blueButton.enable();
             this._yellowButton.enable();
-
 
             super.enable();
         }

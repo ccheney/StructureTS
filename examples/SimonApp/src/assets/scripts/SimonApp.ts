@@ -88,6 +88,7 @@ module codeBelt
 
             this._deviceView = new DeviceView($device);
             this.addChild(this._deviceView);
+            this._deviceView.disable();
 
             this._centerDisplay = new DOMElement('div', {'class': 'display'});
             this._deviceView.addChild(this._centerDisplay);

@@ -77,7 +77,7 @@ module codeBelt
             if (this.isEnabled === false) return;
 
             this.$element.removeEventListener('click', this.onClick, this);
-            this.$element.css('cursor','none');
+            this.$element.css('cursor','default');
 
             super.disable();
         }

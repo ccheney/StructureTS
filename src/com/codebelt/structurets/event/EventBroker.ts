@@ -114,6 +114,9 @@ module StructureTS
          */
         public static dispatchEvent(event:BaseEvent):void
         {
+            event.target = EventBroker;
+            event.currentTarget = EventBroker;
+
             EventBroker._eventDispatcher.dispatchEvent(event);
         }
 

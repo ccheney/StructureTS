@@ -108,13 +108,21 @@ var StructureTS;
     })();
     StructureTS.BaseObject = BaseObject;
 })(StructureTS || (StructureTS = {}));
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 var StructureTS;
 (function (StructureTS) {
-    var BaseEvent = (function () {
+    var BaseEvent = (function (_super) {
+        __extends(BaseEvent, _super);
         function BaseEvent(type, bubbles, cancelable, data) {
             if (typeof bubbles === "undefined") { bubbles = false; }
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
+            _super.call(this);
             this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
@@ -124,11 +132,16 @@ var StructureTS;
             this.cancelable = false;
             this.isPropagationStopped = false;
             this.isImmediatePropagationStopped = false;
+
             this.type = type;
             this.bubble = bubbles;
             this.cancelable = cancelable;
             this.data = data;
         }
+        BaseEvent.prototype.clone = function () {
+            return new BaseEvent(this.type, this.bubble, this.cancelable, this.data);
+        };
+
         BaseEvent.prototype.stopPropagation = function () {
             this.isPropagationStopped = true;
         };
@@ -189,15 +202,9 @@ var StructureTS;
 
         BaseEvent.RESIZE = 'BaseEvent.resize';
         return BaseEvent;
-    })();
+    })(StructureTS.BaseObject);
     StructureTS.BaseEvent = BaseEvent;
 })(StructureTS || (StructureTS = {}));
-var __extends = this.__extends || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
-};
 var StructureTS;
 (function (StructureTS) {
     var EventDispatcher = (function (_super) {
@@ -222,14 +229,14 @@ var StructureTS;
             var i = list.length;
             while (--i > -1) {
                 listener = list[i];
-                if (listener.c === callback && listener.s === scope) {
+                if (listener.callback === callback && listener.scope === scope) {
                     list.splice(i, 1);
-                } else if (index === 0 && listener.pr < priority) {
+                } else if (index === 0 && listener.priority < priority) {
                     index = i + 1;
                 }
             }
 
-            list.splice(index, 0, { c: callback, s: scope, pr: priority });
+            list.splice(index, 0, { callback: callback, scope: scope, priority: priority });
 
             return this;
         };
@@ -239,7 +246,7 @@ var StructureTS;
             if (list) {
                 var i = list.length;
                 while (--i > -1) {
-                    if (list[i].c === callback && list[i].s === scope) {
+                    if (list[i].callback === callback && list[i].scope === scope) {
                         list.splice(i, 1);
                         break;
                     }
@@ -252,9 +259,8 @@ var StructureTS;
         EventDispatcher.prototype.dispatchEvent = function (event) {
             if (event.target == null) {
                 event.target = this;
+                event.currentTarget = this;
             }
-
-            event.currentTarget = this;
 
             var list = this._listeners[event.type];
             if (list) {
@@ -266,7 +272,7 @@ var StructureTS;
                     }
 
                     listener = list[i];
-                    listener.c.call(listener.s, event);
+                    listener.callback.call(listener.scope, event);
                 }
             }
 
@@ -274,6 +280,12 @@ var StructureTS;
                 if (event.cancelable && event.isPropagationStopped) {
                     return this;
                 }
+
+                var previousTarget = event.target;
+                event = event.clone();
+                event.target = previousTarget;
+
+                event.currentTarget = this;
 
                 this.parent.dispatchEvent(event);
             }
@@ -304,6 +316,10 @@ var StructureTS;
 
             this.isEnabled = false;
             return this;
+        };
+
+        EventDispatcher.prototype.getEventListeners = function () {
+            return this._listeners;
         };
         return EventDispatcher;
     })(StructureTS.BaseObject);
@@ -853,11 +869,12 @@ var StructureTS;
 
             child.$element.attr('data-cid', child.cid);
 
-            if (this._isReference === false) {
+            if (child._isReference === false) {
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 this.$element.append(child.$element);
             }
 
+            child.enable();
             child.layoutChildren();
 
             return this;
@@ -884,11 +901,13 @@ var StructureTS;
 
                 child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-                child.layoutChildren();
 
                 _super.prototype.addChildAt.call(this, child, index);
 
                 jQuery(children.get(index)).before(child.$element);
+
+                child.enable();
+                child.layoutChildren();
             }
 
             return this;
@@ -1450,4 +1469,3 @@ var codeBelt;
     })(Canvas);
     codeBelt.BannerAd = BannerAd;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map

@@ -206,13 +206,21 @@ var StructureTS;
     })();
     StructureTS.BaseObject = BaseObject;
 })(StructureTS || (StructureTS = {}));
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 var StructureTS;
 (function (StructureTS) {
-    var BaseEvent = (function () {
+    var BaseEvent = (function (_super) {
+        __extends(BaseEvent, _super);
         function BaseEvent(type, bubbles, cancelable, data) {
             if (typeof bubbles === "undefined") { bubbles = false; }
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
+            _super.call(this);
             this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
@@ -222,6 +230,7 @@ var StructureTS;
             this.cancelable = false;
             this.isPropagationStopped = false;
             this.isImmediatePropagationStopped = false;
+
             this.type = type;
             this.bubble = bubbles;
             this.cancelable = cancelable;
@@ -291,15 +300,9 @@ var StructureTS;
 
         BaseEvent.RESIZE = 'BaseEvent.resize';
         return BaseEvent;
-    })();
+    })(StructureTS.BaseObject);
     StructureTS.BaseEvent = BaseEvent;
 })(StructureTS || (StructureTS = {}));
-var __extends = this.__extends || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
-};
 var StructureTS;
 (function (StructureTS) {
     var EventDispatcher = (function (_super) {
@@ -354,9 +357,8 @@ var StructureTS;
         EventDispatcher.prototype.dispatchEvent = function (event) {
             if (event.target == null) {
                 event.target = this;
+                event.currentTarget = this;
             }
-
-            event.currentTarget = this;
 
             var list = this._listeners[event.type];
             if (list) {
@@ -376,6 +378,12 @@ var StructureTS;
                 if (event.cancelable && event.isPropagationStopped) {
                     return this;
                 }
+
+                var previousTarget = event.target;
+                event = event.clone();
+                event.target = previousTarget;
+
+                event.currentTarget = this;
 
                 this.parent.dispatchEvent(event);
             }
@@ -691,11 +699,13 @@ var StructureTS;
             this._isVisible = true;
             this.element = null;
             this.$element = null;
+            this._isReference = false;
             this._type = null;
             this._params = null;
 
             if (type instanceof jQuery) {
                 this.$element = type;
+                this._isReference = true;
             } else if (type) {
                 this._type = type;
                 this._params = params;
@@ -734,9 +744,13 @@ var StructureTS;
             }
 
             child.$element.attr('data-cid', child.cid);
-            child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-            this.$element.append(child.$element);
 
+            if (child._isReference === false) {
+                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.$element.append(child.$element);
+            }
+
+            child.enable();
             child.layoutChildren();
 
             return this;
@@ -763,11 +777,13 @@ var StructureTS;
 
                 child.$element.attr('data-cid', child.cid);
                 child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
-                child.layoutChildren();
 
                 _super.prototype.addChildAt.call(this, child, index);
 
                 jQuery(children.get(index)).before(child.$element);
+
+                child.enable();
+                child.layoutChildren();
             }
 
             return this;
@@ -1062,7 +1078,7 @@ var codeBelt;
                 return;
 
             this.$element.removeEventListener('click', this.onClick, this);
-            this.$element.css('cursor', 'none');
+            this.$element.css('cursor', 'default');
 
             _super.prototype.disable.call(this);
         };
@@ -1108,24 +1124,23 @@ var codeBelt;
 
             this._buttonList = [];
 
-            this._blueButton = new codeBelt.DeviceButton('blue', 2);
+            this._blueButton = new codeBelt.DeviceButton('blue', 0);
             this.addChild(this._blueButton);
+            this._buttonList.push(this._blueButton);
 
-            this._redButton = new codeBelt.DeviceButton('red', 0);
+            this._redButton = new codeBelt.DeviceButton('red', 1);
             this.addChildAt(this._redButton, 0);
+            this._buttonList.push(this._redButton);
 
-            this._greenButton = new codeBelt.DeviceButton('green', 1);
+            this._greenButton = new codeBelt.DeviceButton('green', 2);
             this.addChild(this._greenButton);
+            this._buttonList.push(this._greenButton);
 
             this._yellowButton = new codeBelt.DeviceButton('yellow', 3);
             this.addChild(this._yellowButton);
+            this._buttonList.push(this._yellowButton);
 
             this.swapChildren(this._blueButton, this._greenButton);
-
-            this._buttonList.push(this._redButton);
-            this._buttonList.push(this._greenButton);
-            this._buttonList.push(this._blueButton);
-            this._buttonList.push(this._yellowButton);
         };
 
         DeviceView.prototype.layoutChildren = function () {
@@ -1205,6 +1220,7 @@ var codeBelt;
 
             this._deviceView = new codeBelt.DeviceView($device);
             this.addChild(this._deviceView);
+            this._deviceView.disable();
 
             this._centerDisplay = new DOMElement('div', { 'class': 'display' });
             this._deviceView.addChild(this._centerDisplay);
@@ -1292,4 +1308,3 @@ var codeBelt;
     })(Stage);
     codeBelt.SimonApp = SimonApp;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map

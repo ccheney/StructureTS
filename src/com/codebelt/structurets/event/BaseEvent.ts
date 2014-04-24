@@ -22,9 +22,11 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+///<reference path='../BaseObject.ts'/>
+
 module StructureTS
 {
-    export class BaseEvent
+    export class BaseEvent extends BaseObject
     {
         /**
          * @overridden BaseObject.CLASS_NAME
@@ -375,6 +377,8 @@ module StructureTS
          **/
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
+            super();
+
             this.type = type;
             this.bubble = bubbles;
             this.cancelable = cancelable;
@@ -388,9 +392,9 @@ module StructureTS
          * You do not normally call clone(); the EventDispatcher class calls it automatically when you redispatch
          * an event—that is, when you call dispatchEvent(event) from a handler that is handling event.
          *
-         * The new Event object includes all the properties of the original.
+         * The new BaseEvent object includes all the properties of the original.
          *
-         * When creating your own custom Event class, you must override the inherited Event.clone() method in order for it
+         * When creating your own custom Event class, you must override the inherited BaseEvent.clone() method in order for it
          * to duplicate the properties of your custom class. If you do not set all the properties that you add in your event
          * subclass, those properties will not have the correct values when listeners handle the redispatched event.
          *
