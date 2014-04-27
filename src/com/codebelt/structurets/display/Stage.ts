@@ -106,7 +106,11 @@ module StructureTS
                 this.layoutChildren();
             }
 
-            if (enabled)
+            if (enabled === false)
+            {
+                this.disable();
+            }
+            else
             {
                 this.enable();
             }
