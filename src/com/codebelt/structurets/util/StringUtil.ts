@@ -221,5 +221,29 @@ module StructureTS
             }
         }
 
+        /**
+         * Replaces each format item in a specified string with the text equivalent of a corresponding object's value.
+         * @example
+         *      StringUtil.format('Robert is {0}. Very {0} and {1}!', 'cool', 'smart');
+         *      // 'Robert is cool. Very cool and smart!'
+         *
+         * @method format
+         * @returns {string}
+         * @param str {string}
+         * @param ...rest {Array}
+         * @public
+         * @static
+         */
+        public static format(str:string, ...rest:any[]):string
+        {
+            var length = rest.length;
+            for (var i:number = 0; i < length; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
+        }
+
     }
 }

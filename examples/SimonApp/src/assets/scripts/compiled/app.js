@@ -913,7 +913,9 @@ var StructureTS;
                 this.layoutChildren();
             }
 
-            if (enabled) {
+            if (enabled === false) {
+                this.disable();
+            } else {
                 this.enable();
             }
 
@@ -934,6 +936,9 @@ var StructureTS;
             _super.call(this, type, bubbles, cancelable, data);
             this.CLASS_NAME = 'TimerEvent';
         }
+        TimerEvent.prototype.clone = function () {
+            return new TimerEvent(this.type, this.bubble, this.cancelable, this.data);
+        };
         TimerEvent.TIMER = 'TimerEvent.timer';
 
         TimerEvent.TIMER_COMPLETE = 'TimerEvent.timerComplete';
