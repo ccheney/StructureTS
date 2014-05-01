@@ -294,11 +294,6 @@ module StructureTS
     export class Collection extends EventDispatcher implements ICollection
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;Collection&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @property items
@@ -509,7 +504,7 @@ module StructureTS
             // If properties is not an array then make it an array object.
             arg = (arg instanceof Array) ? arg : [arg];
 
-            var foundItems:IValueObject[] = [];
+            var foundItems:any[] = [];
             var len = arg.length;
             var prop:any;
             for (var i:number = 0; i &lt; len; i++)

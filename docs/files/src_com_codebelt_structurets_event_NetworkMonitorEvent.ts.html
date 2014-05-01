@@ -291,11 +291,6 @@ module StructureTS
     export class NetworkMonitorEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;NetworkMonitorEvent&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @event STATUS
@@ -362,6 +357,14 @@ module StructureTS
 
             this.status = status;
             this.connected = connected;
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():NetworkMonitorEvent
+        {
+            return new NetworkMonitorEvent(this.type, this.bubble, this.cancelable, this.status, this.connected, this.data);
         }
 
     }

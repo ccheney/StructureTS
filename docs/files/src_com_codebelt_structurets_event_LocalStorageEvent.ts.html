@@ -291,9 +291,13 @@ module StructureTS
     export class LocalStorageEvent extends BaseEvent
     {
         /**
-         * @overridden ValueObject.CLASS_NAME
+         * YUIDoc_comment
+         *
+         * @property _nativeEvent
+         * @type {any}
+         * @private
          */
-        public CLASS_NAME:string = &#x27;LocalStorageEvent&#x27;;
+        private _nativeEvent:any = null;
 
         /**
          * The storage event is fired on a Document&#x27;s Window object when a storage area changes.
@@ -364,6 +368,16 @@ module StructureTS
                 this.newValue = nativeEvent.newValue;
                 this.url = nativeEvent.url;
             }
+
+            this._nativeEvent = nativeEvent;
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():LocalStorageEvent
+        {
+            return new LocalStorageEvent(this.type, this.bubble, this.cancelable, this._nativeEvent);
         }
 
     }

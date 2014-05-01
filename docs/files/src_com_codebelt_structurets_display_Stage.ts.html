@@ -291,11 +291,6 @@ module StructureTS
     export class Stage extends DOMElement
     {
         /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;Stage&#x27;;
-
-        /**
          * The {{#crossLink &quot;Stage&quot;}}{{/crossLink}} class should be extended by your main or root class.
          * @example
          This example illustrates how to setup your main or root class when extending the {{#crossLink &quot;Stage&quot;}}{{/crossLink}} class.
@@ -368,7 +363,11 @@ module StructureTS
                 this.layoutChildren();
             }
 
-            if (enabled)
+            if (enabled === false)
+            {
+                this.disable();
+            }
+            else
             {
                 this.enable();
             }

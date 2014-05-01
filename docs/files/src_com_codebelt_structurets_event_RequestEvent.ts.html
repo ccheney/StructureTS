@@ -291,11 +291,6 @@ module StructureTS
     export class RequestEvent extends BaseEvent
     {
         /**
-         * @overridden RequestEvent.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;RequestEvent&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @event SUCCESS
@@ -335,7 +330,7 @@ module StructureTS
         }
 
         /**
-         * @overridden RequestEvent.clone
+         * @overridden BaseEvent.clone
          */
         public clone():RequestEvent
         {

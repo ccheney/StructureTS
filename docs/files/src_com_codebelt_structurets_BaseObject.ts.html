@@ -298,16 +298,6 @@ module StructureTS
     export class BaseObject
     {
         /**
-         * The fully qualified class name of the object. Use {{#crossLink &quot;BaseObject/getQualifiedClassName:method&quot;}}{{/crossLink}} method to retrieve the class name of a StructureTS object.
-         *
-         * @property CLASS_NAME
-         * @type {string}
-         * @final
-         * @protected
-         */
-        public CLASS_NAME:string = &#x27;BaseObject&#x27;;
-
-        /**
          * The cid or client id is a unique identifier automatically assigned to most StructureTS objects upon instantiation.
          *
          * @property cid
@@ -343,7 +333,7 @@ module StructureTS
          */
         public getQualifiedClassName():string
         {
-            return this.CLASS_NAME;
+            return Util.getClassName(this);
         }
 
         /**

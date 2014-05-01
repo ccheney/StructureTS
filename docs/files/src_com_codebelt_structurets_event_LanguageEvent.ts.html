@@ -291,11 +291,6 @@ module StructureTS
     export class LanguageEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;LanguageEvent&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @event CONFIG_LOADED
@@ -341,6 +336,14 @@ module StructureTS
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
             super(type, bubbles, cancelable, data);
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():LanguageEvent
+        {
+            return new LanguageEvent(this.type, this.bubble, this.cancelable, this.data);
         }
 
     }

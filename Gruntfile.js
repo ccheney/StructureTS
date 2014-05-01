@@ -378,6 +378,7 @@ module.exports = function(grunt) {
     grunt.registerTask('listener', ['typescript:listener']);
     grunt.registerTask('gallery', ['typescript:gallery']);
     grunt.registerTask('test', ['typescript:test', 'jasmine']);
+    grunt.registerTask('docs', ['yuidoc']);
     grunt.registerTask('all', ['todo', 'canvas', 'bubble', 'listener', 'website']);
 
 };

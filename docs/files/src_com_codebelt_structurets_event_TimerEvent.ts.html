@@ -291,11 +291,6 @@ module StructureTS
     export class TimerEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;TimerEvent&#x27;;
-
-        /**
          * Dispatched whenever a Timer object reaches an interval specified according to the Timer.delay property.
          *
          * @event TIMER
@@ -332,6 +327,14 @@ module StructureTS
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
             super(type, bubbles, cancelable, data);
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():TimerEvent
+        {
+            return new TimerEvent(this.type, this.bubble, this.cancelable, this.data);
         }
 
     }

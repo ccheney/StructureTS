@@ -291,11 +291,6 @@ module StructureTS
     export class LoaderEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;LoaderEvent&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @event COMPLETE
@@ -341,6 +336,14 @@ module StructureTS
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
             super(type, bubbles, cancelable, data);
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():LoaderEvent
+        {
+            return new LoaderEvent(this.type, this.bubble, this.cancelable, this.data);
         }
 
     }

@@ -268,7 +268,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l117"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:117</code></a>
+            Defined in: <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l112"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:112</code></a>
         </div>
     
 
@@ -352,7 +352,7 @@
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l117"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:117</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l112"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:112</code></a>
         
         </p>
 
@@ -487,6 +487,20 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
                             </li>
                         
                             <li class="index-item method public inherited">
+                                <a href="#method_destroy">destroy</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public inherited">
+                                <a href="#method_getQualifiedClassName">getQualifiedClassName</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public inherited">
                                 <a href="#method_stopImmediatePropagation">stopImmediatePropagation</a>
 
                                 
@@ -519,6 +533,13 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
                         
                             <li class="index-item property inherited">
                                 <a href="#property_cancelable">cancelable</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public inherited">
+                                <a href="#property_cid">cid</a>
 
                                 
                                 
@@ -710,8 +731,8 @@ Note: With event-bubbling you can let one Event subsequently call on every ances
 <p>Returns a new BaseEvent object that is a copy of the original instance of the BaseEvent object.
 You do not normally call clone(); the EventDispatcher class calls it automatically when you redispatch
 an event—that is, when you call dispatchEvent(event) from a handler that is handling event.</p>
-<p>The new Event object includes all the properties of the original.</p>
-<p>When creating your own custom Event class, you must override the inherited Event.clone() method in order for it
+<p>The new BaseEvent object includes all the properties of the original.</p>
+<p>When creating your own custom Event class, you must override the inherited BaseEvent.clone() method in order for it
 to duplicate the properties of your custom class. If you do not set all the properties that you add in your event
 subclass, those properties will not have the correct values when listeners handle the redispatched event.</p>
 
@@ -733,6 +754,180 @@ subclass, those properties will not have the correct values when listeners handl
         </div>
     
 
+    
+</div>
+
+                
+                    <div id="method_destroy" class="method item public inherited">
+    <h3 class="name"><code>destroy</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseObject.html#method_destroy">BaseObject</a>:
+            
+        
+        
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l77"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:77</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The purpose of the destroy method is to make an object ready for garbage collection. This
+should be thought of as a one way function. Once destroy is called no further methods should be
+called on the object or properties accessed. It is the responsibility of those who implement this
+function to stop all running Timers, all running Sounds, remove any event
+listeners and take any other steps necessary to make an object eligible for garbage collection.
+It is critical that all subclasses call the super for this function in their overridden methods.</p>
+<p>Note: super.destroy(); should be called first before you clean up any other objects/items in the current classs.
+The <a href="../classes/BaseObject.html#method_destroy" class="crosslink">destroy</a> method also calls the
+<a href="../classes/EventDispatcher.html#method_disable" class="crosslink">disable</a> method on all classes that extend
+<a href="../classes/EventDispatcher.html" class="crosslink">EventDispatcher</a>.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Void</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>   public destroy():void {
+       super.destroy();
+
+       this._childInstance.destroy();
+       this._childInstance = null;
+   }</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_getQualifiedClassName" class="method item public inherited">
+    <h3 class="name"><code>getQualifiedClassName</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseObject.html#method_getQualifiedClassName">BaseObject</a>:
+            
+        
+        
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l63"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:63</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns the fully qualified class name of an object.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                    <p>Returns the class name.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>   instance.getQualifiedClassName();</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -878,7 +1073,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l307"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:307</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l304"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:304</code></a>
         
         </p>
 
@@ -922,7 +1117,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l316"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:316</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l313"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:313</code></a>
         
         </p>
 
@@ -938,6 +1133,52 @@ This method can be called in any phase of</p>
 
     
         <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_cid" class="property item public inherited">
+    <h3 class="name"><code>cid</code></h3>
+    <span class="type">Int</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/BaseObject.html#property_cid">BaseObject</a>:
+            
+        
+        
+        <a href="../files/src_com_codebelt_structurets_BaseObject.ts.html#l38"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;BaseObject.ts:38</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The cid or client id is a unique identifier automatically assigned to most StructureTS objects upon instantiation.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
     
 
     
@@ -966,7 +1207,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l288"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:288</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l285"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:285</code></a>
         
         </p>
 
@@ -1010,7 +1251,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l298"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:298</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l295"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:295</code></a>
         
         </p>
 
@@ -1054,7 +1295,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l334"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:334</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l331"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:331</code></a>
         
         </p>
 
@@ -1097,7 +1338,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l325"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:325</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l322"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:322</code></a>
         
         </p>
 
@@ -1140,7 +1381,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l278"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:278</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l275"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:275</code></a>
         
         </p>
 
@@ -1184,7 +1425,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l268"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:268</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_BaseEvent.ts.html#l265"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;BaseEvent.ts:265</code></a>
         
         </p>
 
@@ -1245,7 +1486,7 @@ This method can be called in any phase of</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l76"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:76</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l71"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:71</code></a>
         
         </p>
 
@@ -1294,7 +1535,7 @@ now cached locally.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l36"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:36</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l31"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:31</code></a>
         
         </p>
 
@@ -1344,7 +1585,7 @@ in the sequence.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l56"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:56</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l51"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:51</code></a>
         
         </p>
 
@@ -1393,7 +1634,7 @@ first time or because changes have been detected.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l106"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:106</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l101"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:101</code></a>
         
         </p>
 
@@ -1442,7 +1683,7 @@ always be the last event in the sequence.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l47"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:47</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l42"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:42</code></a>
         
         </p>
 
@@ -1490,7 +1731,7 @@ always be the last event in the sequence.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l96"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:96</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l91"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:91</code></a>
         
         </p>
 
@@ -1539,7 +1780,7 @@ The application cache is being deleted.</p>
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l66"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:66</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l61"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:61</code></a>
         
         </p>
 
@@ -1588,7 +1829,7 @@ every file that is downloaded (including the current page which is cached implic
             
         
         
-        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l86"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:86</code></a>
+        <a href="../files/src_com_codebelt_structurets_event_ApplicationCacheEvent.ts.html#l81"><code>src&#x2F;com&#x2F;codebelt&#x2F;structurets&#x2F;event&#x2F;ApplicationCacheEvent.ts:81</code></a>
         
         </p>
 

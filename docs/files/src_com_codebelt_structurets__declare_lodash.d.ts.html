@@ -310,18 +310,18 @@ declare module _ {
         /**
          * The semantic version number.
          **/
-            VERSION: string;
+        VERSION: string;
 
         /**
          * An object used to flag environments features.
          **/
-            support: Support;
+        support: Support;
 
         /**
          * By default, the template delimiters used by Lo-Dash are similar to those in embedded Ruby
          * (ERB). Change the following template settings to use alternative delimiters.
          **/
-            templateSettings: TemplateSettings;
+        templateSettings: TemplateSettings;
     }
 
     /**
@@ -332,27 +332,27 @@ declare module _ {
         /**
          * The &quot;escape&quot; delimiter.
          **/
-            escape?: RegExp;
+        escape?: RegExp;
 
         /**
          * The &quot;evaluate&quot; delimiter.
          **/
-            evaluate?: RegExp;
+        evaluate?: RegExp;
 
         /**
          * An object to import into the template as local variables.
          **/
-            imports?: Dictionary&lt;any&gt;;
+        imports?: Dictionary&lt;any&gt;;
 
         /**
          * The &quot;interpolate&quot; delimiter.
          **/
-            interpolate?: RegExp;
+        interpolate?: RegExp;
 
         /**
          * Used to reference the data object in the template text.
          **/
-            variable?: string;
+        variable?: string;
     }
 
     /**
@@ -362,40 +362,40 @@ declare module _ {
         /**
          * Detect if an arguments object’s [[Class]] is resolvable (all but Firefox &lt; 4, IE &lt; 9).
          **/
-            argsClass: boolean;
+        argsClass: boolean;
 
         /**
          * Detect if arguments objects are Object objects (all but Narwhal and Opera &lt; 10.5).
          **/
-            argsObject: boolean;
+        argsObject: boolean;
 
         /**
          * Detect if name or message properties of Error.prototype are enumerable by default.
          * (IE &lt; 9, Safari &lt; 5.1)
          **/
-            enumErrorProps: boolean;
+        enumErrorProps: boolean;
 
         /**
          * Detect if Function#bind exists and is inferred to be fast (all but V8).
          **/
-            fastBind: boolean;
+        fastBind: boolean;
 
         /**
          * Detect if functions can be decompiled by Function#toString (all but PS3 and older Opera
          * mobile browsers &amp; avoided in Windows 8 apps).
          **/
-            funcDecomp: boolean;
+        funcDecomp: boolean;
 
         /**
          * Detect if Function#name is supported (all but IE).
          **/
-            funcNames: boolean;
+        funcNames: boolean;
 
         /**
          * Detect if arguments object indexes are non-enumerable (Firefox &lt; 4, IE &lt; 9, PhantomJS,
          * Safari &lt; 5.1).
          **/
-            nonEnumArgs: boolean;
+        nonEnumArgs: boolean;
 
         /**
          * Detect if properties shadowing those on Object.prototype are non-enumerable.
@@ -403,12 +403,12 @@ declare module _ {
          * In IE &lt; 9 an objects own properties, shadowing non-enumerable ones, are made
          * non-enumerable as well (a.k.a the JScript [[DontEnum]] bug).
          **/
-            nonEnumShadows: boolean;
+        nonEnumShadows: boolean;
 
         /**
          * Detect if own properties are iterated after inherited properties (all but IE &lt; 9).
          **/
-            ownLast: boolean;
+        ownLast: boolean;
 
         /**
          * Detect if Array#shift and Array#splice augment array-like objects correctly.
@@ -419,7 +419,7 @@ declare module _ {
          * mode, while splice() is buggy regardless of mode in IE &lt; 9 and buggy in compatibility mode
          * in IE 9.
          **/
-            spliceObjects: boolean;
+        spliceObjects: boolean;
 
         /**
          * Detect lack of support for accessing string characters by index.
@@ -427,7 +427,7 @@ declare module _ {
          * IE &lt; 8 can&#x27;t access characters by index and IE 8 can only access characters by index on
          * string literals.
          **/
-            unindexedChars: boolean;
+        unindexedChars: boolean;
     }
 
     interface LoDashWrapperBase&lt;T, TWrapper&gt; {
@@ -583,7 +583,7 @@ declare module _ {
         /**
          * @see _.findIndex
          **/
-        findIndex&lt;W, T extends W&gt;(
+        findIndex&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereDictionary: W): number;
     }
@@ -666,7 +666,7 @@ declare module _ {
          * @see _.first
          * @param whereValue &quot;_.where&quot; style callback value
          **/
-        first&lt;W, T extends W&gt;(
+        first&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
 
@@ -700,7 +700,7 @@ declare module _ {
         /**
          * @see _.first
          **/
-        head&lt;W, T extends W&gt;(
+        head&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
 
@@ -734,7 +734,7 @@ declare module _ {
         /**
          * @see _.first
          **/
-        take&lt;W, T extends W&gt;(
+        take&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -769,12 +769,12 @@ declare module _ {
             callback: ListIterator&lt;any, T&gt;,
             thisArg?: any): T[];
 
-        flatten&lt;W, T extends W&gt;(
+        flatten&lt;W, T&gt;(
             array: List&lt;any&gt;,
             isShallow: boolean,
             whereValue: W): T[];
 
-        flatten&lt;W, T extends W&gt;(
+        flatten&lt;W, T&gt;(
             array: List&lt;any&gt;,
             whereValue: W): T[];
 
@@ -810,11 +810,11 @@ declare module _ {
         flatten&lt;Flat&gt;(
             pluckValue: string): LoDashArrayWrapper&lt;Flat&gt;;
 
-        flatten&lt;Flat, W extends Flat&gt;(
+        flatten&lt;Flat, W&gt;(
             isShallow: boolean,
             whereValue: W): LoDashArrayWrapper&lt;Flat&gt;;
 
-        flatten&lt;Flat, W extends Flat&gt;(
+        flatten&lt;Flat, W&gt;(
             whereValue: W): LoDashArrayWrapper&lt;Flat&gt;;
     }
 
@@ -900,7 +900,7 @@ declare module _ {
          * @see _.initial
          * @param whereValue _.where style callback
          **/
-        initial&lt;W, T extends W&gt;(
+        initial&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -962,7 +962,7 @@ declare module _ {
          * @see _.last
          * @param whereValue _.where style callback
          **/
-        last&lt;W, T extends W&gt;(
+        last&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -1110,7 +1110,7 @@ declare module _ {
         /**
          * @see _.rest
          **/
-        rest&lt;W, T extends W&gt;(
+        rest&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
 
@@ -1144,7 +1144,7 @@ declare module _ {
         /**
          * @see _.rest
          **/
-        drop&lt;W, T extends W&gt;(
+        drop&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
 
@@ -1178,7 +1178,7 @@ declare module _ {
         /**
          * @see _.rest
          **/
-        tail&lt;W, T extends W&gt;(
+        tail&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -1220,7 +1220,7 @@ declare module _ {
          * @see _.sortedIndex
          * @param pluckValue the _.where style callback
          **/
-        sortedIndex&lt;W, T extends W&gt;(
+        sortedIndex&lt;W, T&gt;(
             array: List&lt;T&gt;,
             value: T,
             whereValue: W): number;
@@ -1290,12 +1290,12 @@ declare module _ {
          * @see _.uniq
          * @param whereValue _.where style callback
          **/
-        uniq&lt;W, T extends W&gt;(
+        uniq&lt;W, T&gt;(
             array: List&lt;T&gt;,
             isSorted: boolean,
             whereValue: W): T[];
 
-        uniq&lt;W, T extends W&gt;(
+        uniq&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue: W): T[];
 
@@ -1335,11 +1335,11 @@ declare module _ {
          * @see _.uniq
          * @param whereValue _.where style callback
          **/
-        unique&lt;W, T extends W&gt;(
+        unique&lt;W, T&gt;(
             array: List&lt;T&gt;,
             whereValue?: W): T[];
 
-        unique&lt;W, T extends W&gt;(
+        unique&lt;W, T&gt;(
             array: List&lt;T&gt;,
             isSorted: boolean,
             whereValue?: W): T[];
@@ -1577,7 +1577,7 @@ declare module _ {
          * @see _.every
          * @param whereValue _.where style callback
          **/
-        every&lt;W, T extends W&gt;(
+        every&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): boolean;
 
@@ -1601,7 +1601,7 @@ declare module _ {
          * @see _.every
          * @param whereValue _.where style callback
          **/
-        all&lt;W, T extends W&gt;(
+        all&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): boolean;
     }
@@ -1640,7 +1640,7 @@ declare module _ {
          * @see _.filter
          * @param pluckValue _.pluck style callback
          **/
-        filter&lt;W, T extends W&gt;(
+        filter&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T[];
 
@@ -1664,7 +1664,7 @@ declare module _ {
          * @see _.filter
          * @param pluckValue _.pluck style callback
          **/
-        select&lt;W, T extends W&gt;(
+        select&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -1688,7 +1688,7 @@ declare module _ {
          * @see _.filter
          * @param pluckValue _.pluck style callback
          **/
-        filter&lt;W, T extends W&gt;(
+        filter&lt;W, T&gt;(
             whereValue: W): LoDashArrayWrapper&lt;T&gt;;
 
         /**
@@ -1709,7 +1709,7 @@ declare module _ {
          * @see _.filter
          * @param pluckValue _.pluck style callback
          **/
-        select&lt;W, T extends W&gt;(
+        select&lt;W, T&gt;(
             whereValue: W): LoDashArrayWrapper&lt;T&gt;;
     }
 
@@ -1739,7 +1739,7 @@ declare module _ {
          * @see _.find
          * @param _.pluck style callback
          **/
-        find&lt;W, T extends W&gt;(
+        find&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
 
@@ -1763,7 +1763,7 @@ declare module _ {
          * @see _.find
          * @param _.pluck style callback
          **/
-        detect&lt;W, T extends W&gt;(
+        detect&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
 
@@ -1787,7 +1787,7 @@ declare module _ {
          * @see _.find
          * @param _.pluck style callback
          **/
-        findWhere&lt;W, T extends W&gt;(
+        findWhere&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
 
@@ -1819,7 +1819,7 @@ declare module _ {
          * @see _.find
          * @param _.pluck style callback
          **/
-        findLast&lt;W, T extends W&gt;(
+        findLast&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
 
@@ -2018,12 +2018,12 @@ declare module _ {
          * @see _.groupBy
          * @param whereValue _.where style callback
          **/
-        groupBy&lt;W, T extends W&gt;(
+        groupBy&lt;W, T&gt;(
             collection: List&lt;T&gt;,
             whereValue: W): Dictionary&lt;T[]&gt;;
     }
 
-    interface LoDashArrayWrapper {
+    interface LoDashArrayWrapper&lt;T&gt; {
         /**
          * @see _.groupBy
          **/
@@ -2040,7 +2040,7 @@ declare module _ {
         /**
          * @see _.groupBy
          **/
-        groupBy&lt;W, T extends W&gt;(
+        groupBy&lt;W, T&gt;(
             whereValue: W): _.LoDashObjectWrapper&lt;Dictionary&lt;T[]&gt;&gt;;
     }
 
@@ -2079,7 +2079,7 @@ declare module _ {
          * @see _.indexBy
          * @param whereValue _.where style callback
          **/
-        indexBy&lt;W, T extends W&gt;(
+        indexBy&lt;W, T&gt;(
             collection: List&lt;T&gt;,
             whereValue: W): Dictionary&lt;T&gt;;
     }
@@ -2181,27 +2181,27 @@ declare module _ {
          **/
         map&lt;T, TResult&gt;(
             callback: ListIterator&lt;T, TResult&gt;,
-            thisArg?: any): LoDashArrayWrapper&lt;T&gt;;
+            thisArg?: any): LoDashArrayWrapper&lt;TResult&gt;;
 
         /**
          * @see _.map
          * @param pluckValue _.pluck style callback
          **/
         map&lt;T, TResult&gt;(
-            pluckValue: string): LoDashArrayWrapper&lt;T&gt;;
+            pluckValue: string): LoDashArrayWrapper&lt;TResult&gt;;
 
         /**
          * @see _.map
          **/
         collect&lt;T, TResult&gt;(
             callback: ListIterator&lt;T, TResult&gt;,
-            thisArg?: any): LoDashArrayWrapper&lt;T&gt;;
+            thisArg?: any): LoDashArrayWrapper&lt;TResult&gt;;
 
         /**
          * @see _.map
          **/
         collect&lt;T, TResult&gt;(
-            pluckValue: string): LoDashArrayWrapper&lt;T&gt;;
+            pluckValue: string): LoDashArrayWrapper&lt;TResult&gt;;
     }
 
     interface LoDashObjectWrapper&lt;T&gt; {
@@ -2210,14 +2210,14 @@ declare module _ {
          **/
         map&lt;T extends {}, TResult&gt;(
             callback: ObjectIterator&lt;T, TResult&gt;,
-            thisArg?: any): LoDashObjectWrapper&lt;T&gt;;
+            thisArg?: any): LoDashObjectWrapper&lt;TResult&gt;;
 
         /**
          * @see _.map
          **/
         collect&lt;T extends {}, TResult&gt;(
             callback: ObjectIterator&lt;T, TResult&gt;,
-            thisArg?: any): LoDashObjectWrapper&lt;T&gt;;
+            thisArg?: any): LoDashObjectWrapper&lt;TResult&gt;;
     }
 
     //_.max
@@ -2255,7 +2255,7 @@ declare module _ {
          * @see _.max
          * @param whereValue _.where style callback
          **/
-        max&lt;W, T extends W&gt;(
+        max&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
     }
@@ -2295,7 +2295,7 @@ declare module _ {
          * @see _.min
          * @param whereValue _.where style callback
          **/
-        min&lt;W, T extends W&gt;(
+        min&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T;
     }
@@ -2452,7 +2452,7 @@ declare module _ {
          * @see _.reject
          * @param whereValue _.where style callback
          **/
-        reject&lt;W, T extends W&gt;(
+        reject&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -2543,7 +2543,7 @@ declare module _ {
          * @see _.some
          * @param whereValue _.where style callback
          **/
-        some&lt;W, T extends W&gt;(
+        some&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): boolean;
 
@@ -2567,7 +2567,7 @@ declare module _ {
          * @see _.some
          * @param whereValue _.where style callback
          **/
-        any&lt;W, T extends W&gt;(
+        any&lt;W, T&gt;(
             collection: Collection&lt;T&gt;,
             whereValue: W): boolean;
     }
@@ -2607,7 +2607,7 @@ declare module _ {
          * @see _.sortBy
          * @param whereValue _.where style callback
          **/
-        sortBy&lt;W, T extends W&gt;(
+        sortBy&lt;W, T&gt;(
             collection: List&lt;T&gt;,
             whereValue: W): T[];
     }
@@ -2842,10 +2842,10 @@ declare module _ {
          * @param options.trailing Specify execution on the trailing edge of the timeout.
          * @return The new debounced function.
          **/
-        debounce(
-            func: Function,
+        debounce&lt;T extends Function&gt;(
+            func: T,
             wait: number,
-            options?: DebounceSettings): Function;
+            options?: DebounceSettings): T;
     }
 
     interface LoDashObjectWrapper&lt;T&gt; {
@@ -2861,17 +2861,17 @@ declare module _ {
         /**
          * Specify execution on the leading edge of the timeout.
          **/
-            leading?: boolean;
+        leading?: boolean;
 
         /**
          * The maximum time func is allowed to be delayed before it’s called.
          **/
-            maxWait?: number;
+        maxWait?: number;
 
         /**
          * Specify execution on the trailing edge of the timeout.
          **/
-            trailing?: boolean;
+        trailing?: boolean;
     }
 
     //_.defer
@@ -2932,9 +2932,9 @@ declare module _ {
          * @param resolver Hash function for storing the result of &#x60;fn&#x60;.
          * @return Returns the new memoizing function.
          **/
-        memoize(
-            func: Function,
-            resolver?: (n: any) =&gt; string): Function;
+        memoize&lt;T extends Function&gt;(
+            func: T,
+            resolver?: Function): T;
     }
 
     //_.once
@@ -2946,7 +2946,7 @@ declare module _ {
          * @param func Function to only execute once.
          * @return The new restricted function.
          **/
-        once(func: Function): Function;
+        once&lt;T extends Function&gt;(func: T): T;
     }
 
     //_.partial
@@ -2995,10 +2995,10 @@ declare module _ {
          * @param options.trailing Specify execution on the trailing edge of the timeout.
          * @return The new throttled function.
          **/
-        throttle(
-            func: any,
+        throttle&lt;T extends Function&gt;(
+            func: T,
             wait: number,
-            options?: ThrottleSettings): Function;
+            options?: ThrottleSettings): T;
     }
 
     interface ThrottleSettings {
@@ -3006,12 +3006,12 @@ declare module _ {
         /**
          * If you&#x27;d like to disable the leading-edge call, pass this as false.
          **/
-            leading?: boolean;
+        leading?: boolean;
 
         /**
          * If you&#x27;d like to disable the execution on the trailing-edge, pass false.
          **/
-            trailing?: boolean;
+        trailing?: boolean;
     }
 
     //_.wrap
@@ -3046,7 +3046,7 @@ declare module _ {
          * @param thisArg The this binding of callback.
          * @return The destination object.
          **/
-        assign&lt;P, T extends P, S1 extends P, Value, Result extends P&gt;(
+        assign&lt;P, T, S1, Value, Result&gt;(
             object: T,
             s1: S1,
             callback?: (objectValue: Value, sourceValue: Value) =&gt; Value,
@@ -3055,7 +3055,7 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        assign&lt;P, T extends P, S1 extends P, S2 extends P, Value, Result extends P&gt;(
+        assign&lt;P, T, S1, S2, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3065,7 +3065,7 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        assign&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, Value, Result extends P&gt;(
+        assign&lt;P, T, S1, S2, S3, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3076,7 +3076,7 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        assign&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, S4 extends P, Value, Result extends P&gt;(
+        assign&lt;P, T, S1, S2, S3, S4, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3088,7 +3088,7 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        extend&lt;P, T extends P, S1 extends P, S2 extends P, Value, Result extends P&gt;(
+        extend&lt;P, T, S1, Value, Result&gt;(
             object: T,
             s1: S1,
             callback?: (objectValue: Value, sourceValue: Value) =&gt; Value,
@@ -3097,7 +3097,7 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        extend&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, Value, Result extends P&gt;(
+        extend&lt;P, T, S1, S2, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3107,7 +3107,18 @@ declare module _ {
         /**
          * @see _.assign
          **/
-        extend&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, S4 extends P, Value, Result extends P&gt;(
+        extend&lt;P, T, S1, S2, S3, Value, Result&gt;(
+            object: T,
+            s1: S1,
+            s2: S2,
+            s3: S3,
+            callback?: (objectValue: Value, sourceValue: Value) =&gt; Value,
+            thisArg?: any): Result;
+
+        /**
+         * @see _.assign
+         **/
+        extend&lt;P, T, S1, S2, S3, S4, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3305,7 +3316,7 @@ declare module _ {
          * @see _.findKey
          * @param whereValue _.where style callback
          **/
-        findKey&lt;W extends Dictionary&lt;any&gt;, T extends W&gt;(
+        findKey&lt;W extends Dictionary&lt;any&gt;, T&gt;(
             object: T,
             whereValue: W): string;
     }
@@ -3336,7 +3347,7 @@ declare module _ {
          * @see _.findLastKey
          * @param whereValue _.where style callback
          **/
-        findLastKey&lt;W extends Dictionary&lt;any&gt;, T extends W&gt;(
+        findLastKey&lt;W extends Dictionary&lt;any&gt;, T&gt;(
             object: T,
             whereValue: W): string;
     }
@@ -3358,7 +3369,7 @@ declare module _ {
             thisArg?: any): Dictionary&lt;T&gt;;
     }
 
-    interface LoDashObjectWrapper {
+    interface LoDashObjectWrapper&lt;T&gt; {
         /**
          * @see _.forIn
          **/
@@ -3383,7 +3394,7 @@ declare module _ {
             thisArg?: any): Dictionary&lt;T&gt;;
     }
 
-    interface LoDashObjectWrapper {
+    interface LoDashObjectWrapper&lt;T&gt; {
         /**
          * @see _.forInRight
          **/
@@ -3409,7 +3420,7 @@ declare module _ {
             thisArg?: any): Dictionary&lt;T&gt;;
     }
 
-    interface LoDashObjectWrapper {
+    interface LoDashObjectWrapper&lt;T&gt; {
         /**
          * @see _.forOwn
          **/
@@ -3434,7 +3445,7 @@ declare module _ {
             thisArg?: any): Dictionary&lt;T&gt;;
     }
 
-    interface LoDashObjectWrapper {
+    interface LoDashObjectWrapper&lt;T&gt; {
         /**
          * @see _.forOwnRight
          **/
@@ -3459,7 +3470,7 @@ declare module _ {
         methods(object: any): string[];
     }
 
-    interface LoDashObjectWrapper {
+    interface LoDashObjectWrapper&lt;T&gt; {
         /**
          * @see _.functions
          **/
@@ -3562,6 +3573,11 @@ declare module _ {
          * @see _.isEmpty
          **/
         isEmpty(value: string): boolean;
+
+        /**
+         * @see _.isEmpty
+         **/
+        isEmpty(value: any): boolean;
     }
 
     //_.isEqual
@@ -3703,6 +3719,30 @@ declare module _ {
         keys(object: any): string[];
     }
 
+    //_.mapValues
+    interface LoDashStatic {
+        /**
+         * Creates an object with the same keys as object and values generated by running each own
+         * enumerable property of object through the callback. The callback is bound to thisArg and
+         * invoked with three arguments; (value, key, object).
+         *
+         * If a property name is provided for callback the created &quot;_.pluck&quot; style callback will return
+         * the property value of the given element.
+         *
+         * If an object is provided for callback the created &quot;_.where&quot; style callback will return true
+         * for elements that have the properties of the given object, else false.
+         *
+         * @param object The object to iterate over.
+         * @param callback The function called per iteration.
+         * @param thisArg &#x60;this&#x60; object in &#x60;iterator&#x60;, optional.
+         * @return Returns a new object with values of the results of each callback execution.
+         */
+        mapValues&lt;T, TResult&gt;(obj: Dictionary&lt;T&gt;, callback: ObjectIterator&lt;T, TResult&gt;, thisArg?: any): Dictionary&lt;TResult&gt;;
+        mapValues&lt;T&gt;(obj: Dictionary&lt;T&gt;, where: Dictionary&lt;T&gt;): Dictionary&lt;boolean&gt;;
+        mapValues&lt;T, TMapped&gt;(obj: T, pluck: string): TMapped;
+        mapValues&lt;T&gt;(obj: T, callback: ObjectIterator&lt;any, any&gt;, thisArg?: any): T;
+    }
+
     //_.merge
     interface LoDashStatic {
         /**
@@ -3718,7 +3758,7 @@ declare module _ {
          * @param thisArg The this binding of callback.
          * @return The destination object.
          **/
-        merge&lt;P, T extends P, S1 extends P, Value, Result extends P&gt;(
+        merge&lt;P, T, S1, Value, Result&gt;(
             object: T,
             s1: S1,
             callback?: (objectValue: Value, sourceValue: Value) =&gt; Value,
@@ -3727,7 +3767,7 @@ declare module _ {
         /**
          * @see _.merge
          **/
-        merge&lt;P, T extends P, S1 extends P, S2 extends P, Value, Result extends P&gt;(
+        merge&lt;P, T, S1, S2, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3737,7 +3777,7 @@ declare module _ {
         /**
          * @see _.merge
          **/
-        merge&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, Value, Result extends P&gt;(
+        merge&lt;P, T, S1, S2, S3, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3748,7 +3788,7 @@ declare module _ {
         /**
          * @see _.merge
          **/
-        merge&lt;P, T extends P, S1 extends P, S2 extends P, S3 extends P, S4 extends P, Value, Result extends P&gt;(
+        merge&lt;P, T, S1, S2, S3, S4, Value, Result&gt;(
             object: T,
             s1: S1,
             s2: S2,
@@ -3770,21 +3810,21 @@ declare module _ {
          * @param keys The properties to omit.
          * @return An object without the omitted properties.
          **/
-        omit&lt;Omitted, T extends Omitted&gt;(
+        omit&lt;Omitted, T&gt;(
             object: T,
             ...keys: string[]): Omitted;
 
         /**
          * @see _.omit
          **/
-        omit&lt;Omitted, T extends Omitted&gt;(
+        omit&lt;Omitted, T&gt;(
             object: T,
             keys: string[]): Omitted;
 
         /**
          * @see _.omit
          **/
-        omit&lt;Omitted, T extends Omitted&gt;(
+        omit&lt;Omitted, T&gt;(
             object: T,
             callback: ObjectIterator&lt;any, boolean&gt;,
             thisArg?: any): Omitted;
@@ -3813,21 +3853,21 @@ declare module _ {
          * @param keys Property names to pick
          * @return An object composed of the picked properties.
          **/
-        pick&lt;Picked, T extends Picked&gt;(
+        pick&lt;Picked, T&gt;(
             object: T,
             ...keys: string[]): Picked;
 
         /**
          * @see _.pick
          **/
-        pick&lt;Picked, T extends Picked&gt;(
+        pick&lt;Picked, T&gt;(
             object: T,
             keys: string[]): Picked;
 
         /**
          * @see _.pick
          **/
-        pick&lt;Picked, T extends Picked&gt;(
+        pick&lt;Picked, T&gt;(
             object: T,
             callback: ObjectIterator&lt;any, boolean&gt;,
             thisArg?: any): Picked;
@@ -4026,7 +4066,7 @@ declare module _ {
          **/
         times&lt;TResult&gt;(
             n: number,
-            callback: Function,
+            callback: (num: number) =&gt; TResult,
             context?: any): TResult[];
     }
 
@@ -4086,6 +4126,10 @@ declare module _ {
     interface Dictionary&lt;T&gt; extends Collection&lt;T&gt; {
         [index: string]: T;
     }
+}
+
+declare module &quot;lodash&quot; {
+export = _;
 }
 
     </pre>

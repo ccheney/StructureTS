@@ -289,11 +289,6 @@ module StructureTS
     export class StringUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = &#x27;StringUtil&#x27;;
-
-        /**
          * The StringUtil...
          *
          * @class StringUtil
@@ -481,6 +476,30 @@ module StructureTS
             {
                 return text.substr(0, length) + &quot;...&quot;;
             }
+        }
+
+        /**
+         * Replaces each format item in a specified string with the text equivalent of a corresponding object&#x27;s value.
+         * @example
+         *      StringUtil.format(&#x27;Robert is {0}. Very {0} and {1}!&#x27;, &#x27;cool&#x27;, &#x27;smart&#x27;);
+         *      // &#x27;Robert is cool. Very cool and smart!&#x27;
+         *
+         * @method format
+         * @returns {string}
+         * @param str {string}
+         * @param ...rest {Array}
+         * @public
+         * @static
+         */
+        public static format(str:string, ...rest:any[]):string
+        {
+            var length = rest.length;
+            for (var i:number = 0; i &lt; length; i++) {
+                var reg = new RegExp(&quot;\\{&quot; + i + &quot;\\}&quot;, &quot;gm&quot;);
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
         }
 
     }

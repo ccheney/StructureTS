@@ -291,11 +291,6 @@ module StructureTS
     export class EventBroker
     {
         /**
-         * @overridden EventDispatcher.CLASS_NAME
-         */
-        public static CLASS_NAME:string = &#x27;EventBroker&#x27;;
-
-        /**
          * A reference to the EventDispatcher object.
          *
          * @property _eventDispatcher
@@ -376,6 +371,9 @@ module StructureTS
          */
         public static dispatchEvent(event:BaseEvent):void
         {
+            event.target = EventBroker;
+            event.currentTarget = EventBroker;
+
             EventBroker._eventDispatcher.dispatchEvent(event);
         }
 

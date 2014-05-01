@@ -289,16 +289,6 @@ module StructureTS
     export class Util
     {
         /**
-         * The fully qualified class name of the object.
-         *
-         * @property CLASS_NAME
-         * @type {string}
-         * @final
-         * @protected
-         */
-        public static CLASS_NAME:string = &#x27;Util&#x27;;
-
-        /**
          * Keeps track of the count for the uniqueId method.
          *
          * @property _idCounter
@@ -489,6 +479,23 @@ module StructureTS
             strNum = (typeof strNum === &#x27;string&#x27;) ? strNum.toLowerCase() : strNum;
 
             return (strNum == &quot;1&quot; || strNum == &quot;true&quot;);
+        }
+
+        /**
+         * Returns the name of the class object passed in.
+         *
+         * @method getClassName
+         * @param classObject {Object}
+         * @returns {string} Returns the name of the class object passed in.
+         * @public
+         * @static
+         */
+        public static getClassName(classObject):string
+        {
+            var funcNameRegex = /function (.{1,})\(/;
+            var results = (funcNameRegex).exec((&lt;any&gt;classObject).constructor.toString());
+
+            return (results &amp;&amp; results.length &gt; 1) ? results[1] : &#x27;&#x27;;
         }
 
     }

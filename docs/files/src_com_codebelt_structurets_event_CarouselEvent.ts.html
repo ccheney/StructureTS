@@ -267,11 +267,6 @@ module StructureTS
     export class CarouselEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = &#x27;CarouselEvent&#x27;;
-
-        /**
          * YUIDoc_comment
          *
          * @event START
@@ -362,6 +357,14 @@ module StructureTS
         constructor(type:string, bubbles:boolean = false, cancelable:boolean = false, data:any = null)
         {
             super(type, bubbles, cancelable, data);
+        }
+
+        /**
+         * @overridden BaseEvent.clone
+         */
+        public clone():CarouselEvent
+        {
+            return new CarouselEvent(this.type, this.bubble, this.cancelable, this.data);
         }
 
     }
