@@ -348,8 +348,6 @@ module StructureTS
          * @example
          // Example: how to create a custom event by extending BaseEvent.
          class CountryEvent extends BaseEvent {
-           public CLASS_NAME:string = 'CountryEvent';
-
            public static CHANGE_COUNTRY:string = "CountryEvent.changeCountry";
 
            public countryName:string = null;

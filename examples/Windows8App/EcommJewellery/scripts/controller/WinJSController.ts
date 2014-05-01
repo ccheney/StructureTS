@@ -30,9 +30,6 @@ var Navigation = WinJS.Navigation;
  * @constructor
  **/
 class WinJSController extends BaseController {
-
-    public CLASS_NAME:string = 'WinJSController';
-
     private _timer:Timer = null;
     private _sonarTimer:Timer = null;
 
