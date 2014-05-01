@@ -181,8 +181,13 @@ var StructureTS;
 
             return (strNum == "1" || strNum == "true");
         };
-        Util.CLASS_NAME = 'Util';
 
+        Util.getClassName = function (classObject) {
+            var funcNameRegex = /function (.{1,})\(/;
+            var results = (funcNameRegex).exec(classObject.constructor.toString());
+
+            return (results && results.length > 1) ? results[1] : '';
+        };
         Util._idCounter = 0;
         return Util;
     })();
@@ -192,12 +197,11 @@ var StructureTS;
 (function (StructureTS) {
     var BaseObject = (function () {
         function BaseObject() {
-            this.CLASS_NAME = 'BaseObject';
             this.cid = null;
             this.cid = StructureTS.Util.uniqueId();
         }
         BaseObject.prototype.getQualifiedClassName = function () {
-            return this.CLASS_NAME;
+            return StructureTS.Util.getClassName(this);
         };
 
         BaseObject.prototype.destroy = function () {
@@ -221,7 +225,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
             this.currentTarget = null;
@@ -309,7 +312,6 @@ var StructureTS;
         __extends(EventDispatcher, _super);
         function EventDispatcher() {
             _super.call(this);
-            this.CLASS_NAME = 'EventDispatcher';
             this._listeners = null;
             this.parent = null;
             this.isEnabled = false;
@@ -429,7 +431,6 @@ var StructureTS;
         __extends(DisplayObjectContainer, _super);
         function DisplayObjectContainer() {
             _super.call(this);
-            this.CLASS_NAME = 'DisplayObjectContainer';
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
@@ -621,7 +622,20 @@ var StructureTS;
                 return text.substr(0, length) + "...";
             }
         };
-        StringUtil.CLASS_NAME = 'StringUtil';
+
+        StringUtil.format = function (str) {
+            var rest = [];
+            for (var _i = 0; _i < (arguments.length - 1); _i++) {
+                rest[_i] = arguments[_i + 1];
+            }
+            var length = rest.length;
+            for (var i = 0; i < length; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
+        };
         return StringUtil;
     })();
     StructureTS.StringUtil = StringUtil;
@@ -676,8 +690,6 @@ var StructureTS;
 
             return template;
         };
-        TemplateFactory.CLASS_NAME = 'TemplateFactory';
-
         TemplateFactory.UNDERSCORE = 'underscore';
         TemplateFactory.HANDLEBARS = 'handlebars';
 
@@ -695,7 +707,6 @@ var StructureTS;
             if (typeof type === "undefined") { type = null; }
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
-            this.CLASS_NAME = 'DOMElement';
             this._isVisible = true;
             this.element = null;
             this.$element = null;
@@ -900,7 +911,6 @@ var StructureTS;
         __extends(Stage, _super);
         function Stage() {
             _super.call(this);
-            this.CLASS_NAME = 'Stage';
         }
         Stage.prototype.appendTo = function (type, enabled) {
             if (typeof enabled === "undefined") { enabled = true; }
@@ -934,7 +944,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this, type, bubbles, cancelable, data);
-            this.CLASS_NAME = 'TimerEvent';
         }
         TimerEvent.prototype.clone = function () {
             return new TimerEvent(this.type, this.bubble, this.cancelable, this.data);
@@ -953,7 +962,6 @@ var StructureTS;
         function Timer(delay, repeatCount) {
             if (typeof repeatCount === "undefined") { repeatCount = 0; }
             _super.call(this);
-            this.CLASS_NAME = 'Timer';
             this._timer = null;
             this._currentCount = 0;
             this._delay = null;
@@ -1056,7 +1064,6 @@ var codeBelt;
         __extends(DeviceButton, _super);
         function DeviceButton(color, index) {
             _super.call(this, 'templates/DeviceButtonTemplate.hbs', { buttonColor: color });
-            this.CLASS_NAME = 'DeviceButton';
             this.indexId = null;
 
             this.indexId = index;
@@ -1111,13 +1118,11 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
-    var BaseEvent = StructureTS.BaseEvent;
 
     var DeviceView = (function (_super) {
         __extends(DeviceView, _super);
         function DeviceView($element) {
             _super.call(this, $element);
-            this.CLASS_NAME = 'DeviceView';
             this._redButton = null;
             this._greenButton = null;
             this._yellowButton = null;
@@ -1211,7 +1216,6 @@ var codeBelt;
         __extends(SimonApp, _super);
         function SimonApp() {
             _super.call(this);
-            this.CLASS_NAME = 'SimonApp';
             this._deviceView = null;
             this._timer = null;
             this._memoryOrder = null;
@@ -1313,3 +1317,4 @@ var codeBelt;
     })(Stage);
     codeBelt.SimonApp = SimonApp;
 })(codeBelt || (codeBelt = {}));
+//# sourceMappingURL=app.js.map

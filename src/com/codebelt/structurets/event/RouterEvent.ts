@@ -29,11 +29,6 @@ module StructureTS
     export class RouterEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'RouterEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event CHANGE

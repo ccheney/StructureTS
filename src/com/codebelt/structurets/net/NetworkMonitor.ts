@@ -6,9 +6,6 @@ module StructureTS
 {
     export class NetworkMonitor
     {
-
-        public static CLASS_NAME:string = 'NetworkMonitor';
-
         /**
          * A reference to the EventDispatcher object.
          *

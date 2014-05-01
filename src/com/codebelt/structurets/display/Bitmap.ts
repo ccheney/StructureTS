@@ -29,11 +29,6 @@ module StructureTS
 {
     export class Bitmap extends CanvasElement
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Bitmap';
-
         private _image:HTMLImageElement = null;
 
         public ready:boolean = false;

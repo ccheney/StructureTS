@@ -28,11 +28,6 @@ module StructureTS
 {
     export class Canvas extends CanvasElement
     {
-        /**
-         * @overridden CanvasElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Canvas';
-
         public element:any = null;
 
         /**

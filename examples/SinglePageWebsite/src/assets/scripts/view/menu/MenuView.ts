@@ -11,11 +11,6 @@ module codeBelt
      **/
     export class MenuView extends ContentView
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'MenuView';
-
         constructor()
         {
             super();

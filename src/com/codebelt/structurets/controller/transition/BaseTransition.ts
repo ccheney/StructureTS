@@ -34,11 +34,6 @@ module StructureTS
     export class BaseTransition extends EventDispatcher implements ITransition
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseTransition';
-
-        /**
          * Property of the TimelineMax object.
          *
          * @property transition

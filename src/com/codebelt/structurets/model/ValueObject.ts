@@ -31,11 +31,6 @@ module StructureTS
     export class ValueObject extends BaseObject implements IValueObject
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ValueObject';
-
-        /**
          * Value Object (VO) is a design pattern used to transfer data between software application subsystems.
          *
          * @class ValueObject

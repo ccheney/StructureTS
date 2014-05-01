@@ -9,11 +9,6 @@ module codeBelt
 
     export class CreateJSApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'CreateJSApp';
-
         private _gameView:GameView = null;
         public static ASSET_LOADER:createjs.LoadQueue = null;
 

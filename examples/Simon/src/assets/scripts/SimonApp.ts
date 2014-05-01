@@ -17,11 +17,6 @@ module codeBelt
     export class SimonApp extends Stage
     {
         /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'SimonApp';
-
-        /**
          * YUIDoc_comment
          *
          * @property _levels

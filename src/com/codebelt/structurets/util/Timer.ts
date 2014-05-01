@@ -29,12 +29,6 @@ module StructureTS
 {
     export class Timer extends EventDispatcher
     {
-
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Timer';
-
         /**
          * A reference to the setInterval object.
          *

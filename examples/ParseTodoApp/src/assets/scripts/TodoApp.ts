@@ -26,11 +26,6 @@ module codeBelt
      **/
     export class TodoApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TodoApp';
-
         private _appModel:AppModel = null;
 
         private _submitBtn:DOMElement = null;

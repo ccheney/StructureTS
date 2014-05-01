@@ -27,11 +27,6 @@ module StructureTS
     export class NumberUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'NumberUtil';
-
-        /**
          * The NumberUtil...
          *
          * @class NumberUtil

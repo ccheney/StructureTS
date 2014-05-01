@@ -11,11 +11,6 @@ module codeBelt
      **/
     export class AboutView extends ContentView
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'AboutView';
-
         constructor()
         {
             super();

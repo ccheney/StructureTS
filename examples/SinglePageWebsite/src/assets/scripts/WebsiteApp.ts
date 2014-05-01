@@ -8,11 +8,6 @@ module codeBelt
 
     export class WebsiteApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'WebsiteApp';
-
         private _rootView:RootView = null;
 
         constructor()

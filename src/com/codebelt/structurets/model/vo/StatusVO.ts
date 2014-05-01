@@ -6,11 +6,6 @@ module StructureTS
     export class StatusVO extends ValueObject
     {
         /**
-         * @overridden ValueObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'StatusVO';
-
-        /**
          * YUIDoc_comment
          *
          * @property ERROR

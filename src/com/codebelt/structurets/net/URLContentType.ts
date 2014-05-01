@@ -27,12 +27,6 @@ module StructureTS
     export class URLContentType
     {
 //http://www.freeformatter.com/mime-types-list.html
-
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'URLContentType';
-
         /**
          * The URLContentType...
          *

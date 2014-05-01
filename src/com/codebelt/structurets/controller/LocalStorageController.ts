@@ -31,11 +31,6 @@ module StructureTS
     export class LocalStorageController extends BaseController
     {
         /**
-         * @overridden EventDispatcher.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LocalStorageController';
-
-        /**
          * Current user namespace. The namespace is optional.
          *
          * @property _namespace

@@ -27,11 +27,6 @@ module StructureTS
     export class BrowserUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'BrowserUtil';
-
-        /**
          * The BrowserUtil...
          *
          * @class BrowserUtil

@@ -14,11 +14,6 @@ module codeBelt
 
     export class GameView extends DOMElement
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'GameView';
-
         private _canvasStage:createjs.Stage = null;
         private _onEnterFrameReference:any = null;
         private _gamePiecesList:createjs.DisplayObject[] = [];

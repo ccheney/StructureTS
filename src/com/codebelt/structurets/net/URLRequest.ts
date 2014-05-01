@@ -31,11 +31,6 @@ module StructureTS
     export class URLRequest extends BaseObject
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'URLRequest';
-
-        /**
          * The URL to be requested.
          *
          * @property url

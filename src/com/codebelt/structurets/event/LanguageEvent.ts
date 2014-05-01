@@ -29,11 +29,6 @@ module StructureTS
     export class LanguageEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LanguageEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event CONFIG_LOADED

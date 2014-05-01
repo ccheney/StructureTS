@@ -32,11 +32,6 @@ module StructureTS
     export class DOMElement extends DisplayObjectContainer
     {
         /**
-         * @overridden DisplayObjectContainer.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'DOMElement';
-
-        /**
          * Whether or not the display object is visible. Display objects that are not visible are disabled.
          * For example, if visible=false for an InteractiveObject instance, it cannot be clicked.
          *

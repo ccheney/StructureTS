@@ -32,11 +32,6 @@ module StructureTS
     export class TransitionCrossFade extends BaseTransition
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionCrossFade';
-
-        /**
          * YUIDoc_comment
          *
          * @class TransitionCrossFade

@@ -23,9 +23,6 @@ module codeBelt
      **/
     export class BannerAd extends Canvas
     {
-        /**
-         * @overridden Canvas.CLASS_NAME
-         */
         public CLASS_NAME:string = 'BannerAd';
 
         static BASE_PATH:string = "assets/media/images/";

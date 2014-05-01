@@ -18,11 +18,6 @@ module codeBelt
     export class DeviceButton extends DOMElement
     {
         /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'DeviceButton';
-
-        /**
          * YUIDoc_comment
          *
          * @property indexId

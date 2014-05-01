@@ -13,9 +13,6 @@ module codeBelt
      **/
     export class ListItemVO extends ValueObject
     {
-
-        public CLASS_NAME:string = 'ListItemVO';
-
         /**
          * @type {string}
          */

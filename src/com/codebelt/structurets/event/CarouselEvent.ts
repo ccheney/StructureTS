@@ -5,11 +5,6 @@ module StructureTS
     export class CarouselEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'CarouselEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event START

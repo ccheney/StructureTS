@@ -5,11 +5,6 @@ module StructureTS
     export class TweenEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TweenEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event COMPLETE

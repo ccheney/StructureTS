@@ -12,12 +12,6 @@ module codeBelt
      **/
     export class Level2 extends Level1
     {
-
-        /**
-         * @overridden Level1.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Level2';
-
         /**
          * YUIDoc_comment
          *

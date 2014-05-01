@@ -27,11 +27,6 @@ module StructureTS
     export class MerchantUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'MerchantUtil';
-
-        /**
          * A MerchantUtility class that has several static methods to assist in development.
          *
          * @class MerchantUtil

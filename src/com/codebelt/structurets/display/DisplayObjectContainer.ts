@@ -29,11 +29,6 @@ module StructureTS
     export class DisplayObjectContainer extends EventDispatcher
     {
         /**
-         * @overridden EventDispatcher.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'DisplayObjectContainer';
-
-        /**
          * The isCreated property is used to keep track if it is the first time this DisplayObjectContainer is created.
          *
          * @property isCreated

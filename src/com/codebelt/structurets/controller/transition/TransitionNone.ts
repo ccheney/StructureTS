@@ -32,11 +32,6 @@ module StructureTS
     export class TransitionNone extends BaseTransition
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionNone';
-
-        /**
          * YUIDoc_comment
          *
          * @class TransitionNone

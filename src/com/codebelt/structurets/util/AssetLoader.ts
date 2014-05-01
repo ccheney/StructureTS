@@ -30,11 +30,6 @@ module StructureTS
 {
     export class AssetLoader extends EventDispatcher
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'AssetLoader';
-
         private static _instance:AssetLoader;
         public _dataStores:IDataStore[] = [];
 

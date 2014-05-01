@@ -34,11 +34,6 @@ module StructureTS
 {
     export class LanguageModel extends EventDispatcher
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LanguageModel';
-
         private _request:BaseRequest = null;
         private _availableLanguagesDictionary:LanguageConfigVO[] = [];
         private _localStorageController:LocalStorageController = null;

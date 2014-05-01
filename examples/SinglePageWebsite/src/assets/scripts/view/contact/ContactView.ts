@@ -11,11 +11,6 @@ module codeBelt
      **/
     export class ContactView extends ContentView
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ContactView';
-
         constructor()
         {
             super();

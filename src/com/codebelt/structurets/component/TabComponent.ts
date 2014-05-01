@@ -32,9 +32,6 @@ module StructureTS
 {
     export class TabComponent extends EventDispatcher
     {
-
-        public CLASS_NAME:string = 'TabComponent';
-
         /**
          * YUIDoc_comment
          *

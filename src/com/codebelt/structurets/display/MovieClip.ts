@@ -29,11 +29,6 @@ module StructureTS
 {
     export class MovieClip extends CanvasElement
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'MovieClip';
-
         private _image:HTMLImageElement = null;
 
         public currentFrame:number = 0;

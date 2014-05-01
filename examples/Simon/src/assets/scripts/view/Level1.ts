@@ -16,11 +16,6 @@ module codeBelt
     export class Level1 extends DOMElement
     {
         /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Level1';
-
-        /**
          * YUIDoc_comment
          *
          * @property _$display

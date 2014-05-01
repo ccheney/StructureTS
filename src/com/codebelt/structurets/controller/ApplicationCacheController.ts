@@ -30,11 +30,6 @@ module StructureTS
     export class ApplicationCacheController
     {
         /**
-         * @overridden EventDispatcher.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'ApplicationCacheController';
-
-        /**
          *
          * @property _appCache
          * @type {ApplicationCache}

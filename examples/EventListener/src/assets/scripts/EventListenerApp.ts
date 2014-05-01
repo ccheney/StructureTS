@@ -14,11 +14,6 @@ module codeBelt
      **/
     export class EventListenerApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'EventListenerApp';
-
         private _$stateTest:JQuery = null;
         private _rec:DOMElement = null;
         private _enableButton:DOMElement = null;

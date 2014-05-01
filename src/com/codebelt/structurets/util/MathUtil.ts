@@ -27,11 +27,6 @@ module StructureTS
     export class MathUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'MathUtil';
-
-        /**
          * The MathUtil...
          *
          * @class MathUtil

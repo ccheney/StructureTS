@@ -26,8 +26,6 @@ module StructureTS
 {
     export class TransitionType
     {
-        public static CLASS_NAME:string = 'TransitionType';
-
         public static NONE:string = 'none';
         public static PUSH_LEFT:string = 'pushLeft';
         public static PUSH_RIGHT:string = 'pushRight';

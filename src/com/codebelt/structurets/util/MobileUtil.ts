@@ -27,11 +27,6 @@ module StructureTS
     export class MobileUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'MobileUtil';
-
-        /**
          * The MobileUtil...
          *
          * @class MobileUtil

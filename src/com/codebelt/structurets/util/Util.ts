@@ -27,16 +27,6 @@ module StructureTS
     export class Util
     {
         /**
-         * The fully qualified class name of the object.
-         *
-         * @property CLASS_NAME
-         * @type {string}
-         * @final
-         * @protected
-         */
-        public static CLASS_NAME:string = 'Util';
-
-        /**
          * Keeps track of the count for the uniqueId method.
          *
          * @property _idCounter

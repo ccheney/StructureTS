@@ -19,12 +19,6 @@ module codeBelt
      **/
     export class PhotoGalleryApp extends Stage
     {
-
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'PhotoGalleryApp';
-
         constructor()
         {
             super();

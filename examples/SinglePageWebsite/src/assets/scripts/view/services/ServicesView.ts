@@ -11,11 +11,6 @@ module codeBelt
      **/
     export class ServicesView extends ContentView
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ServicesView';
-
         constructor()
         {
             super();

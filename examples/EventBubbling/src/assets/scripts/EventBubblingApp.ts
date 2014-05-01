@@ -19,11 +19,6 @@ module codeBelt
      **/
     export class EventBubblingApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'EventBubblingApp';
-
         private _grandpaView:GrandparentView = null;
         private _clearButton:DOMElement = null;
         private _stageMessage:DOMElement = null;

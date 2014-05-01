@@ -29,11 +29,6 @@ module StructureTS
     export class TimerEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TimerEvent';
-
-        /**
          * Dispatched whenever a Timer object reaches an interval specified according to the Timer.delay property.
          *
          * @event TIMER

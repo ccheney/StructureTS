@@ -32,11 +32,6 @@ module StructureTS
     export class URLLoader extends EventDispatcher
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'URLLoader';
-
-        /**
          *
          * @property dataFormat
          * @type {string}

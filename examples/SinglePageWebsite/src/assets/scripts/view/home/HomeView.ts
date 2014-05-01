@@ -11,11 +11,6 @@ module codeBelt
      **/
     export class HomeView extends ContentView
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'HomeView';
-
         constructor()
         {
             super();

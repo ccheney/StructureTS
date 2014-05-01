@@ -32,11 +32,6 @@ module StructureTS
     export class TransitionPushRight extends BaseTransition
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionPushRight';
-
-        /**
          * YUIDoc_comment
          *
          * @class TransitionPushRight

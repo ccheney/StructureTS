@@ -27,11 +27,6 @@ module StructureTS
     export class ValidationUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'ValidationUtil';
-
-        /**
          * A ValidationUtility class that has several static methods to assist in development.
          *
          * @class ValidationUtil

@@ -29,11 +29,6 @@ module StructureTS
     export class TransitionManagerEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionManagerEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event TRANSITION

@@ -40,11 +40,6 @@ module StructureTS
     export class TransitionFactory extends BaseObject
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionFactory';
-
-        /**
          * YUIDoc_comment
          *
          * @property _transitions

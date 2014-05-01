@@ -29,11 +29,6 @@ module StructureTS
     export class UndoManager extends BaseController
     {
         /**
-         * @overridden BaseController.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'UndoManager';
-
-        /**
          * The UndoManager...
          *
          * @class UndoManager

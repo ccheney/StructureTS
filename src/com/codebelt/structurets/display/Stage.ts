@@ -29,11 +29,6 @@ module StructureTS
     export class Stage extends DOMElement
     {
         /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Stage';
-
-        /**
          * The {{#crossLink "Stage"}}{{/crossLink}} class should be extended by your main or root class.
          * @example
          This example illustrates how to setup your main or root class when extending the {{#crossLink "Stage"}}{{/crossLink}} class.

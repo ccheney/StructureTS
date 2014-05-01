@@ -30,11 +30,6 @@ module StructureTS
     export class EventDispatcher extends BaseObject
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'EventDispatcher';
-
-        /**
          * Holds a reference to added listeners.
          *
          * @property _listeners

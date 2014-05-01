@@ -28,11 +28,6 @@ module StructureTS
 {
     export class LanguageConfigVO extends ValueObject
     {
-        /**
-         * @overridden ValueObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LanguageConfigVO';
-
         public id:string;
         public lang:string;
         public text:string;

@@ -14,11 +14,6 @@ module codeBelt
 
     export class ZombieApp extends Stage
     {
-        /**
-         * @overridden Stage.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ZombieApp';
-
         private _$todoButton:JQuery = null;
         private _$removeTasksButton:JQuery = null;
         private _todoContainer:DOMElement = null;

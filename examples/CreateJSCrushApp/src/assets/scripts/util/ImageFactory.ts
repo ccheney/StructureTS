@@ -10,8 +10,6 @@ module codeBelt
      **/
     export class ImageFactory {
 
-        public CLASS_NAME:string = 'ImageFactory';
-
         constructor() {
 
         }

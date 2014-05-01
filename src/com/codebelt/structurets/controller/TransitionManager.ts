@@ -34,8 +34,6 @@ module StructureTS
 {
     export class TransitionManager extends BaseController
     {
-        public CLASS_NAME:string = 'TransitionManager';
-
         public static READY:string = 'ready';
         public static TRANSITION_RUNNING:string = 'transitionRunning';
 

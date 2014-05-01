@@ -17,11 +17,6 @@ module codeBelt
      **/
     export class ChildView extends DOMElement
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ChildView';
-
         private _panelContainer:DOMElement = null;
         private _dispatchButton:DOMElement = null;
         private _sonMessage:DOMElement = null;

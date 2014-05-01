@@ -35,11 +35,6 @@ module StructureTS
      **/
     export class URLLoaderDataFormat
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'URLLoaderDataFormat';
-
         public static XML:string = "xml";
         public static HTML:string = "html";
         public static SCRIPT:string = "script";

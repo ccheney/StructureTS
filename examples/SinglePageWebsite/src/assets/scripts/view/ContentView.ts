@@ -13,11 +13,6 @@ module codeBelt
      **/
     export class ContentView extends DOMElement
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ContentView';
-
         static LOSER:string = "lose";
 
         constructor()

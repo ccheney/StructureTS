@@ -181,8 +181,13 @@ var StructureTS;
 
             return (strNum == "1" || strNum == "true");
         };
-        Util.CLASS_NAME = 'Util';
 
+        Util.getClassName = function (classObject) {
+            var funcNameRegex = /function (.{1,})\(/;
+            var results = (funcNameRegex).exec(classObject.constructor.toString());
+
+            return (results && results.length > 1) ? results[1] : '';
+        };
         Util._idCounter = 0;
         return Util;
     })();
@@ -192,12 +197,11 @@ var StructureTS;
 (function (StructureTS) {
     var BaseObject = (function () {
         function BaseObject() {
-            this.CLASS_NAME = 'BaseObject';
             this.cid = null;
             this.cid = StructureTS.Util.uniqueId();
         }
         BaseObject.prototype.getQualifiedClassName = function () {
-            return this.CLASS_NAME;
+            return StructureTS.Util.getClassName(this);
         };
 
         BaseObject.prototype.destroy = function () {
@@ -221,7 +225,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
             this.currentTarget = null;
@@ -309,7 +312,6 @@ var StructureTS;
         __extends(EventDispatcher, _super);
         function EventDispatcher() {
             _super.call(this);
-            this.CLASS_NAME = 'EventDispatcher';
             this._listeners = null;
             this.parent = null;
             this.isEnabled = false;
@@ -429,7 +431,6 @@ var StructureTS;
         __extends(DisplayObjectContainer, _super);
         function DisplayObjectContainer() {
             _super.call(this);
-            this.CLASS_NAME = 'DisplayObjectContainer';
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
@@ -621,7 +622,20 @@ var StructureTS;
                 return text.substr(0, length) + "...";
             }
         };
-        StringUtil.CLASS_NAME = 'StringUtil';
+
+        StringUtil.format = function (str) {
+            var rest = [];
+            for (var _i = 0; _i < (arguments.length - 1); _i++) {
+                rest[_i] = arguments[_i + 1];
+            }
+            var length = rest.length;
+            for (var i = 0; i < length; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
+        };
         return StringUtil;
     })();
     StructureTS.StringUtil = StringUtil;
@@ -676,8 +690,6 @@ var StructureTS;
 
             return template;
         };
-        TemplateFactory.CLASS_NAME = 'TemplateFactory';
-
         TemplateFactory.UNDERSCORE = 'underscore';
         TemplateFactory.HANDLEBARS = 'handlebars';
 
@@ -695,7 +707,6 @@ var StructureTS;
             if (typeof type === "undefined") { type = null; }
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
-            this.CLASS_NAME = 'DOMElement';
             this._isVisible = true;
             this.element = null;
             this.$element = null;
@@ -900,7 +911,6 @@ var StructureTS;
         __extends(Stage, _super);
         function Stage() {
             _super.call(this);
-            this.CLASS_NAME = 'Stage';
         }
         Stage.prototype.appendTo = function (type, enabled) {
             if (typeof enabled === "undefined") { enabled = true; }
@@ -913,7 +923,9 @@ var StructureTS;
                 this.layoutChildren();
             }
 
-            if (enabled) {
+            if (enabled === false) {
+                this.disable();
+            } else {
                 this.enable();
             }
 
@@ -968,8 +980,6 @@ var StructureTS;
 
             EventBroker._eventDispatcher.dispatchEvent(event);
         };
-        EventBroker.CLASS_NAME = 'EventBroker';
-
         EventBroker._eventDispatcher = new StructureTS.EventDispatcher();
         return EventBroker;
     })();
@@ -986,7 +996,6 @@ var codeBelt;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this, type, bubbles, cancelable, data);
-            this.CLASS_NAME = 'ListItemEvent';
         }
         ListItemEvent.LIST_SUCCESS = "ListItemEvent.listSuccess";
         ListItemEvent.ADD_SUCCESS = "ListItemEvent.addSuccess";
@@ -1004,7 +1013,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this, type, bubbles, cancelable, data);
-            this.CLASS_NAME = 'RequestEvent';
         }
         RequestEvent.prototype.clone = function () {
             return new RequestEvent(this.type, this.bubble, this.cancelable, this.data);
@@ -1022,7 +1030,6 @@ var StructureTS;
         __extends(ValueObject, _super);
         function ValueObject() {
             _super.call(this);
-            this.CLASS_NAME = 'ValueObject';
         }
         ValueObject.prototype.update = function (data) {
             return this;
@@ -1072,7 +1079,6 @@ var codeBelt;
         function ListItemVO(data) {
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'ListItemVO';
             this.isComplete = false;
 
             if (data) {
@@ -1091,13 +1097,11 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var EventDispatcher = StructureTS.EventDispatcher;
-    var RequestEvent = StructureTS.RequestEvent;
 
     var AppModel = (function (_super) {
         __extends(AppModel, _super);
         function AppModel() {
             _super.call(this);
-            this.CLASS_NAME = 'AppModel';
             this.APP_ID = '5tfOk1NPi4KxQwWDbGdaw0eY0GFKAnrp3upTzRo8';
             this.REST_KEY = 'Tz2OgC9TZTEgGvMQhtk7IHQT6c46mBuCbF545Dgn';
             this.JS_KEY = 'NM7u0mZxJbr41J9SrX3qGQA45BNmAnhMqLyw9UsR';
@@ -1198,14 +1202,11 @@ var codeBelt;
     var DOMElement = StructureTS.DOMElement;
     var Stage = StructureTS.Stage;
     var MouseEvents = StructureTS.MouseEvents;
-    var EventBroker = StructureTS.EventBroker;
-    var TemplateFactory = StructureTS.TemplateFactory;
 
     var TodoApp = (function (_super) {
         __extends(TodoApp, _super);
         function TodoApp() {
             _super.call(this);
-            this.CLASS_NAME = 'TodoApp';
             this._appModel = null;
             this._submitBtn = null;
             this._noTasksMessage = null;
@@ -1329,3 +1330,4 @@ var codeBelt;
     })(Stage);
     codeBelt.TodoApp = TodoApp;
 })(codeBelt || (codeBelt = {}));
+//# sourceMappingURL=app.js.map

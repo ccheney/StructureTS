@@ -181,8 +181,13 @@ var StructureTS;
 
             return (strNum == "1" || strNum == "true");
         };
-        Util.CLASS_NAME = 'Util';
 
+        Util.getClassName = function (classObject) {
+            var funcNameRegex = /function (.{1,})\(/;
+            var results = (funcNameRegex).exec(classObject.constructor.toString());
+
+            return (results && results.length > 1) ? results[1] : '';
+        };
         Util._idCounter = 0;
         return Util;
     })();
@@ -192,12 +197,11 @@ var StructureTS;
 (function (StructureTS) {
     var BaseObject = (function () {
         function BaseObject() {
-            this.CLASS_NAME = 'BaseObject';
             this.cid = null;
             this.cid = StructureTS.Util.uniqueId();
         }
         BaseObject.prototype.getQualifiedClassName = function () {
-            return this.CLASS_NAME;
+            return StructureTS.Util.getClassName(this);
         };
 
         BaseObject.prototype.destroy = function () {
@@ -221,7 +225,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
             this.currentTarget = null;
@@ -309,7 +312,6 @@ var StructureTS;
         __extends(EventDispatcher, _super);
         function EventDispatcher() {
             _super.call(this);
-            this.CLASS_NAME = 'EventDispatcher';
             this._listeners = null;
             this.parent = null;
             this.isEnabled = false;
@@ -429,7 +431,6 @@ var StructureTS;
         __extends(DisplayObjectContainer, _super);
         function DisplayObjectContainer() {
             _super.call(this);
-            this.CLASS_NAME = 'DisplayObjectContainer';
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
@@ -621,7 +622,20 @@ var StructureTS;
                 return text.substr(0, length) + "...";
             }
         };
-        StringUtil.CLASS_NAME = 'StringUtil';
+
+        StringUtil.format = function (str) {
+            var rest = [];
+            for (var _i = 0; _i < (arguments.length - 1); _i++) {
+                rest[_i] = arguments[_i + 1];
+            }
+            var length = rest.length;
+            for (var i = 0; i < length; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
+        };
         return StringUtil;
     })();
     StructureTS.StringUtil = StringUtil;
@@ -676,8 +690,6 @@ var StructureTS;
 
             return template;
         };
-        TemplateFactory.CLASS_NAME = 'TemplateFactory';
-
         TemplateFactory.UNDERSCORE = 'underscore';
         TemplateFactory.HANDLEBARS = 'handlebars';
 
@@ -695,7 +707,6 @@ var StructureTS;
             if (typeof type === "undefined") { type = null; }
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
-            this.CLASS_NAME = 'DOMElement';
             this._isVisible = true;
             this.element = null;
             this.$element = null;
@@ -900,7 +911,6 @@ var StructureTS;
         __extends(Stage, _super);
         function Stage() {
             _super.call(this);
-            this.CLASS_NAME = 'Stage';
         }
         Stage.prototype.appendTo = function (type, enabled) {
             if (typeof enabled === "undefined") { enabled = true; }
@@ -913,7 +923,9 @@ var StructureTS;
                 this.layoutChildren();
             }
 
-            if (enabled) {
+            if (enabled === false) {
+                this.disable();
+            } else {
                 this.enable();
             }
 
@@ -929,7 +941,6 @@ var StructureTS;
         __extends(BaseController, _super);
         function BaseController() {
             _super.call(this);
-            this.CLASS_NAME = 'BaseController';
         }
         return BaseController;
     })(StructureTS.EventDispatcher);
@@ -946,13 +957,15 @@ var StructureTS;
             if (typeof silent === "undefined") { silent = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this, type, bubbles, cancelable, data);
-            this.CLASS_NAME = 'RouterEvent';
             this.url = null;
             this.silent = null;
 
             this.url = url;
             this.silent = silent;
         }
+        RouterEvent.prototype.clone = function () {
+            return new RouterEvent(this.type, this.bubble, this.cancelable, this.url, this.silent, this.data);
+        };
         RouterEvent.CHANGE = 'RouterEvent.change';
         return RouterEvent;
     })(StructureTS.BaseEvent);
@@ -2047,7 +2060,6 @@ var StructureTS;
             if (typeof useDeepLinking === "undefined") { useDeepLinking = true; }
             if (typeof allowManualDeepLinking === "undefined") { allowManualDeepLinking = true; }
             _super.call(this);
-            this.CLASS_NAME = 'RouterController';
             this._crossroads = null;
             this._useDeepLinking = true;
             this._allowManualDeepLinking = true;
@@ -2144,7 +2156,6 @@ var codeBelt;
         __extends(FooterView, _super);
         function FooterView() {
             _super.call(this);
-            this.CLASS_NAME = 'FooterView';
         }
         FooterView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/footer/footerTemplate.hbs');
@@ -2177,14 +2188,13 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
-    var RouterController = StructureTS.RouterController;
+
     var RouterEvent = StructureTS.RouterEvent;
 
     var HeaderView = (function (_super) {
         __extends(HeaderView, _super);
         function HeaderView(router) {
             _super.call(this);
-            this.CLASS_NAME = 'HeaderView';
             this._router = null;
             this._$navLinks = null;
 
@@ -2249,7 +2259,6 @@ var codeBelt;
         __extends(ContentView, _super);
         function ContentView() {
             _super.call(this);
-            this.CLASS_NAME = 'ContentView';
         }
         ContentView.prototype.layoutChildren = function () {
         };
@@ -2282,7 +2291,6 @@ var codeBelt;
         __extends(AboutView, _super);
         function AboutView() {
             _super.call(this);
-            this.CLASS_NAME = 'AboutView';
         }
         AboutView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/about/aboutTemplate.hbs');
@@ -2318,7 +2326,6 @@ var codeBelt;
         __extends(ContactView, _super);
         function ContactView() {
             _super.call(this);
-            this.CLASS_NAME = 'ContactView';
         }
         ContactView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/contact/contactTemplate.hbs');
@@ -2354,7 +2361,6 @@ var codeBelt;
         __extends(HomeView, _super);
         function HomeView() {
             _super.call(this);
-            this.CLASS_NAME = 'HomeView';
         }
         HomeView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/home/homeTemplate.hbs');
@@ -2390,7 +2396,6 @@ var codeBelt;
         __extends(MenuView, _super);
         function MenuView() {
             _super.call(this);
-            this.CLASS_NAME = 'MenuView';
         }
         MenuView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/menu/menuTemplate.hbs');
@@ -2426,7 +2431,6 @@ var codeBelt;
         __extends(ServicesView, _super);
         function ServicesView() {
             _super.call(this);
-            this.CLASS_NAME = 'ServicesView';
         }
         ServicesView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this, 'templates/services/servicesTemplate.hbs');
@@ -2465,7 +2469,6 @@ var codeBelt;
         __extends(RootView, _super);
         function RootView() {
             _super.call(this);
-            this.CLASS_NAME = 'RootView';
             this._router = null;
             this._headerView = null;
             this._footerView = null;
@@ -2589,7 +2592,6 @@ var codeBelt;
         __extends(WebsiteApp, _super);
         function WebsiteApp() {
             _super.call(this);
-            this.CLASS_NAME = 'WebsiteApp';
             this._rootView = null;
         }
         WebsiteApp.prototype.createChildren = function () {
@@ -2627,3 +2629,4 @@ var codeBelt;
     })(Stage);
     codeBelt.WebsiteApp = WebsiteApp;
 })(codeBelt || (codeBelt = {}));
+//# sourceMappingURL=app.js.map

@@ -27,11 +27,6 @@ module StructureTS
     export class DateUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'DateUtil';
-
-        /**
          * YUIDoc_comment
          *
          * @property LONG_DAY_LABELS

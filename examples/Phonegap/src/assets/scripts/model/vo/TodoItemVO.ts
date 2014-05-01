@@ -8,12 +8,6 @@ module codeBelt
 
     export class TodoItemVO extends ValueObject
     {
-
-        /**
-         * @overridden ValueObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TodoItemVO';
-
         public id:string = null;
         public completed:boolean = false;
         public text:string = null;

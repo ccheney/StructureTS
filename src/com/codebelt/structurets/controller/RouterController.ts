@@ -36,11 +36,6 @@ module StructureTS
     export class RouterController extends BaseController
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'RouterController';
-
-        /**
          * YUIDoc_comment
          *
          * @property _crossroads

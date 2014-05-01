@@ -16,11 +16,6 @@ module codeBelt
 
     export class RootView extends DOMElement
     {
-        /**
-         * @overridden DisplayObjectContainer.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'RootView';
-
         private _router:RouterController = null;
 
         private _headerView:HeaderView = null;

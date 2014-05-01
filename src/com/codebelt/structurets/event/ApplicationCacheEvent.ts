@@ -29,11 +29,6 @@ module StructureTS
     export class ApplicationCacheEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseEvent';
-
-        /**
          * The browser is checking for an update, or is attempting to download
          * the cache manifest for the first time. This is always the first event
          * in the sequence.

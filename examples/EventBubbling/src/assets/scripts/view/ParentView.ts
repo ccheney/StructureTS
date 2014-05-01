@@ -18,11 +18,6 @@ module codeBelt
      **/
     export class ParentView extends DOMElement
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'ParentView';
-
         private _panelContainer:DOMElement = null;
         private _childView:ChildView = null;
         private _parentMessage:DOMElement = null;

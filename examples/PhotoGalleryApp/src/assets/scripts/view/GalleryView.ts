@@ -15,11 +15,6 @@ module codeBelt
      **/
     export class GalleryView extends DOMElement
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'GalleryView';
-
         constructor($element)
         {
             super($element);

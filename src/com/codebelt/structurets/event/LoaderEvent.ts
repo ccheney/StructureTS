@@ -29,11 +29,6 @@ module StructureTS
     export class LoaderEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LoaderEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event COMPLETE

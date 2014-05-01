@@ -32,11 +32,6 @@ module StructureTS
 
     export class CarouselComponent extends EventDispatcher
     {
-        /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'CarouselComponent';
-
         public static DIRECTION_LEFT:string = 'directionLeft';
         public static DIRECTION_RIGHT:string = 'directionRight';
 

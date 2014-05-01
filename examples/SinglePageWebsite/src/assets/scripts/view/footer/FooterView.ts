@@ -12,11 +12,6 @@ module codeBelt
      **/
     export class FooterView extends DOMElement
     {
-        /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'FooterView';
-
         constructor()
         {
             super();

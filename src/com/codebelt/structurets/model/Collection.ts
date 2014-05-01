@@ -32,11 +32,6 @@ module StructureTS
     export class Collection extends EventDispatcher implements ICollection
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'Collection';
-
-        /**
          * YUIDoc_comment
          *
          * @property items

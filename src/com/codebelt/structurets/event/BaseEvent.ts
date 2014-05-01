@@ -29,11 +29,6 @@ module StructureTS
     export class BaseEvent extends BaseObject
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseEvent';
-
-        /**
          * The BaseEvent.ACTIVATE constant defines the value of the type property of an activate event object.
          *
          * @event ACTIVATE

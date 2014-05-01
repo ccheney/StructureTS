@@ -29,11 +29,6 @@ module StructureTS
     export class NetworkMonitorEvent extends BaseEvent
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'NetworkMonitorEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @event STATUS

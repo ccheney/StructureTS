@@ -10,9 +10,6 @@ module codeBelt
 
     export class TodoCollection extends Collection
     {
-
-        public CLASS_NAME:string = 'TodoCollection';
-
         private _localStorage:LocalStorageController = null;
 
         constructor()

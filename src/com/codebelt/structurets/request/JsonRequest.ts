@@ -28,11 +28,6 @@ module StructureTS
 {
     export class JsonRequest extends BaseRequest
     {
-        /**
-         * @overridden BaseRequest.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'JsonRequest';
-
         constructor(baseUrl:string)
         {
             super(baseUrl);

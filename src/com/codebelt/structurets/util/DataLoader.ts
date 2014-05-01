@@ -29,11 +29,6 @@ module StructureTS
     export class DataLoader
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'DataLoader';
-
-        /**
          * The DataLoader...
          *
          * @class DataLoader

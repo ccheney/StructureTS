@@ -29,11 +29,6 @@ module StructureTS
     export class BaseController extends EventDispatcher
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseController';
-
-        /**
          * The BaseController...
          *
          * @class BaseController

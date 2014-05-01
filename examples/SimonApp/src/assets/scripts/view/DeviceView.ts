@@ -19,11 +19,6 @@ module codeBelt
     export class DeviceView extends DOMElement
     {
         /**
-         * @overridden DOMElement.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'DeviceView';
-
-        /**
          * YUIDoc_comment
          *
          * @property _redButton

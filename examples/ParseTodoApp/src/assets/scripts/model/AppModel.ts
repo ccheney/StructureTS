@@ -20,8 +20,6 @@ module codeBelt
      **/
     export class AppModel extends EventDispatcher
     {
-        public CLASS_NAME:string = 'AppModel';
-
         private APP_ID:string = '5tfOk1NPi4KxQwWDbGdaw0eY0GFKAnrp3upTzRo8';
         private REST_KEY:string = 'Tz2OgC9TZTEgGvMQhtk7IHQT6c46mBuCbF545Dgn';
         private JS_KEY:string = 'NM7u0mZxJbr41J9SrX3qGQA45BNmAnhMqLyw9UsR';

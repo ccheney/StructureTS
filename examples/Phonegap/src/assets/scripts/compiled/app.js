@@ -181,8 +181,13 @@ var StructureTS;
 
             return (strNum == "1" || strNum == "true");
         };
-        Util.CLASS_NAME = 'Util';
 
+        Util.getClassName = function (classObject) {
+            var funcNameRegex = /function (.{1,})\(/;
+            var results = (funcNameRegex).exec(classObject.constructor.toString());
+
+            return (results && results.length > 1) ? results[1] : '';
+        };
         Util._idCounter = 0;
         return Util;
     })();
@@ -192,12 +197,11 @@ var StructureTS;
 (function (StructureTS) {
     var BaseObject = (function () {
         function BaseObject() {
-            this.CLASS_NAME = 'BaseObject';
             this.cid = null;
             this.cid = StructureTS.Util.uniqueId();
         }
         BaseObject.prototype.getQualifiedClassName = function () {
-            return this.CLASS_NAME;
+            return StructureTS.Util.getClassName(this);
         };
 
         BaseObject.prototype.destroy = function () {
@@ -221,7 +225,6 @@ var StructureTS;
             if (typeof cancelable === "undefined") { cancelable = false; }
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'BaseEvent';
             this.type = null;
             this.target = null;
             this.currentTarget = null;
@@ -309,7 +312,6 @@ var StructureTS;
         __extends(EventDispatcher, _super);
         function EventDispatcher() {
             _super.call(this);
-            this.CLASS_NAME = 'EventDispatcher';
             this._listeners = null;
             this.parent = null;
             this.isEnabled = false;
@@ -429,7 +431,6 @@ var StructureTS;
         __extends(DisplayObjectContainer, _super);
         function DisplayObjectContainer() {
             _super.call(this);
-            this.CLASS_NAME = 'DisplayObjectContainer';
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
@@ -621,7 +622,20 @@ var StructureTS;
                 return text.substr(0, length) + "...";
             }
         };
-        StringUtil.CLASS_NAME = 'StringUtil';
+
+        StringUtil.format = function (str) {
+            var rest = [];
+            for (var _i = 0; _i < (arguments.length - 1); _i++) {
+                rest[_i] = arguments[_i + 1];
+            }
+            var length = rest.length;
+            for (var i = 0; i < length; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                str = str.replace(reg, rest[i]);
+            }
+
+            return str;
+        };
         return StringUtil;
     })();
     StructureTS.StringUtil = StringUtil;
@@ -676,8 +690,6 @@ var StructureTS;
 
             return template;
         };
-        TemplateFactory.CLASS_NAME = 'TemplateFactory';
-
         TemplateFactory.UNDERSCORE = 'underscore';
         TemplateFactory.HANDLEBARS = 'handlebars';
 
@@ -695,7 +707,6 @@ var StructureTS;
             if (typeof type === "undefined") { type = null; }
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
-            this.CLASS_NAME = 'DOMElement';
             this._isVisible = true;
             this.element = null;
             this.$element = null;
@@ -900,7 +911,6 @@ var StructureTS;
         __extends(Stage, _super);
         function Stage() {
             _super.call(this);
-            this.CLASS_NAME = 'Stage';
         }
         Stage.prototype.appendTo = function (type, enabled) {
             if (typeof enabled === "undefined") { enabled = true; }
@@ -913,7 +923,9 @@ var StructureTS;
                 this.layoutChildren();
             }
 
-            if (enabled) {
+            if (enabled === false) {
+                this.disable();
+            } else {
                 this.enable();
             }
 
@@ -929,7 +941,6 @@ var StructureTS;
         __extends(ValueObject, _super);
         function ValueObject() {
             _super.call(this);
-            this.CLASS_NAME = 'ValueObject';
         }
         ValueObject.prototype.update = function (data) {
             return this;
@@ -979,7 +990,6 @@ var codeBelt;
         function TodoItemVO(data) {
             if (typeof data === "undefined") { data = null; }
             _super.call(this);
-            this.CLASS_NAME = 'TodoItemVO';
             this.id = null;
             this.completed = false;
             this.text = null;
@@ -1008,7 +1018,6 @@ var StructureTS;
         __extends(Collection, _super);
         function Collection() {
             _super.call(this);
-            this.CLASS_NAME = 'Collection';
             this.items = [];
             this.length = 0;
         }
@@ -1169,7 +1178,6 @@ var StructureTS;
         __extends(BaseController, _super);
         function BaseController() {
             _super.call(this);
-            this.CLASS_NAME = 'BaseController';
         }
         return BaseController;
     })(StructureTS.EventDispatcher);
@@ -1181,7 +1189,7 @@ var StructureTS;
         __extends(LocalStorageEvent, _super);
         function LocalStorageEvent(type, bubbles, cancelable, nativeEvent) {
             _super.call(this, type, bubbles, cancelable, nativeEvent);
-            this.CLASS_NAME = 'LocalStorageEvent';
+            this._nativeEvent = null;
 
             if (nativeEvent) {
                 this.key = nativeEvent.key;
@@ -1189,7 +1197,12 @@ var StructureTS;
                 this.newValue = nativeEvent.newValue;
                 this.url = nativeEvent.url;
             }
+
+            this._nativeEvent = nativeEvent;
         }
+        LocalStorageEvent.prototype.clone = function () {
+            return new LocalStorageEvent(this.type, this.bubble, this.cancelable, this._nativeEvent);
+        };
         LocalStorageEvent.STORAGE = 'storage';
         return LocalStorageEvent;
     })(StructureTS.BaseEvent);
@@ -1201,7 +1214,6 @@ var StructureTS;
         __extends(LocalStorageController, _super);
         function LocalStorageController() {
             _super.call(this);
-            this.CLASS_NAME = 'LocalStorageController';
             this._namespace = 'defaultNamespace';
             this._localStorage = null;
 
@@ -1328,7 +1340,6 @@ var codeBelt;
         __extends(TodoCollection, _super);
         function TodoCollection() {
             _super.call(this);
-            this.CLASS_NAME = 'TodoCollection';
             this._localStorage = null;
 
             var vo = new codeBelt.TodoItemVO();
@@ -1389,7 +1400,6 @@ var codeBelt;
         __extends(ZombieApp, _super);
         function ZombieApp() {
             _super.call(this);
-            this.CLASS_NAME = 'ZombieApp';
             this._$todoButton = null;
             this._$removeTasksButton = null;
             this._todoContainer = null;
@@ -1556,3 +1566,4 @@ var codeBelt;
     })(Stage);
     codeBelt.ZombieApp = ZombieApp;
 })(codeBelt || (codeBelt = {}));
+//# sourceMappingURL=app.js.map

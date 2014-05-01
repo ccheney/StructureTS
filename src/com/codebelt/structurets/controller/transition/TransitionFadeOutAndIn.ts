@@ -32,11 +32,6 @@ module StructureTS
     export class TransitionFadeOutAndIn extends BaseTransition
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'TransitionFadeOutAndIn';
-
-        /**
          * YUIDoc_comment
          *
          * @class TransitionFadeOutAndIn

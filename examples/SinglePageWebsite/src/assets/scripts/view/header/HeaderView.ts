@@ -15,8 +15,6 @@ module codeBelt
      **/
     export class HeaderView extends DOMElement
     {
-        public CLASS_NAME:string = 'HeaderView';
-
         private _router:RouterController = null;
         private _$navLinks:JQuery = null;
 

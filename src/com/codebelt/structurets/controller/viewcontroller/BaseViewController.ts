@@ -30,11 +30,6 @@ module StructureTS
     export class BaseViewController extends DOMElement implements IViewController
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseViewController';
-
-        /**
          * The BaseViewController...
          *
          * @class BaseViewController

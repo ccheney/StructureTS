@@ -34,11 +34,6 @@ module StructureTS
     export class BaseRequest extends EventDispatcher implements IDataStore
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'BaseRequest';
-
-        /**
          * YUIDoc_comment
          *
          * @property _baseUrl

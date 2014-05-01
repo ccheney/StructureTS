@@ -13,9 +13,6 @@ module codeBelt
      **/
     export class ListItemEvent extends BaseEvent
     {
-
-        public CLASS_NAME:string = 'ListItemEvent';
-
         static LIST_SUCCESS:string = "ListItemEvent.listSuccess";
         static ADD_SUCCESS:string = "ListItemEvent.addSuccess";
         static REMOVE_SUCCESS:string = "ListItemEvent.removeSuccess";

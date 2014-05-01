@@ -27,11 +27,6 @@ module StructureTS
     export class StringUtil
     {
         /**
-         * @overridden BaseObject.CLASS_NAME
-         */
-        public static CLASS_NAME:string = 'StringUtil';
-
-        /**
          * The StringUtil...
          *
          * @class StringUtil

@@ -35,18 +35,11 @@ module StructureTS
      **/
     export interface ICore
     {
-
-        /**
-         * @property CLASS_NAME
-         * @readOnly
-         */
-            CLASS_NAME:string;
-
         /**
          * @property cid
          * @readOnly
          */
-            cid:number;
+        cid:number;
 
         /**
          * @method getQualifiedClassName
@@ -57,6 +50,5 @@ module StructureTS
          * @method destroy
          */
         destroy():void
-
     }
 }

@@ -29,11 +29,6 @@ module StructureTS
     export class LocalStorageEvent extends BaseEvent
     {
         /**
-         * @overridden ValueObject.CLASS_NAME
-         */
-        public CLASS_NAME:string = 'LocalStorageEvent';
-
-        /**
          * YUIDoc_comment
          *
          * @property _nativeEvent
