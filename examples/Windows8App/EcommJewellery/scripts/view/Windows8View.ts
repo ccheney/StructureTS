@@ -7,12 +7,6 @@
  * @constructor
  **/
 class Windows8View extends DOMElement {
-
-    /**
-     * @copy DisplayObjectContainer.CLASS_NAME
-     */
-    public CLASS_NAME:string = 'Windows8View';
-
     constructor() {
         super();
     }

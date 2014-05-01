@@ -16,12 +16,6 @@
  * @constructor
  **/
 class RootView extends Windows8View {
-
-    /**
-     * @copy DisplayObjectContainer.CLASS_NAME
-     */
-    public CLASS_NAME:string = 'RootView';
-
     /**
      * A reference to the container that will be used to help manage the transitions to different page views.
      *

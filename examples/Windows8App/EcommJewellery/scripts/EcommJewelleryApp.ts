@@ -17,12 +17,6 @@
  * @constructor
  **/
 class HondaApp extends Stage {
-
-    /**
-     * @copy Stage.CLASS_NAME
-     */
-    public CLASS_NAME:string = 'HondaApp';
-
     /**
      * The RootView contains all the children views for the application.
      *

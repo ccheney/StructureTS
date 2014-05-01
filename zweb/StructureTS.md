@@ -38,8 +38,6 @@ module codeBelt
 
     export class ExampleView extends DOMElement
     {
-        public CLASS_NAME:string = 'ExampleView';
-
         constructor()
         {
             super();
@@ -134,9 +132,6 @@ Lets see how a main class should look when extending stage:
 ///<reference path='com/codebelt/structurets/display/Stage.ts'/>
 
 class MainView extends Stage{
-
-    public CLASS_NAME:string = 'MainView';
-
     constructor() {
         super();
     }
