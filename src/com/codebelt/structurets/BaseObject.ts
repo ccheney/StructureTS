@@ -81,7 +81,9 @@ module StructureTS
          */
         public getQualifiedClassName():string
         {
-            return this.CLASS_NAME;
+            var funcNameRegex = /function (.{1,})\(/;
+            var results:any = (funcNameRegex).exec((<any>this).constructor.toString());
+            return (results && results.length > 1) ? results[1] : '';
         }
 
         /**
