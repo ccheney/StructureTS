@@ -22,7 +22,7 @@ module codeBelt
          */
         public createChildren():void
         {
-            super.createChildren('templates/services/servicesTemplate.hbs');
+            super.createChildren('templates/services/servicesTemplate');
 
         }
 

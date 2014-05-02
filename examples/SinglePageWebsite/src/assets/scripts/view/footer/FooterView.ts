@@ -23,7 +23,7 @@ module codeBelt
          */
         public createChildren():void
         {
-            super.createChildren('templates/footer/footerTemplate.hbs');
+            super.createChildren('templates/footer/footerTemplate');
 
         }
 

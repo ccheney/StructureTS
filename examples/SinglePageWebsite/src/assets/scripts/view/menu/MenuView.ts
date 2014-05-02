@@ -22,7 +22,7 @@ module codeBelt
          */
         public createChildren():void
         {
-            super.createChildren('templates/menu/menuTemplate.hbs');
+            super.createChildren('templates/menu/menuTemplate');
 
         }
 
