@@ -207,9 +207,9 @@ And if you are using precompiled template you would do:
 
 ```
 public createChildren():void {
-	super.createChildren(“templates/HtmlTemplate.hbs”);
+	super.createChildren(“templates/HtmlTemplate”);
 
-	var another:DOMElement = new DOMElement(“templates/HtmlTemplate.hbs”);
+	var another:DOMElement = new DOMElement(“templates/HtmlTemplate”);
 	this.addChild(another);
 }
 ```

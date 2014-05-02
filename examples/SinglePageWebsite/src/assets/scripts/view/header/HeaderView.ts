@@ -30,7 +30,7 @@ module codeBelt
          */
         public createChildren():void
         {
-            super.createChildren('templates/header/headerTemplate.hbs');
+            super.createChildren('templates/header/headerTemplate');
 
             this._$navLinks = this.$element.find('#js-nav li');
         }

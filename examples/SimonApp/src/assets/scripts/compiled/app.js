@@ -1063,7 +1063,7 @@ var codeBelt;
     var DeviceButton = (function (_super) {
         __extends(DeviceButton, _super);
         function DeviceButton(color, index) {
-            _super.call(this, 'templates/DeviceButtonTemplate.hbs', { buttonColor: color });
+            _super.call(this, 'templates/DeviceButtonTemplate', { buttonColor: color });
             this.indexId = null;
 
             this.indexId = index;

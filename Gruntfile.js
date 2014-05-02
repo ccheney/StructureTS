@@ -159,9 +159,8 @@ module.exports = function(grunt) {
                     templateSettings: {
                         //interpolate : /\{\{(.+?)\}\}/g    //Mustache Syntax
                     },
-                    processName: function(filename) {
-                        //Shortens the file path for the template.
-                        return filename.slice(filename.indexOf("template"), filename.length);
+                    processName: function(filePath) { // input:  src/templates/_header.hbs
+                        return filePath.slice(filePath.indexOf('template'), filePath.lastIndexOf('.')); // output: templates/_header
                     }
                 },
                 files: {
@@ -176,9 +175,8 @@ module.exports = function(grunt) {
                     templateSettings: {
                         //interpolate : /\{\{(.+?)\}\}/g    //Mustache Syntax
                     },
-                    processName: function(filename) {
-                        //Shortens the file path for the template.
-                        return filename.slice(filename.indexOf("template"), filename.length);
+                    processName: function(filePath) { // input:  src/templates/_header.hbs
+                        return filePath.slice(filePath.indexOf('template'), filePath.lastIndexOf('.')); // output: templates/_header
                     }
                 },
                 files: {
@@ -194,13 +192,12 @@ module.exports = function(grunt) {
                     // Registers all files that start with '_' as a partial.
                     partialRegex: /^_/,
                     // Shortens the file path for the template.
-                    processName: function(filename) {
-
-                        return filename.slice(filename.indexOf("template"), filename.length);
+                    processName: function(filePath) { // input:  src/templates/_header.hbs
+                        return filePath.slice(filePath.indexOf('template'), filePath.lastIndexOf('.')); // output: templates/_header
                     },
                     // Shortens the file path for the template.
-                    processPartialName: function(filePath) {
-                        return filePath.slice(filePath.indexOf("template"), filePath.length);
+                    processPartialName: function(filePath) { // input:  src/templates/_header.hbs
+                        return filePath.slice(filePath.indexOf('template'), filePath.lastIndexOf('.')); // output: templates/_header
                     }
                 },
                 files: {

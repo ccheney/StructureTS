@@ -33,7 +33,7 @@ module codeBelt
 
             this._todoCollection = new TodoCollection();
 
-            var backgroundAndButtons:DOMElement = new DOMElement('templates/MainTemplate.hbs');
+            var backgroundAndButtons:DOMElement = new DOMElement('templates/MainTemplate');
             this.addChild(backgroundAndButtons);
 
             this._$todoButton = this.$element.find('#js-addTodoButton');
@@ -143,7 +143,7 @@ module codeBelt
 
         private addTodoView(todoVO:TodoItemVO):void
         {
-            var todoItem:DOMElement = new DOMElement('templates/TodoItemTemplate.hbs', todoVO);
+            var todoItem:DOMElement = new DOMElement('templates/TodoItemTemplate', todoVO);
             this._todoContainer.addChild(todoItem);
         }
 

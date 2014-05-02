@@ -28,7 +28,7 @@ module codeBelt
 
         constructor(color:string, index)
         {
-            super('templates/DeviceButtonTemplate.hbs', {buttonColor: color});
+            super('templates/DeviceButtonTemplate', {buttonColor: color});
 
             this.indexId = index;
         }

@@ -153,7 +153,7 @@ module StructureTS
             }
 
             public createChildren():void {
-                super.createChildren('templates/home/homeTemplate.hbs');
+                super.createChildren('templates/home/homeTemplate');
                 // Create and add your child objects to this parent class.
             }
 
@@ -242,7 +242,7 @@ module StructureTS
 
         // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.
         public createChildren():void {
-            super.createChildren('templates/home/HtmlTemplate.hbs');
+            super.createChildren('templates/home/HtmlTemplate');
 
         }
          * @method createChildren
