@@ -14106,6 +14106,10 @@
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "configureRequest",
+            "return": {
+                "description": "",
+                "type": "URLRequest"
+            },
             "access": "protected",
             "tagname": "",
             "class": "BaseRequest",
@@ -14114,7 +14118,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 144,
+            "line": 146,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "load",
@@ -14126,7 +14130,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 168,
+            "line": 170,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "parseData",
@@ -14138,7 +14142,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 179,
+            "line": 181,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "cleanupListeners",
@@ -14150,7 +14154,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 191,
+            "line": 193,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "onDataLoadComplete",
@@ -14169,7 +14173,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 206,
+            "line": 208,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "onDataLoadComplete",
@@ -14188,7 +14192,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 219,
+            "line": 221,
             "overridden": "EventDispatcher.destroy",
             "class": "BaseRequest",
             "module": "StructureTS",
@@ -16642,7 +16646,7 @@
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:219"
+            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:221"
         },
         {
             "message": "unknown tag: overridden",
@@ -19082,7 +19086,7 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:219"
+            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:221"
         },
         {
             "message": "Missing item type",
