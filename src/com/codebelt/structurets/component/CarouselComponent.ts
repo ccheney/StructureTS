@@ -171,9 +171,9 @@ module StructureTS
         {
             var totalMoves = Math.floor(this._numberOfItems / this._itemsVisible);
 
-            if (!this.crazy)
+            if (this.crazy == false)
             {
-                if (this._currentIndex == totalMoves && !this.loop || this._isMoving && this.loop)
+                if (this._currentIndex == totalMoves && this.loop == false || this._isMoving && this.loop)
                 {
                     return;
                 }
@@ -198,9 +198,9 @@ module StructureTS
          */
         private movePrevious():void
         {
-            if (!this.crazy)
+            if (this.crazy == false)
             {
-                if (this._currentIndex == 0 && !this.loop || this._isMoving && this.loop)
+                if (this._currentIndex == 0 && this.loop == false || this._isMoving && this.loop)
                 {
                     return;
                 }

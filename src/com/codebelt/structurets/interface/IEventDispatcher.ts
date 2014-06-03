@@ -42,7 +42,7 @@ module StructureTS
         /**
          * @property parent
          */
-            parent:any;
+        parent:any;
 
         /**
          * @method addEventListener

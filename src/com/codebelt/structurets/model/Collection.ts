@@ -77,18 +77,18 @@ module StructureTS
          */
         public addItem(item:IValueObject, silent:boolean = false):void
         {
-            if (!(item instanceof ValueObject))
+            if ((item instanceof ValueObject) == false)
             {
                 throw new TypeError('[' + this.getQualifiedClassName() + '] Item must be of the IValueObject type');
             }
 
-            if (!this.hasItem(item))
+            if (this.hasItem(item) == false)
             {
                 this.items.push(item);
                 this.length = this.items.length;
             }
 
-            if (!silent)
+            if (silent == false)
             {
                 this.dispatchEvent(new BaseEvent(BaseEvent.ADDED));
             }
@@ -106,12 +106,12 @@ module StructureTS
 
         public removeItem(item:IValueObject, silent:boolean = false):void
         {
-            if (!(item instanceof ValueObject))
+            if ((item instanceof ValueObject) == false)
             {
                 throw new TypeError('[' + this.getQualifiedClassName() + '] Item must be of the IValueObject type');
             }
 
-            if (!this.hasItem(item))
+            if (this.hasItem(item) == false)
             {
                 throw new Error('[' + this.getQualifiedClassName() + '] Collection does not have item ' + item);
             }
@@ -119,7 +119,7 @@ module StructureTS
             this.items.splice(this.getIndexOfItem(item), 1);
             this.length = this.items.length;
 
-            if (!silent)
+            if (silent == false)
             {
                 this.dispatchEvent(new BaseEvent(BaseEvent.REMOVED));
             }
@@ -141,7 +141,7 @@ module StructureTS
                 this.removeItem(items[i]);
             }
 
-            if (!silent)
+            if (silent == false)
             {
                 this.dispatchEvent(new BaseEvent(BaseEvent.REMOVED));
             }
@@ -188,7 +188,7 @@ module StructureTS
                 this.addItem(items[i]);
             }
 
-            if (!silent)
+            if (silent == false)
             {
                 this.dispatchEvent(new BaseEvent(BaseEvent.ADDED));
             }
@@ -336,7 +336,7 @@ module StructureTS
             this.items = [];
             this.length = 0;
 
-            if (!silent)
+            if (silent == false)
             {
                 this.dispatchEvent(new BaseEvent(BaseEvent.CLEAR));
             }

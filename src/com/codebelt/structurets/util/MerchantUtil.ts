@@ -114,7 +114,7 @@ module StructureTS
          */
         public static getCreditCardProvider(cardNumber:string):string
         {
-            if (!MerchantUtil.isCreditCard(cardNumber))
+            if (MerchantUtil.isCreditCard(cardNumber) == false)
             {
                 return 'invalid';
             }

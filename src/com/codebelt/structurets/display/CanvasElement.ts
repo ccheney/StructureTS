@@ -52,7 +52,7 @@ module StructureTS
         constructor()
         {
             super();
-            TweenLite.ticker.addEventListener("tick", this.layoutChildren.bind(this), this);
+            TweenLite.ticker.addEventListener("tick", this.layoutChildren, this);
         }
 
         public createChildren():any
@@ -75,7 +75,7 @@ module StructureTS
 
         public layoutChildren():any
         {
-            if (!this.context || this.alpha <= 0 || !this.visible)
+            if (this.context == false || this.alpha <= 0 || this.visible == false)
             {
                 return this;
             }

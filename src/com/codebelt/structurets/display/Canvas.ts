@@ -57,7 +57,7 @@ module StructureTS
             this.width = this.element.width;
             this.height = this.element.height;
 
-            if (!this.isCreated)
+            if (this.isCreated == false)
             {
                 this.createChildren();
                 this.isCreated = true;

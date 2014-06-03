@@ -101,7 +101,7 @@ module StructureTS
             for (var key in this._dataStores)
             {
                 var dataStore:IDataStore = this._dataStores[key];
-                if (!dataStore.complete)
+                if (dataStore.complete == false)
                 {
                     return;
                 }

@@ -42,17 +42,17 @@ module StructureTS
         /**
          * @property data
          */
-            data:any;
+        data:any;
 
         /**
          * @property src
          */
-            src:string;
+        src:string;
 
         /**
          * @property complete
          */
-            complete:boolean;
+        complete:boolean;
 
         /**
          * @method load

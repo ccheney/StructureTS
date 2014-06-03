@@ -94,7 +94,7 @@ module StructureTS
             this.$element = jQuery(type);
             this.$element.attr('data-cid', this.cid);
 
-            if (!this.isCreated)
+            if (this.isCreated == false)
             {
                 this.createChildren();
                 this.isCreated = true;

@@ -41,12 +41,12 @@ module StructureTS
         /**
          * @property element
          */
-            element:Element;
+        element:Element;
 
         /**
          * @property $element
          */
-            $element:JQuery;
+        $element:JQuery;
 
         /**
          * @method getChild

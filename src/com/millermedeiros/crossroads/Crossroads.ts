@@ -75,7 +75,7 @@ module MillerMedeiros
 //
 //        Parameters
 //
-//        pattern:String|RegExp
+//        pattern:string|RegExp
 //        String pattern or Regular Expression that should be used to match against requests.
 //        If pattern is a String it can contain named variables surrounded by "{}" that will be evaluated and passed to handlers as parameters. Each pattern segment is limited by the "/" char, so named variables will match anything until it finds a "/" char or the next string token located after the variable.
 //        The pattern "{foo}/{bar}" will match "lorem/ipsum-dolor" but won't match "lorem/ipsum-dolor/sit". Trailing slashes at the end/begin of the request are ignored by default, so /{foo}/ matches same requests as {foo}. - If you need to match segments that may contain "/" use a regular expression instead of a string pattern.

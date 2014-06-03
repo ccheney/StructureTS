@@ -335,7 +335,7 @@ module StructureTS
          */
         public static toCelsius(fahrenheit:number, decimals:number = 2):number
         {
-            var d:String = '';
+            var d:string = '';
             var r:number = (5 / 9) * (fahrenheit - 32);
             var s:string[] = r.toString().split(".");
             if (s[1] != undefined)
@@ -351,7 +351,7 @@ module StructureTS
                     i--;
                 }
             }
-            var c:String = s[0] + "." + d;
+            var c:string = s[0] + "." + d;
             return Number(c);
         }
 
@@ -365,7 +365,7 @@ module StructureTS
          */
         public static toFahrenheit(celsius:number, decimals:number = 2):number
         {
-            var d:String = '';
+            var d:string = '';
             var r:number = (celsius / (5 / 9)) + 32;
             var s:string[] = r.toString().split(".");
             if (s[1] != undefined)
@@ -381,7 +381,7 @@ module StructureTS
                     i--;
                 }
             }
-            var f:String = s[0] + "." + d;
+            var f:string = s[0] + "." + d;
             return Number(f);
         }
 

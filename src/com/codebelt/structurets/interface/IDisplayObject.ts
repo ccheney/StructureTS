@@ -41,17 +41,17 @@ module StructureTS
         /**
          * @property isCreated
          */
-            isCreated:boolean;
+        isCreated:boolean;
 
         /**
          * @property numChildren
          */
-            numChildren:number;
+        numChildren:number;
 
         /**
          * @property children
          */
-            children:IDisplayObject[];
+        children:IDisplayObject[];
 
         /**
          * @method createChildren
