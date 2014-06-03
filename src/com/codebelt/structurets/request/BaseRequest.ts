@@ -133,12 +133,14 @@ module StructureTS
          * YUIDoc_comment
          *
          * @method configureRequest
+         * @return {URLRequest}
          * @protected
          */
-        public configureRequest():void
+        public configureRequest():URLRequest
         {
             this.src = this._baseUrl + this._endpoint;
             this._request = new URLRequest(this.src);
+            return this._request;
         }
 
         /**
