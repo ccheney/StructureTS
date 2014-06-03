@@ -126,7 +126,6 @@ module StructureTS
         }
 
 
-
         public static unformatUnit(value:string):number
         {
             // Removes all characters and spaces except the period (.), comma (,) and the negative symbol (-).

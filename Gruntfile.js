@@ -239,7 +239,7 @@ module.exports = function(grunt) {
                     extension: '.ts',
                     paths: '<%= SRC_PATH %>' + 'com/codebelt/',
                     outdir: '<%= BASE_PATH %>' + 'docs/',
-                    themedir: '',
+                    themedir: 'friendly-theme',
                     exclude: ''
                 }
             }

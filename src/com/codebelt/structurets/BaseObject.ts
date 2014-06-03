@@ -64,7 +64,7 @@ module StructureTS
          * Returns the fully qualified class name of an object.
          *
          * @example
-        instance.getQualifiedClassName();
+         instance.getQualifiedClassName();
          * @method getQualifiedClassName
          * @returns {string} Returns the class name.
          * @public
@@ -87,7 +87,7 @@ module StructureTS
          * {{#crossLink "EventDispatcher/disable:method"}}{{/crossLink}} method on all classes that extend
          * {{#crossLink "EventDispatcher"}}{{/crossLink}}.
          * @example
-        public destroy():void {
+         public destroy():void {
             super.destroy();
 
             this._childInstance.destroy();

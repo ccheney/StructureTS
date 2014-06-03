@@ -52,11 +52,11 @@ module StructureTS
         /**
          * Generates a unique ID. If a prefix is passed in, the value will be appended to it.
          * @example
-               var property:number = Util.uniqueId();
-               // 1
+         var property:number = Util.uniqueId();
+         // 1
 
-               var property:string = Util.uniqueId('yomama_');
-               // yomama_1
+         var property:string = Util.uniqueId('yomama_');
+         // yomama_1
          * @method uniqueId
          * @param [prefix] {string} The string value used for the prefix.
          * @returns {init|string} Returns the unique identifier.

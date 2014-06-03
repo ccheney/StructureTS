@@ -9873,7 +9873,7 @@
             "line": 266,
             "description": "Registers an event listener object with an ApplicationCacheController object so that the listener receives notification of an event.",
             "example": [
-                "\n              ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
+                "\n        ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
             ],
             "itemtype": "method",
             "name": "addEventListener",
@@ -9911,7 +9911,7 @@
             "line": 285,
             "description": "Removes a specified listener from the ApplicationCacheController object.",
             "example": [
-                "\n              ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
+                "\n        ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
             ],
             "itemtype": "method",
             "name": "removeEventListener",
@@ -9942,7 +9942,7 @@
             "line": 304,
             "description": "<p>Dispatches an event within the ApplicationCacheController object.</p>",
             "example": [
-                "\n              var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n              ApplicationCacheController.dispatchEvent(event);\n\n              // Here is a common inline event being dispatched\n              ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
+                "\n        var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n        ApplicationCacheController.dispatchEvent(event);\n\n        // Here is a common inline event being dispatched\n        ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
             ],
             "itemtype": "method",
             "name": "dispatchEvent",
@@ -10594,7 +10594,7 @@
             "line": 198,
             "description": "The createChildren function is intended to provide a consistent place for the creation and adding\nof children to the view. It will automatically be called the first time that the view is added\nto another DisplayObjectContainer. It is critical that all subclasses call the super for this function in\ntheir overridden methods.\n\nThis method gets called only once when the child view is added to another view. If the child view is removed and added to another view the createChildren method will not be called again.",
             "example": [
-                "\n       // By default your view class will be a div element:\n       public createChildren():void {\n           super.createChildren();\n\n           this._childInstance = new DOMElement();\n           this.addChild(this._childInstance);\n       }\n\n       // But lets say you wanted the view to be a ul element your would do:\n       public createChildren():void {\n           super.createChildren('ul');\n       }\n\n       // Then you could nest other elements inside this base view/element.\n       public createChildren():void {\n           super.createChildren('ul', {id: 'myId', 'class': 'myClass anotherClass'});\n\n           var li:DOMElement = new DOMElement('li', {text: 'Robert is cool'});\n           this.addChild(li);\n       }\n\n       // So that's cool but what if you wanted a block of html to be your view. Let's say you had the below inline Handlebar template in your html file.\n       <script id=\"todoTemplate\" type=\"text/template\">\n           <div id=\"htmlTemplatel\" class=\"js-todo\">\n               <div id=\"input-wrapper\">\n                   <input type=\"text\" class=\"list-input\" placeholder=\"{{ data.text }}\">\n                   <input type=\"button\" class=\"list-item-submit\" value=\"Add\">\n               </div>\n           </div>\n       </script>\n\n       // You would just pass in the id of the template which in this case is \"#todoTemplate\". There is a second optional argument where you can pass data for the Handlebar template to use.\n       public createChildren():void {\n           super.createChildren('#todoTemplate', { data: this.viewData });\n\n       }\n\n       // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.\n       public createChildren():void {\n           super.createChildren('templates/home/HtmlTemplate');\n\n       }"
+                "\n        // By default your view class will be a div element:\n        public createChildren():void {\n           super.createChildren();\n\n           this._childInstance = new DOMElement();\n           this.addChild(this._childInstance);\n       }\n\n        // But lets say you wanted the view to be a ul element your would do:\n        public createChildren():void {\n           super.createChildren('ul');\n       }\n\n        // Then you could nest other elements inside this base view/element.\n        public createChildren():void {\n           super.createChildren('ul', {id: 'myId', 'class': 'myClass anotherClass'});\n\n           var li:DOMElement = new DOMElement('li', {text: 'Robert is cool'});\n           this.addChild(li);\n       }\n\n        // So that's cool but what if you wanted a block of html to be your view. Let's say you had the below inline Handlebar template in your html file.\n        <script id=\"todoTemplate\" type=\"text/template\">\n        <div id=\"htmlTemplatel\" class=\"js-todo\">\n        <div id=\"input-wrapper\">\n        <input type=\"text\" class=\"list-input\" placeholder=\"{{ data.text }}\">\n        <input type=\"button\" class=\"list-item-submit\" value=\"Add\">\n        </div>\n        </div>\n        </script>\n\n        // You would just pass in the id of the template which in this case is \"#todoTemplate\". There is a second optional argument where you can pass data for the Handlebar template to use.\n        public createChildren():void {\n           super.createChildren('#todoTemplate', { data: this.viewData });\n\n       }\n\n        // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.\n        public createChildren():void {\n           super.createChildren('templates/home/HtmlTemplate');\n\n       }"
             ],
             "itemtype": "method",
             "name": "createChildren",
@@ -10624,7 +10624,7 @@
             "line": 279,
             "overridden": "DisplayObjectContainer.addChild",
             "example": [
-                "\n       container.addChild(domElementInstance);"
+                "\n        container.addChild(domElementInstance);"
             ],
             "itemtype": "method",
             "name": "addChild",
@@ -12012,7 +12012,7 @@
             "line": 56,
             "description": "Registers an event listener object with an EventBroker object so that the listener receives notification of an event.",
             "example": [
-                "\n              EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
+                "\n        EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
             ],
             "itemtype": "method",
             "name": "addEventListener",
@@ -12052,7 +12052,7 @@
             "line": 76,
             "description": "Removes a specified listener from the EventBroker object.",
             "example": [
-                "\n              EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
+                "\n        EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n              console.log(event.target + \" sent the event.\");\n          }"
             ],
             "itemtype": "method",
             "name": "removeEventListener",
@@ -12085,7 +12085,7 @@
             "line": 96,
             "description": "<p>Dispatches an event within the EventBroker object.</p>",
             "example": [
-                "\n              var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n              EventBroker.dispatchEvent(event);\n\n              // Here is a common inline event being dispatched\n              EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
+                "\n        var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n        EventBroker.dispatchEvent(event);\n\n        // Here is a common inline event being dispatched\n        EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
             ],
             "itemtype": "method",
             "name": "dispatchEvent",
@@ -12145,7 +12145,7 @@
             "line": 80,
             "description": "Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.",
             "example": [
-                "\n              instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n                  console.log(event.target + \" sent the event.\");\n              }"
+                "\n        instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n                  console.log(event.target + \" sent the event.\");\n              }"
             ],
             "itemtype": "method",
             "name": "addEventListener",
@@ -12185,7 +12185,7 @@
             "line": 126,
             "description": "Removes a specified listener from the EventDispatcher object.",
             "example": [
-                "\n              instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              private handlerMethod(event:BaseEvent):void {\n                  console.log(event.target + \" sent the event.\");\n              }"
+                "\n        instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n        private handlerMethod(event:BaseEvent):void {\n                  console.log(event.target + \" sent the event.\");\n              }"
             ],
             "itemtype": "method",
             "name": "removeEventListener",
@@ -12219,7 +12219,7 @@
             "line": 162,
             "description": "<p>Dispatches an event into the event flow. The event target is the EventDispatcher object upon which the dispatchEvent() method is called.</p>",
             "example": [
-                "\n              var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n              instance.dispatchEvent(event);\n\n              // Here is a common inline event being dispatched\n              instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
+                "\n        var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);\n        instance.dispatchEvent(event);\n\n        // Here is a common inline event being dispatched\n        instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));"
             ],
             "itemtype": "method",
             "name": "dispatchEvent",
@@ -12250,7 +12250,7 @@
             "line": 243,
             "description": "The enable method is responsible for enabling event listeners and/or children of the containing objects.",
             "example": [
-                "\n              public enable():void {\n              if (this.isEnabled === true) return;\n\n              this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              this._childInstance.enable();\n\n              super.enable();\n          }"
+                "\n        public enable():void {\n              if (this.isEnabled === true) return;\n\n              this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);\n              this._childInstance.enable();\n\n              super.enable();\n          }"
             ],
             "itemtype": "method",
             "name": "enable",
@@ -13353,7 +13353,7 @@
             "line": 223,
             "description": "Examines each element in a collection, returning an array of all elements that have the given properties.\nWhen checking properties, this method performs a deep comparison between values to determine if they are equivalent to each other.",
             "example": [
-                "\n              // Finds all value object that has 'Robert' in it.\n              this._collection.find(\"Robert\");\n              // Finds any value object that has 'Robert' or 'Heater' or 23 in it.\n              this._collection.find([\"Robert\", \"Heather\", 32]);\n\n              // Finds all value objects that same key and value you are searching for.\n              this._collection.find({ name: 'apple', organic: false, type: 'fruit' });\n              this._collection.find([{ type: 'vegetable' }, { name: 'apple', 'organic: false, type': 'fruit' }]);"
+                "\n        // Finds all value object that has 'Robert' in it.\n        this._collection.find(\"Robert\");\n        // Finds any value object that has 'Robert' or 'Heater' or 23 in it.\n        this._collection.find([\"Robert\", \"Heather\", 32]);\n\n        // Finds all value objects that same key and value you are searching for.\n        this._collection.find({ name: 'apple', organic: false, type: 'fruit' });\n        this._collection.find([{ type: 'vegetable' }, { name: 'apple', 'organic: false, type': 'fruit' }]);"
             ],
             "itemtype": "method",
             "name": "find",
@@ -13452,7 +13452,7 @@
                 }
             ],
             "example": [
-                "\n               {\n               \"data\": [\n                   {\n                       \"id\": \"en-US\",\n                       \"lang\": \"English\",\n                       \"text\": \"English\",\n                       \"path\": \"data/languages/main.en.json\"\n                   },\n                   {\n                       \"id\": \"es-ES\",\n                       \"lang\": \"Spanish\",\n                       \"text\": \"Español\",\n                       \"path\": \"data/languages/main.sp.json\"\n                   }\n               ]\n           }"
+                "\n        {\n        \"data\": [\n            {\n                \"id\": \"en-US\",\n                \"lang\": \"English\",\n                \"text\": \"English\",\n                \"path\": \"data/languages/main.en.json\"\n            },\n            {\n                \"id\": \"es-ES\",\n                \"lang\": \"Spanish\",\n                \"text\": \"Español\",\n                \"path\": \"data/languages/main.sp.json\"\n            }\n        ]\n    }"
             ],
             "class": "LanguageModel",
             "module": "StructureTS",
@@ -13709,7 +13709,7 @@
             "line": 41,
             "description": "Adds the necessary event listeners to listen for the 'online' and 'offline' events.\nAlso dispatches a {{#crossLink \"NetworkMonitorEvent\"}}{{/crossLink}} right away with the status of the network connection.\nIt is recommended you call NetworkMonitor.init(); when your application starts up.",
             "example": [
-                "\n              NetworkMonitor.init();"
+                "\n        NetworkMonitor.init();"
             ],
             "itemtype": "method",
             "name": "init",
@@ -13973,7 +13973,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/plugin/jquery.eventListener.ts",
-            "line": 34,
+            "line": 40,
             "description": "Generates a hash string from the string being passed in. In this case it is a function that is casted as string value.",
             "params": [
                 {
@@ -13990,14 +13990,14 @@
         },
         {
             "file": "src/com/codebelt/structurets/plugin/jquery.eventListener.ts",
-            "line": 60,
+            "line": 66,
             "description": "The jQuery addEventListener plugin",
             "class": "BaseRequest",
             "module": "StructureTS"
         },
         {
             "file": "src/com/codebelt/structurets/plugin/jquery.eventListener.ts",
-            "line": 97,
+            "line": 103,
             "description": "The jQuery removeEventListener plugin",
             "class": "BaseRequest",
             "module": "StructureTS"
@@ -14126,7 +14126,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 165,
+            "line": 168,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "parseData",
@@ -14138,7 +14138,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 176,
+            "line": 179,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "cleanupListeners",
@@ -14150,7 +14150,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 188,
+            "line": 191,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "onDataLoadComplete",
@@ -14169,7 +14169,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 203,
+            "line": 206,
             "description": "YUIDoc_comment",
             "itemtype": "method",
             "name": "onDataLoadComplete",
@@ -14188,7 +14188,7 @@
         },
         {
             "file": "src/com/codebelt/structurets/request/BaseRequest.ts",
-            "line": 216,
+            "line": 219,
             "overridden": "EventDispatcher.destroy",
             "class": "BaseRequest",
             "module": "StructureTS",
@@ -14834,7 +14834,7 @@
             "line": 43,
             "description": "Determines if credit card is valid using the Luhn formula.",
             "example": [
-                "\n         MerchantUtil.isCreditCard(\"4556106734384949\");"
+                "\n        MerchantUtil.isCreditCard(\"4556106734384949\");"
             ],
             "itemtype": "method",
             "name": "isCreditCard",
@@ -15215,7 +15215,7 @@
             "line": 163,
             "description": "Remove all whitespace from the string passed in.",
             "example": [
-                "\n              var str = \"   a b    c d e f g \";\n              StringUtil.removeAllWhitespace(str);\n              // \"abcdefg\""
+                "\n        var str = \"   a b    c d e f g \";\n        StringUtil.removeAllWhitespace(str);\n        // \"abcdefg\""
             ],
             "itemtype": "method",
             "name": "removeAllWhitespace",
@@ -15610,7 +15610,7 @@
             "line": 52,
             "description": "Generates a unique ID. If a prefix is passed in, the value will be appended to it.",
             "example": [
-                "\n              var property:number = Util.uniqueId();\n              // 1\n\n              var property:string = Util.uniqueId('yomama_');\n              // yomama_1"
+                "\n        var property:number = Util.uniqueId();\n        // 1\n\n        var property:string = Util.uniqueId('yomama_');\n        // yomama_1"
             ],
             "itemtype": "method",
             "name": "uniqueId",
@@ -15957,7 +15957,7 @@
             "line": 63,
             "description": "Returns the fully qualified class name of an object.",
             "example": [
-                "\n       instance.getQualifiedClassName();"
+                "\n        instance.getQualifiedClassName();"
             ],
             "itemtype": "method",
             "name": "getQualifiedClassName",
@@ -15976,7 +15976,7 @@
             "line": 77,
             "description": "The purpose of the destroy method is to make an object ready for garbage collection. This\nshould be thought of as a one way function. Once destroy is called no further methods should be\ncalled on the object or properties accessed. It is the responsibility of those who implement this\nfunction to stop all running Timers, all running Sounds, remove any event\nlisteners and take any other steps necessary to make an object eligible for garbage collection.\nIt is critical that all subclasses call the super for this function in their overridden methods.\n\nNote: super.destroy(); should be called first before you clean up any other objects/items in the current classs.\nThe {{#crossLink \"BaseObject/destroy:method\"}}{{/crossLink}} method also calls the\n{{#crossLink \"EventDispatcher/disable:method\"}}{{/crossLink}} method on all classes that extend\n{{#crossLink \"EventDispatcher\"}}{{/crossLink}}.",
             "example": [
-                "\n       public destroy():void {\n           super.destroy();\n\n           this._childInstance.destroy();\n           this._childInstance = null;\n       }"
+                "\n        public destroy():void {\n           super.destroy();\n\n           this._childInstance.destroy();\n           this._childInstance = null;\n       }"
             ],
             "itemtype": "method",
             "name": "destroy",
@@ -16634,7 +16634,7 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:34"
+            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:40"
         },
         {
             "message": "unknown tag: version",
@@ -16642,7 +16642,7 @@
         },
         {
             "message": "unknown tag: overridden",
-            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:216"
+            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:219"
         },
         {
             "message": "unknown tag: overridden",
@@ -19070,19 +19070,19 @@
         },
         {
             "message": "Missing item type\nGenerates a hash string from the string being passed in. In this case it is a function that is casted as string value.",
-            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:34"
+            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:40"
         },
         {
             "message": "Missing item type\nThe jQuery addEventListener plugin",
-            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:60"
+            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:66"
         },
         {
             "message": "Missing item type\nThe jQuery removeEventListener plugin",
-            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:97"
+            "line": " src/com/codebelt/structurets/plugin/jquery.eventListener.ts:103"
         },
         {
             "message": "Missing item type",
-            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:216"
+            "line": " src/com/codebelt/structurets/request/BaseRequest.ts:219"
         },
         {
             "message": "Missing item type",

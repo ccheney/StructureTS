@@ -43,7 +43,7 @@ module StructureTS
         /**
          * Determines if credit card is valid using the Luhn formula.
          * @example
-          MerchantUtil.isCreditCard("4556106734384949");
+         MerchantUtil.isCreditCard("4556106734384949");
          * @method isCreditCard
          * @param cardNumber {string} The credit card number.
          * @returns {boolean} <code>true</code> if String is a valid credit card number; otherwise <code>false</code>.

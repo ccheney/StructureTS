@@ -65,22 +65,22 @@ module StructureTS
          * @method loadConfig
          * @param path {string} The path to the main language config json file.
          * @example
-                {
-                "data": [
-                    {
-                        "id": "en-US",
-                        "lang": "English",
-                        "text": "English",
-                        "path": "data/languages/main.en.json"
-                    },
-                    {
-                        "id": "es-ES",
-                        "lang": "Spanish",
-                        "text": "Español",
-                        "path": "data/languages/main.sp.json"
-                    }
-                ]
-            }
+         {
+         "data": [
+             {
+                 "id": "en-US",
+                 "lang": "English",
+                 "text": "English",
+                 "path": "data/languages/main.en.json"
+             },
+             {
+                 "id": "es-ES",
+                 "lang": "Spanish",
+                 "text": "Español",
+                 "path": "data/languages/main.sp.json"
+             }
+         ]
+     }
          */
         public loadConfig(path:string):void
         {

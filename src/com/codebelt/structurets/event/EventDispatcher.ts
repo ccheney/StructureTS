@@ -80,8 +80,8 @@ module StructureTS
         /**
          * Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.
          * @example
-               instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         instance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                    console.log(event.target + " sent the event.");
                }
          * @method addEventListener
@@ -126,8 +126,8 @@ module StructureTS
         /**
          * Removes a specified listener from the EventDispatcher object.
          * @example
-               instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         instance.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                    console.log(event.target + " sent the event.");
                }
          * @method removeEventListener
@@ -162,11 +162,11 @@ module StructureTS
         /**
          * <p>Dispatches an event into the event flow. The event target is the EventDispatcher object upon which the dispatchEvent() method is called.</p>
          * @example
-               var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
-               instance.dispatchEvent(event);
+         var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+         instance.dispatchEvent(event);
 
-               // Here is a common inline event being dispatched
-               instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
+         // Here is a common inline event being dispatched
+         instance.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
          * @method dispatchEvent
          * @param event {BaseEvent} The Event object that is dispatched into the event flow. You can create custom events, the only requirement is all events must
          * extend the {{#crossLink "BaseEvent"}}{{/crossLink}}.
@@ -243,7 +243,7 @@ module StructureTS
         /**
          * The enable method is responsible for enabling event listeners and/or children of the containing objects.
          * @example
-               public enable():void {
+         public enable():void {
                if (this.isEnabled === true) return;
 
                this._childInstance.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
@@ -293,7 +293,8 @@ module StructureTS
          * @return {array} Returns an array dictionary of the different event listener(s) on the object.
          * @public
          */
-        public getEventListeners():any[] {
+        public getEventListeners():any[]
+        {
             return this._listeners;
         }
 

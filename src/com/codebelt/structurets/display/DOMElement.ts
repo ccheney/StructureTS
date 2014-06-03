@@ -203,45 +203,45 @@ module StructureTS
          *
          * This method gets called only once when the child view is added to another view. If the child view is removed and added to another view the createChildren method will not be called again.
          * @example
-        // By default your view class will be a div element:
-        public createChildren():void {
+         // By default your view class will be a div element:
+         public createChildren():void {
             super.createChildren();
 
             this._childInstance = new DOMElement();
             this.addChild(this._childInstance);
         }
 
-        // But lets say you wanted the view to be a ul element your would do:
-        public createChildren():void {
+         // But lets say you wanted the view to be a ul element your would do:
+         public createChildren():void {
             super.createChildren('ul');
         }
 
-        // Then you could nest other elements inside this base view/element.
-        public createChildren():void {
+         // Then you could nest other elements inside this base view/element.
+         public createChildren():void {
             super.createChildren('ul', {id: 'myId', 'class': 'myClass anotherClass'});
 
             var li:DOMElement = new DOMElement('li', {text: 'Robert is cool'});
             this.addChild(li);
         }
 
-        // So that's cool but what if you wanted a block of html to be your view. Let's say you had the below inline Handlebar template in your html file.
-        <script id="todoTemplate" type="text/template">
-            <div id="htmlTemplatel" class="js-todo">
-                <div id="input-wrapper">
-                    <input type="text" class="list-input" placeholder="{{ data.text }}">
-                    <input type="button" class="list-item-submit" value="Add">
-                </div>
-            </div>
-        </script>
+         // So that's cool but what if you wanted a block of html to be your view. Let's say you had the below inline Handlebar template in your html file.
+         <script id="todoTemplate" type="text/template">
+         <div id="htmlTemplatel" class="js-todo">
+         <div id="input-wrapper">
+         <input type="text" class="list-input" placeholder="{{ data.text }}">
+         <input type="button" class="list-item-submit" value="Add">
+         </div>
+         </div>
+         </script>
 
-        // You would just pass in the id of the template which in this case is "#todoTemplate". There is a second optional argument where you can pass data for the Handlebar template to use.
-        public createChildren():void {
+         // You would just pass in the id of the template which in this case is "#todoTemplate". There is a second optional argument where you can pass data for the Handlebar template to use.
+         public createChildren():void {
             super.createChildren('#todoTemplate', { data: this.viewData });
 
         }
 
-        // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.
-        public createChildren():void {
+         // One more. Let's say you wanted the Handlebar templates in there own files and then pre-compiled them so they would be faster to use. With the StructureTS work flow you can do this. Then you just have to reference the path to the template.
+         public createChildren():void {
             super.createChildren('templates/home/HtmlTemplate');
 
         }
@@ -279,7 +279,7 @@ module StructureTS
         /**
          * @overridden DisplayObjectContainer.addChild
          * @example
-        container.addChild(domElementInstance);
+         container.addChild(domElementInstance);
          * @method addChild
          * @param child {DOMElement} The DOMElement instance to add as a child of this object instance.
          * @returns {DOMElement} Returns an instance of itself.

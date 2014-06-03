@@ -266,8 +266,8 @@ module StructureTS
         /**
          * Registers an event listener object with an ApplicationCacheController object so that the listener receives notification of an event.
          * @example
-               ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         ApplicationCacheController.addEventListener(BaseEvent.CHANGE, handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                console.log(event.target + " sent the event.");
            }
          * @method addEventListener
@@ -285,8 +285,8 @@ module StructureTS
         /**
          * Removes a specified listener from the ApplicationCacheController object.
          * @example
-               ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         ApplicationCacheController.removeEventListener(BaseEvent.CHANGE, handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                console.log(event.target + " sent the event.");
            }
          * @method removeEventListener
@@ -304,11 +304,11 @@ module StructureTS
         /**
          * <p>Dispatches an event within the ApplicationCacheController object.</p>
          * @example
-               var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
-               ApplicationCacheController.dispatchEvent(event);
+         var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+         ApplicationCacheController.dispatchEvent(event);
 
-               // Here is a common inline event being dispatched
-               ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
+         // Here is a common inline event being dispatched
+         ApplicationCacheController.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
          * @method dispatchEvent
          * @param event {BaseEvent} The Event object that is dispatched into the event flow. You can create custom events, the only requirement is all events must
          * extend the {{#crossLink "BaseEvent"}}{{/crossLink}}.

@@ -56,8 +56,8 @@ module StructureTS
         /**
          * Registers an event listener object with an EventBroker object so that the listener receives notification of an event.
          * @example
-               EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         EventBroker.addEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                console.log(event.target + " sent the event.");
            }
          * @method addEventListener
@@ -76,8 +76,8 @@ module StructureTS
         /**
          * Removes a specified listener from the EventBroker object.
          * @example
-               EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
-               private handlerMethod(event:BaseEvent):void {
+         EventBroker.removeEventListener(BaseEvent.CHANGE, this.handlerMethod, this);
+         private handlerMethod(event:BaseEvent):void {
                console.log(event.target + " sent the event.");
            }
          * @method removeEventListener
@@ -96,11 +96,11 @@ module StructureTS
         /**
          * <p>Dispatches an event within the EventBroker object.</p>
          * @example
-               var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
-               EventBroker.dispatchEvent(event);
+         var event:BaseEvent = new BaseEvent(BaseEvent.CHANGE);
+         EventBroker.dispatchEvent(event);
 
-               // Here is a common inline event being dispatched
-               EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
+         // Here is a common inline event being dispatched
+         EventBroker.dispatchEvent(new BaseEvent(BaseEvent.CHANGE));
          * @method dispatchEvent
          * @param event {BaseEvent} The Event object that is dispatched into the event flow. You can create custom events, the only requirement is all events must
          * extend the {{#crossLink "BaseEvent"}}{{/crossLink}}.

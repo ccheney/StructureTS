@@ -43,7 +43,7 @@ module StructureTS
          * Also dispatches a {{#crossLink "NetworkMonitorEvent"}}{{/crossLink}} right away with the status of the network connection.
          * It is recommended you call NetworkMonitor.init(); when your application starts up.
          * @example
-               NetworkMonitor.init();
+         NetworkMonitor.init();
          * @method init
          * @static
          * @public

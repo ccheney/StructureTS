@@ -155,9 +155,12 @@ module StructureTS
             this._loader.addEventListener(LoaderEvent.COMPLETE, this.onDataLoadComplete, this);
             this._loader.addEventListener(LoaderEvent.ERROR, this.onDataLoadError, this);
 
-            if(this._request){
+            if (this._request)
+            {
                 this._loader.load(this._request);
-            }else{
+            }
+            else
+            {
                 throw new Error('[' + this.getQualifiedClassName() + '] Error: No request object created for proxy. Override configureRequest');
             }
         }
