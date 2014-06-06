@@ -46,10 +46,10 @@ module StructureTS
          * A cached of the DOM Element.
          *
          * @property element
-         * @type {Element}
+         * @type {HTMLElement}
          * @default null
          */
-        public element:Element = null;
+        public element:HTMLElement = null;
 
         /**
          * A cached jQuery object for the view's element.
