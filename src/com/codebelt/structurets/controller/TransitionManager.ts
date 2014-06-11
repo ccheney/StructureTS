@@ -22,7 +22,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-///<reference path='BaseController.ts'/>
+///<reference path='../event/EventDispatcher.ts'/>
 ///<reference path='../display/DOMElement.ts'/>
 ///<reference path='../util/TransitionFactory.ts'/>
 ///<reference path='../interface/ITransition.ts'/>
@@ -32,7 +32,7 @@
 
 module StructureTS
 {
-    export class TransitionManager extends BaseController
+    export class TransitionManager extends EventDispatcher
     {
         public static READY:string = 'ready';
         public static TRANSITION_RUNNING:string = 'transitionRunning';

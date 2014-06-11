@@ -898,6 +898,9 @@ var StructureTS;
         DOMElement.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
 
+            this.$element.unbind();
+            this.$element.remove();
+
             this.$element = null;
             this.element = null;
         };
@@ -917,7 +920,7 @@ var StructureTS;
             this.$element = jQuery(type);
             this.$element.attr('data-cid', this.cid);
 
-            if (!this.isCreated) {
+            if (this.isCreated == false) {
                 this.createChildren();
                 this.isCreated = true;
                 this.layoutChildren();
@@ -934,17 +937,6 @@ var StructureTS;
         return Stage;
     })(StructureTS.DOMElement);
     StructureTS.Stage = Stage;
-})(StructureTS || (StructureTS = {}));
-var StructureTS;
-(function (StructureTS) {
-    var BaseController = (function (_super) {
-        __extends(BaseController, _super);
-        function BaseController() {
-            _super.call(this);
-        }
-        return BaseController;
-    })(StructureTS.EventDispatcher);
-    StructureTS.BaseController = BaseController;
 })(StructureTS || (StructureTS = {}));
 var StructureTS;
 (function (StructureTS) {
@@ -2145,7 +2137,7 @@ var StructureTS;
             this._crossroads.parse(hash);
         };
         return RouterController;
-    })(StructureTS.BaseController);
+    })(StructureTS.EventDispatcher);
     StructureTS.RouterController = RouterController;
 })(StructureTS || (StructureTS = {}));
 var codeBelt;
@@ -2158,7 +2150,7 @@ var codeBelt;
             _super.call(this);
         }
         FooterView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/footer/footerTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/footer/footerTemplate');
         };
 
         FooterView.prototype.layoutChildren = function () {
@@ -2188,7 +2180,7 @@ var codeBelt;
 var codeBelt;
 (function (codeBelt) {
     var DOMElement = StructureTS.DOMElement;
-
+    var RouterController = StructureTS.RouterController;
     var RouterEvent = StructureTS.RouterEvent;
 
     var HeaderView = (function (_super) {
@@ -2201,7 +2193,7 @@ var codeBelt;
             this._router = router;
         }
         HeaderView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/header/headerTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/header/headerTemplate');
 
             this._$navLinks = this.$element.find('#js-nav li');
         };
@@ -2293,7 +2285,7 @@ var codeBelt;
             _super.call(this);
         }
         AboutView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/about/aboutTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/about/aboutTemplate');
         };
 
         AboutView.prototype.layoutChildren = function () {
@@ -2328,7 +2320,7 @@ var codeBelt;
             _super.call(this);
         }
         ContactView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/contact/contactTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/contact/contactTemplate');
         };
 
         ContactView.prototype.layoutChildren = function () {
@@ -2363,7 +2355,7 @@ var codeBelt;
             _super.call(this);
         }
         HomeView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/home/homeTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/home/homeTemplate');
         };
 
         HomeView.prototype.layoutChildren = function () {
@@ -2398,7 +2390,7 @@ var codeBelt;
             _super.call(this);
         }
         MenuView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/menu/menuTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/menu/menuTemplate');
         };
 
         MenuView.prototype.layoutChildren = function () {
@@ -2433,7 +2425,7 @@ var codeBelt;
             _super.call(this);
         }
         ServicesView.prototype.createChildren = function () {
-            _super.prototype.createChildren.call(this, 'templates/services/servicesTemplate.hbs');
+            _super.prototype.createChildren.call(this, 'templates/services/servicesTemplate');
         };
 
         ServicesView.prototype.layoutChildren = function () {
@@ -2629,4 +2621,3 @@ var codeBelt;
     })(Stage);
     codeBelt.WebsiteApp = WebsiteApp;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map

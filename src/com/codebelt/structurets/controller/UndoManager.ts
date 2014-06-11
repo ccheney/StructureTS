@@ -22,11 +22,11 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-///<reference path='BaseController.ts'/>
+///<reference path='../event/EventDispatcher.ts'/>
 
 module StructureTS
 {
-    export class UndoManager extends BaseController
+    export class UndoManager extends EventDispatcher
     {
         /**
          * The UndoManager...

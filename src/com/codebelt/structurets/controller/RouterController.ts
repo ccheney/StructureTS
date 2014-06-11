@@ -22,7 +22,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-///<reference path='BaseController.ts'/>
+///<reference path='../event/EventDispatcher.ts'/>
 ///<reference path='../event/RouterEvent.ts'/>
 
 ///<reference path='../../../millermedeiros/hasher/Hasher.ts'/>
@@ -33,7 +33,7 @@ module StructureTS
     import Hasher = MillerMedeiros.Hasher;
     import Crossroads = MillerMedeiros.Crossroads;
 
-    export class RouterController extends BaseController
+    export class RouterController extends EventDispatcher
     {
         /**
          * YUIDoc_comment

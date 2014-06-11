@@ -111,7 +111,7 @@ module StructureTS
 
          // Example of a view extending DOMElement when passing in a jQuery object.
          export class CustomView extends DOMElement {
-            constructor($element) {
+            constructor($element:JQuery) {
                 super($element);
             }
 
@@ -562,6 +562,9 @@ module StructureTS
         public destroy():void
         {
             super.destroy();
+
+            this.$element.unbind();
+            this.$element.remove();
 
             this.$element = null;
             this.element = null;

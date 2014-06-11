@@ -22,13 +22,13 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-///<reference path='BaseController.ts'/>
+///<reference path='../event/EventDispatcher.ts'/>
 ///<reference path='../event/LocalStorageEvent.ts'/>
 ///<reference path='../model/ValueObject.ts'/>
 
 module StructureTS
 {
-    export class LocalStorageController extends BaseController
+    export class LocalStorageController extends EventDispatcher
     {
         /**
          * Current user namespace. The namespace is optional.
