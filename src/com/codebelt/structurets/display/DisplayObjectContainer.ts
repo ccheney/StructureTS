@@ -60,6 +60,26 @@ module StructureTS
         public children:DisplayObjectContainer[] = [];
 
         /**
+         * A property providing access to the x position.
+         *
+         * @property x
+         * @type {number}
+         * @default 0
+         * @public
+         */
+        public x:number = 0;
+
+        /**
+         * A property providing access to the y position.
+         *
+         * @property y
+         * @type {number}
+         * @default 0
+         * @public
+         */
+        public y:number = 0;
+
+        /**
          * A property providing access to the width.
          *
          * @property width
@@ -109,7 +129,7 @@ module StructureTS
          * @constructor
          * @version 0.1.1
          **/
-        constructor()
+            constructor()
         {
             super();
         }
