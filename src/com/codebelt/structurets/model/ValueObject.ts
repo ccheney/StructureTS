@@ -100,8 +100,8 @@ module StructureTS
         /**
          *
          *
-         * @method clone
-         * @returns {Object}
+         * @method Object
+         * @returns {any}
          * @public
          */
         public clone():Object

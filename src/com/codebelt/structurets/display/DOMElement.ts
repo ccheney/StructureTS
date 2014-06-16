@@ -43,6 +43,15 @@ module StructureTS
         private _isVisible:boolean = true;
 
         /**
+         * YUIDoc_comment
+         *
+         * @property checkCount
+         * @type {number}
+         * @public
+         */
+        private checkCount:number = 0;
+
+        /**
          * A cached of the DOM Element.
          *
          * @property element
@@ -300,20 +309,30 @@ module StructureTS
                 child.isCreated = true;
             }
 
-            // Adds the cid to the DOM element so we can know what what Class object the element belongs too.
-            child.$element.attr('data-cid', child.cid);
+            this.addClientSideId(child);
 
             // If the child object is not a reference of a jQuery object in the DOM then append it.
             if (child._isReference === false)
             {
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 this.$element.append(child.$element);
             }
 
             child.enable();
-            child.layoutChildren();
+            this.onAddedToDom(child);
 
             return this;
+        }
+
+        /**
+         * Adds the cid to the DOM element so we can know what what Class object the element belongs too.
+         *
+         * @method addClientSideId
+         * @param child {DOMElement} The DOMElement instance to add the cid too.
+         * @private
+         */
+        private addClientSideId(child:DOMElement):void {
+            // TODO: Calling the getChild method there is a chance that multiple DOMElement have reference to the same DOM HTML element causing the cid to be over written with a new cid. Probably should handle that.
+            child.$element.attr('data-cid', child.cid);
         }
 
         /**
@@ -321,15 +340,19 @@ module StructureTS
          * The method will call {{#crossLink "DOMElement/layoutChildren:method"}}{{/crossLink}} and dispatch the BaseEvent.ADDED event.
          *
          * @method onDomAdded
-         * @param event {JQueryEventObject}
          * @private
          */
-        private onAddedToDom(event:JQueryEventObject)
+        private onAddedToDom(child:DOMElement)
         {
-            var child:DOMElement = event.data;
-            child.$element.removeEventListener('DOMNodeInsertedIntoDocument', this.onAddedToDom, this);
-            child.layoutChildren();
-            child.dispatchEvent(new BaseEvent(BaseEvent.ADDED));
+            child.checkCount++;
+            if (child.$element.width() == 0 && child.checkCount < 5) {
+                setTimeout(() => {
+                    this.onAddedToDom(child);
+                }, 100)
+            } else {
+                child.layoutChildren();
+                child.dispatchEvent(new BaseEvent(BaseEvent.ADDED));
+            }
         }
 
         /**
@@ -356,9 +379,7 @@ module StructureTS
                     child.isCreated = true;
                 }
 
-                // Adds the cid to the DOM element so we can know what what Class object the element belongs too.
-                child.$element.attr('data-cid', child.cid);
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.addClientSideId(child);
 
                 // Adds the child at a specific index but also will remove the child from another parent object if one exists.
                 super.addChildAt(child, index);
@@ -367,7 +388,7 @@ module StructureTS
                 jQuery(children.get(index)).before(child.$element);
 
                 child.enable();
-                child.layoutChildren();
+                this.onAddedToDom(child);
             }
 
             return this;
@@ -563,8 +584,11 @@ module StructureTS
         {
             super.destroy();
 
-            this.$element.unbind();
-            this.$element.remove();
+            // If the addChild method is never called before the destroyed the $element will be null and cause an TypeError.
+            if (this.$element != null) {
+                this.$element.unbind();
+                this.$element.remove();
+            }
 
             this.$element = null;
             this.element = null;

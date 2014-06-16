@@ -45,5 +45,16 @@ module StructureTS
             this.data = JSON.parse(this.data);
         }
 
+        /**
+         * @overridden BaseRequest.configureRequest
+         */
+        public configureRequest():URLRequest
+        {
+            var urlRequest:URLRequest = super.configureRequest();
+            urlRequest.contentType = URLContentType.JSON;
+
+            return urlRequest;
+        }
+
     }
 }
