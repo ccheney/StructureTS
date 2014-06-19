@@ -129,7 +129,7 @@ module StructureTS
          * @constructor
          * @version 0.1.1
          **/
-            constructor()
+        constructor()
         {
             super();
         }
