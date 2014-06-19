@@ -75,7 +75,7 @@ module StructureTS
 
         public layoutChildren():any
         {
-            if (this.context == false || this.alpha <= 0 || this.visible == false)
+            if (this.context == null || this.alpha <= 0 || this.visible == false)
             {
                 return this;
             }
