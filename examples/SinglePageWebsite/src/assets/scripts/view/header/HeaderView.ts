@@ -73,11 +73,6 @@ module codeBelt
         public destroy():void
         {
             super.destroy();
-
-            // Note: we do not want to call destroy on _router because with was create outside of this class.
-            this._router = null;
-
-            this._$navLinks = null;
         }
 
         private onRouteChange(event:RouterEvent):void

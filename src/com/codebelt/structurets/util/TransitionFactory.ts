@@ -126,8 +126,6 @@ module StructureTS
         public destroy():void
         {
             super.destroy();
-
-            this._transitions = null;
         }
 
     }

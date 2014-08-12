@@ -582,16 +582,13 @@ module StructureTS
          */
         public destroy():void
         {
-            super.destroy();
-
             // If the addChild method is never called before the destroyed the $element will be null and cause an TypeError.
             if (this.$element != null) {
                 this.$element.unbind();
                 this.$element.remove();
             }
 
-            this.$element = null;
-            this.element = null;
+            super.destroy();
         }
 
     }

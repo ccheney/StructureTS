@@ -348,9 +348,6 @@ module StructureTS
         public destroy():void
         {
             super.destroy();
-
-            this.items = null;
-            this.length = null;
         }
 
     }

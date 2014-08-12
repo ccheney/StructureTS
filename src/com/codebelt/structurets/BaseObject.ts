@@ -99,6 +99,11 @@ module StructureTS
          */
         public destroy():void
         {
+            for (var key in this) {
+                if (this.hasOwnProperty(key)) {
+                    this[key] = null;
+                }
+            }
         }
 
     }

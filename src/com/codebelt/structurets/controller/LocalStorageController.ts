@@ -255,8 +255,6 @@ module StructureTS
         public destroy():void
         {
             super.destroy();
-
-            this._localStorage = null;
         }
 
         /**

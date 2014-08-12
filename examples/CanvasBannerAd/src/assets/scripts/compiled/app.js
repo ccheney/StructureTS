@@ -107,6 +107,11 @@ var StructureTS;
         };
 
         BaseObject.prototype.destroy = function () {
+            for (var key in this) {
+                if (this.hasOwnProperty(key)) {
+                    this[key] = null;
+                }
+            }
         };
         return BaseObject;
     })();
@@ -296,12 +301,9 @@ var StructureTS;
         };
 
         EventDispatcher.prototype.destroy = function () {
-            _super.prototype.destroy.call(this);
-
             this.disable();
 
-            this.parent = null;
-            this._listeners = null;
+            _super.prototype.destroy.call(this);
         };
 
         EventDispatcher.prototype.enable = function () {
@@ -336,6 +338,8 @@ var StructureTS;
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
+            this.x = 0;
+            this.y = 0;
             this.width = 0;
             this.height = 0;
             this.unscaledWidth = 100;
@@ -447,9 +451,6 @@ var StructureTS;
 
         DisplayObjectContainer.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
-
-            this.children = [];
-            this.numChildren = 0;
         };
         return DisplayObjectContainer;
     })(StructureTS.EventDispatcher);
@@ -470,7 +471,7 @@ var StructureTS;
             this.rotation = 0;
             this.alpha = 1;
             this.visible = true;
-            TweenLite.ticker.addEventListener("tick", this.layoutChildren.bind(this), this);
+            TweenLite.ticker.addEventListener("tick", this.layoutChildren, this);
         }
         CanvasElement.prototype.createChildren = function () {
             return this;
@@ -486,7 +487,7 @@ var StructureTS;
         };
 
         CanvasElement.prototype.layoutChildren = function () {
-            if (!this.context || this.alpha <= 0 || !this.visible) {
+            if (this.context == null || this.alpha <= 0 || this.visible == false) {
                 return this;
             }
 
@@ -540,7 +541,7 @@ var StructureTS;
             this.width = this.element.width;
             this.height = this.element.height;
 
-            if (!this.isCreated) {
+            if (this.isCreated == false) {
                 this.createChildren();
                 this.isCreated = true;
             }
@@ -830,6 +831,7 @@ var StructureTS;
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
             this._isVisible = true;
+            this.checkCount = 0;
             this.element = null;
             this.$element = null;
             this._isReference = false;
@@ -876,24 +878,33 @@ var StructureTS;
                 child.isCreated = true;
             }
 
-            child.$element.attr('data-cid', child.cid);
+            this.addClientSideId(child);
 
             if (child._isReference === false) {
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 this.$element.append(child.$element);
             }
 
             child.enable();
-            child.layoutChildren();
+            this.onAddedToDom(child);
 
             return this;
         };
 
-        DOMElement.prototype.onAddedToDom = function (event) {
-            var child = event.data;
-            child.$element.removeEventListener('DOMNodeInsertedIntoDocument', this.onAddedToDom, this);
-            child.layoutChildren();
-            child.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
+        DOMElement.prototype.addClientSideId = function (child) {
+            child.$element.attr('data-cid', child.cid);
+        };
+
+        DOMElement.prototype.onAddedToDom = function (child) {
+            var _this = this;
+            child.checkCount++;
+            if (child.$element.width() == 0 && child.checkCount < 5) {
+                setTimeout(function () {
+                    _this.onAddedToDom(child);
+                }, 100);
+            } else {
+                child.layoutChildren();
+                child.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
+            }
         };
 
         DOMElement.prototype.addChildAt = function (child, index) {
@@ -908,15 +919,14 @@ var StructureTS;
                     child.isCreated = true;
                 }
 
-                child.$element.attr('data-cid', child.cid);
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.addClientSideId(child);
 
                 _super.prototype.addChildAt.call(this, child, index);
 
                 jQuery(children.get(index)).before(child.$element);
 
                 child.enable();
-                child.layoutChildren();
+                this.onAddedToDom(child);
             }
 
             return this;
@@ -1018,10 +1028,12 @@ var StructureTS;
         };
 
         DOMElement.prototype.destroy = function () {
-            _super.prototype.destroy.call(this);
+            if (this.$element != null) {
+                this.$element.unbind();
+                this.$element.remove();
+            }
 
-            this.$element = null;
-            this.element = null;
+            _super.prototype.destroy.call(this);
         };
         return DOMElement;
     })(StructureTS.DisplayObjectContainer);
@@ -1039,7 +1051,7 @@ var StructureTS;
             this.$element = jQuery(type);
             this.$element.attr('data-cid', this.cid);
 
-            if (!this.isCreated) {
+            if (this.isCreated == false) {
                 this.createChildren();
                 this.isCreated = true;
                 this.layoutChildren();
@@ -1339,7 +1351,7 @@ var StructureTS;
 
             for (var key in this._dataStores) {
                 var dataStore = this._dataStores[key];
-                if (!dataStore.complete) {
+                if (dataStore.complete == false) {
                     return;
                 }
             }
@@ -1387,18 +1399,17 @@ var StructureTS;
 var codeBelt;
 (function (codeBelt) {
     var Canvas = StructureTS.Canvas;
-
+    var Stage = StructureTS.Stage;
     var Bitmap = StructureTS.Bitmap;
     var AssetLoader = StructureTS.AssetLoader;
     var ImageLoader = StructureTS.ImageLoader;
-
+    var MathUtil = StructureTS.MathUtil;
     var LoaderEvent = StructureTS.LoaderEvent;
 
     var BannerAd = (function (_super) {
         __extends(BannerAd, _super);
         function BannerAd() {
             _super.call(this);
-            this.CLASS_NAME = 'BannerAd';
             this._cherry = null;
             this._cherryDipped = null;
             this._logo = null;
@@ -1477,4 +1488,3 @@ var codeBelt;
     })(Canvas);
     codeBelt.BannerAd = BannerAd;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map

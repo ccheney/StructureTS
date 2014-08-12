@@ -232,12 +232,9 @@ module StructureTS
          */
         public destroy():void
         {
-            super.destroy();
-
             this.disable();
 
-            this.parent = null;
-            this._listeners = null;
+            super.destroy();
         }
 
         /**

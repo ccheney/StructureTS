@@ -93,19 +93,12 @@ module codeBelt
          */
         public destroy():void
         {
-            super.destroy();
-
             this._router.destroy();
-            this._router = null;
-
             this._headerView.destroy();
-            this._headerView = null;
-
             this._footerView.destroy();
-            this._footerView = null;
-
             this._currentView.destroy();
-            this._currentView = null;
+
+            super.destroy();
         }
 
         private homeRouterHandler():void

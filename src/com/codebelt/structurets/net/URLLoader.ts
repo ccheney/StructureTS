@@ -128,9 +128,6 @@ module StructureTS
         public destroy():void
         {
             super.destroy();
-
-            this._defer = null;
-            this.data = null;
         }
 
     }

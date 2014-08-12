@@ -108,15 +108,9 @@ module StructureTS
          */
         public destroy():void
         {
-            super.destroy();
-
             this._transitionFactory.destroy();
-            this._transitionFactory = null;
-            this._runningTransition = null;
 
-            this._viewContainer = null;
-            this._currentView = null;
-            this._nextView = null;
+            super.destroy();
         }
 
         private removeCurrentView():void

@@ -55,10 +55,9 @@ module codeBelt
          */
         public destroy():void
         {
-            super.destroy();
-
             this._rootView.destroy();
-            this._rootView = null;
+
+            super.destroy();
         }
 
     }

@@ -205,6 +205,11 @@ var StructureTS;
         };
 
         BaseObject.prototype.destroy = function () {
+            for (var key in this) {
+                if (this.hasOwnProperty(key)) {
+                    this[key] = null;
+                }
+            }
         };
         return BaseObject;
     })();
@@ -394,12 +399,9 @@ var StructureTS;
         };
 
         EventDispatcher.prototype.destroy = function () {
-            _super.prototype.destroy.call(this);
-
             this.disable();
 
-            this.parent = null;
-            this._listeners = null;
+            _super.prototype.destroy.call(this);
         };
 
         EventDispatcher.prototype.enable = function () {
@@ -434,6 +436,8 @@ var StructureTS;
             this.isCreated = false;
             this.numChildren = 0;
             this.children = [];
+            this.x = 0;
+            this.y = 0;
             this.width = 0;
             this.height = 0;
             this.unscaledWidth = 100;
@@ -545,9 +549,6 @@ var StructureTS;
 
         DisplayObjectContainer.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
-
-            this.children = [];
-            this.numChildren = 0;
         };
         return DisplayObjectContainer;
     })(StructureTS.EventDispatcher);
@@ -708,6 +709,7 @@ var StructureTS;
             if (typeof params === "undefined") { params = null; }
             _super.call(this);
             this._isVisible = true;
+            this.checkCount = 0;
             this.element = null;
             this.$element = null;
             this._isReference = false;
@@ -754,24 +756,33 @@ var StructureTS;
                 child.isCreated = true;
             }
 
-            child.$element.attr('data-cid', child.cid);
+            this.addClientSideId(child);
 
             if (child._isReference === false) {
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
                 this.$element.append(child.$element);
             }
 
             child.enable();
-            child.layoutChildren();
+            this.onAddedToDom(child);
 
             return this;
         };
 
-        DOMElement.prototype.onAddedToDom = function (event) {
-            var child = event.data;
-            child.$element.removeEventListener('DOMNodeInsertedIntoDocument', this.onAddedToDom, this);
-            child.layoutChildren();
-            child.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
+        DOMElement.prototype.addClientSideId = function (child) {
+            child.$element.attr('data-cid', child.cid);
+        };
+
+        DOMElement.prototype.onAddedToDom = function (child) {
+            var _this = this;
+            child.checkCount++;
+            if (child.$element.width() == 0 && child.checkCount < 5) {
+                setTimeout(function () {
+                    _this.onAddedToDom(child);
+                }, 100);
+            } else {
+                child.layoutChildren();
+                child.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
+            }
         };
 
         DOMElement.prototype.addChildAt = function (child, index) {
@@ -786,15 +797,14 @@ var StructureTS;
                     child.isCreated = true;
                 }
 
-                child.$element.attr('data-cid', child.cid);
-                child.$element.addEventListener('DOMNodeInsertedIntoDocument', child, this.onAddedToDom, this);
+                this.addClientSideId(child);
 
                 _super.prototype.addChildAt.call(this, child, index);
 
                 jQuery(children.get(index)).before(child.$element);
 
                 child.enable();
-                child.layoutChildren();
+                this.onAddedToDom(child);
             }
 
             return this;
@@ -896,10 +906,12 @@ var StructureTS;
         };
 
         DOMElement.prototype.destroy = function () {
-            _super.prototype.destroy.call(this);
+            if (this.$element != null) {
+                this.$element.unbind();
+                this.$element.remove();
+            }
 
-            this.$element = null;
-            this.element = null;
+            _super.prototype.destroy.call(this);
         };
         return DOMElement;
     })(StructureTS.DisplayObjectContainer);
@@ -917,7 +929,7 @@ var StructureTS;
             this.$element = jQuery(type);
             this.$element.attr('data-cid', this.cid);
 
-            if (!this.isCreated) {
+            if (this.isCreated == false) {
                 this.createChildren();
                 this.isCreated = true;
                 this.layoutChildren();
@@ -1023,34 +1035,34 @@ var StructureTS;
         }
         Collection.prototype.addItem = function (item, silent) {
             if (typeof silent === "undefined") { silent = false; }
-            if (!(item instanceof StructureTS.ValueObject)) {
+            if ((item instanceof StructureTS.ValueObject) == false) {
                 throw new TypeError('[' + this.getQualifiedClassName() + '] Item must be of the IValueObject type');
             }
 
-            if (!this.hasItem(item)) {
+            if (this.hasItem(item) == false) {
                 this.items.push(item);
                 this.length = this.items.length;
             }
 
-            if (!silent) {
+            if (silent == false) {
                 this.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
             }
         };
 
         Collection.prototype.removeItem = function (item, silent) {
             if (typeof silent === "undefined") { silent = false; }
-            if (!(item instanceof StructureTS.ValueObject)) {
+            if ((item instanceof StructureTS.ValueObject) == false) {
                 throw new TypeError('[' + this.getQualifiedClassName() + '] Item must be of the IValueObject type');
             }
 
-            if (!this.hasItem(item)) {
+            if (this.hasItem(item) == false) {
                 throw new Error('[' + this.getQualifiedClassName() + '] Collection does not have item ' + item);
             }
 
             this.items.splice(this.getIndexOfItem(item), 1);
             this.length = this.items.length;
 
-            if (!silent) {
+            if (silent == false) {
                 this.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.REMOVED));
             }
         };
@@ -1062,7 +1074,7 @@ var StructureTS;
                 this.removeItem(items[i]);
             }
 
-            if (!silent) {
+            if (silent == false) {
                 this.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.REMOVED));
             }
         };
@@ -1082,7 +1094,7 @@ var StructureTS;
                 this.addItem(items[i]);
             }
 
-            if (!silent) {
+            if (silent == false) {
                 this.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.ADDED));
             }
         };
@@ -1157,31 +1169,17 @@ var StructureTS;
             this.items = [];
             this.length = 0;
 
-            if (!silent) {
+            if (silent == false) {
                 this.dispatchEvent(new StructureTS.BaseEvent(StructureTS.BaseEvent.CLEAR));
             }
         };
 
         Collection.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
-
-            this.items = null;
-            this.length = null;
         };
         return Collection;
     })(StructureTS.EventDispatcher);
     StructureTS.Collection = Collection;
-})(StructureTS || (StructureTS = {}));
-var StructureTS;
-(function (StructureTS) {
-    var BaseController = (function (_super) {
-        __extends(BaseController, _super);
-        function BaseController() {
-            _super.call(this);
-        }
-        return BaseController;
-    })(StructureTS.EventDispatcher);
-    StructureTS.BaseController = BaseController;
 })(StructureTS || (StructureTS = {}));
 var StructureTS;
 (function (StructureTS) {
@@ -1320,15 +1318,13 @@ var StructureTS;
 
         LocalStorageController.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
-
-            this._localStorage = null;
         };
 
         LocalStorageController.prototype.onLocalStorageEvent = function (event) {
             this.dispatchEvent(new StructureTS.LocalStorageEvent(StructureTS.LocalStorageEvent.STORAGE, false, false, event));
         };
         return LocalStorageController;
-    })(StructureTS.BaseController);
+    })(StructureTS.EventDispatcher);
     StructureTS.LocalStorageController = LocalStorageController;
 })(StructureTS || (StructureTS = {}));
 var codeBelt;
@@ -1410,7 +1406,7 @@ var codeBelt;
 
             this._todoCollection = new codeBelt.TodoCollection();
 
-            var backgroundAndButtons = new DOMElement('templates/MainTemplate.hbs');
+            var backgroundAndButtons = new DOMElement('templates/MainTemplate');
             this.addChild(backgroundAndButtons);
 
             this._$todoButton = this.$element.find('#js-addTodoButton');
@@ -1496,7 +1492,7 @@ var codeBelt;
         };
 
         ZombieApp.prototype.addTodoView = function (todoVO) {
-            var todoItem = new DOMElement('templates/TodoItemTemplate.hbs', todoVO);
+            var todoItem = new DOMElement('templates/TodoItemTemplate', todoVO);
             this._todoContainer.addChild(todoItem);
         };
 
@@ -1566,4 +1562,3 @@ var codeBelt;
     })(Stage);
     codeBelt.ZombieApp = ZombieApp;
 })(codeBelt || (codeBelt = {}));
-//# sourceMappingURL=app.js.map
